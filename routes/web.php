@@ -15,4 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('main');
-});
+})->name('main');
+
+Route::get('/login', function() {
+    return view('signIn');
+})->name('login');
+
+Route::get('/signup', function(){
+    return view('signUp');
+})->name('signup');
