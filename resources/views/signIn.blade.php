@@ -8,6 +8,7 @@
     <section>
         <h2>Вхід</h2>
         <form action="#" method="POST">
+            @csrf
             <input type="text" name="email" placeholder="Введіть email">
             <input type="password" name="password" placeholder="Введіть пароль">
             <button type="submit">Увійти</button>
