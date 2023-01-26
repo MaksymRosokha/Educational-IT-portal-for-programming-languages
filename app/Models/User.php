@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'login',
         'email',
         'password',
+        'name',
+        'admin',
+        'active',
+        'blocked_until',
+        'date_of_birthday',
+        'avatar',
+        'about_me',
     ];
 
     /**
@@ -41,4 +48,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*protected $attributes = [
+      'avatar' => 'public/images/user/avatars/default/defaultUserAvatar.png'
+    ];*/
 }
