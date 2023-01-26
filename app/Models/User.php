@@ -21,11 +21,13 @@ class User extends Authenticatable
         'login',
         'email',
         'password',
-        'role',
-        'gate_of_birthday',
+        'name',
+        'admin',
+        'active',
+        'blocked_until',
+        'date_of_birthday',
         'avatar',
         'about_me',
-        'country'
     ];
 
     /**
@@ -46,4 +48,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*protected $attributes = [
+      'avatar' => 'public/images/user/avatars/default/defaultUserAvatar.png'
+    ];*/
 }

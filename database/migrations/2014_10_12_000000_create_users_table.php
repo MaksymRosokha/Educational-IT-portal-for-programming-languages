@@ -15,17 +15,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('login');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('login')->unique();
             $table->string('password');
-            $table->string('role');
-            $table->timestamp('date_of_birthday');
-            $table->string('avatar');
-            $table->text('about_me');
-            $table->string('country');
-            $table->rememberToken();
+            $table->string('name');
+            $table->boolean('active')->default(true);
+            $table->boolean('admin')->default(false);
+            $table->timestamp("blocked_until")->nullable()->default(null);
+            $table->date('date_of_birthday')->nullable()->default(null);
+            $table->string('avatar')->default('public/images/user/avatars/default/defaultUserAvatar.png');
+            $table->text('about_me')->nullable()->default(null);
             $table->timestamps();
+            $table->rememberToken();
         });
     }
 
