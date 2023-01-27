@@ -13,6 +13,6 @@
             <input type="password" name="password" placeholder="Введіть пароль">
             <button type="submit">Увійти</button>
         </form>
-        <a href="{{ route('signup') }}">Реєстрація</a>
+        <a href="{{ route('signUp') }}">Реєстрація</a>
     </section>
 @endsection

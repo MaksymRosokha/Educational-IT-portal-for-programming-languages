@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-})->name('main');
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('main');
 
-Route::get('/login', function() {
-    return view('signIn');
-})->name('login');
+Route::middleware('guest')->group(function(){
+    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
 
-Route::get('/signup', function(){
-    return view('signUp');
-})->name('signup');
+    Route::get('/signup', [\App\Http\Controllers\AuthController::class, 'showSignUpForm'])->name('signUp');
+    Route::post('/signup__process', [\App\Http\Controllers\AuthController::class, 'registerUser'])->name('registerUser');
+});
+
+Route::middleware('auth')->group(function(){
+
+});
