@@ -8,18 +8,17 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-
     private const PATH_TO_USER_AVATARS = 'storage/images/users/avatars/';
     private const PATH_TO_DEFAULT_USER_AVATAR = 'public/storage/images/users/avatars/default/defaultUserAvatar.png';
 
     public function showLoginForm(): string
     {
-        return view('signIn');
+        return view('auth.signIn');
     }
 
     public function showSignUpForm(): string
     {
-        return view('signUp');
+        return view('auth.signUp');
     }
 
     public function registerUser(RegisterRequest $request)
@@ -40,7 +39,7 @@ class AuthController extends Controller
             'avatar' => $avatar,
         ]);
 
-        if($user){
+        if ($user) {
             auth("web")->login($user);
         }
 
@@ -85,5 +84,13 @@ class AuthController extends Controller
 
     public function loginUser(LoginRequest $request)
     {
+        return '';
+    }
+
+    public function logoutUser()
+    {
+        auth('web')->logout();
+
+        return redirect()->route('main');
     }
 }
