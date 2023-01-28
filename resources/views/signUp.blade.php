@@ -13,12 +13,12 @@
             @error('email')
             <p>{{ $message }}</p>
             @enderror
-            <input type="email" name="email" placeholder="Введвть email" required maxlength="320" minlength="3">*
+            <input type="email" name="email" placeholder="Введіть email" required maxlength="320" minlength="3">*
             <br>
             @error('login')
             <p>{{ $message }}</p>
             @enderror
-            <input type="text" name="login" placeholder="Введвть login" required maxlength="50" minlength="3">*
+            <input type="text" name="login" placeholder="Введіть login" required maxlength="50" minlength="3">*
             <br>
             @error('password')
             <p>{{ $message }}</p>

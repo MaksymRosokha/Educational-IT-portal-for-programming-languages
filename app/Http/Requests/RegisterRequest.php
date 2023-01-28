@@ -28,7 +28,7 @@ class RegisterRequest extends FormRequest
             'login' => [
                 'required',
                 'string',
-                'regex:/^([a-z])+?(-|_)([a-z])+$/i',
+                'regex:/^[a-z0-9\._]+$/',
                 'unique:users,login',
                 'min:3',
                 'max:50',

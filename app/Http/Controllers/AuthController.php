@@ -40,6 +40,10 @@ class AuthController extends Controller
             'avatar' => $avatar,
         ]);
 
+        if($user){
+            auth("web")->login($user);
+        }
+
         return redirect()->route('main');
     }
 
