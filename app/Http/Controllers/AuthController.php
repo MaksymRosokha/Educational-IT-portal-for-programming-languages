@@ -84,13 +84,15 @@ class AuthController extends Controller
 
     public function loginUser(LoginRequest $request)
     {
-        return '';
+        if (auth('web')->attempt($request->validated())) {
+            return redirect()->route('main');
+        };
+        return redirect()->route('login')->withErrors(['email' => 'email або пароль введені не правильно']);
     }
 
     public function logoutUser()
     {
         auth('web')->logout();
-
         return redirect()->route('main');
     }
 }

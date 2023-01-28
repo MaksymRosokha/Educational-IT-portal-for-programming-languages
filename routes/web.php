@@ -15,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('main');
 
-Route::middleware('guest')->group(function(){
-    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])
+        ->name('login');
+    Route::post('/login/process', [\App\Http\Controllers\AuthController::class, 'loginUser'])
+        ->name('login_process');
 
-    Route::get('/signup', [\App\Http\Controllers\AuthController::class, 'showSignUpForm'])->name('signUp');
-    Route::post('/signup__process', [\App\Http\Controllers\AuthController::class, 'registerUser'])->name('registerUser');
+    Route::get('/signup', [\App\Http\Controllers\AuthController::class, 'showSignUpForm'])
+        ->name('signUp');
+    Route::post('/signup/process', [\App\Http\Controllers\AuthController::class, 'registerUser'])
+        ->name('registerUser');
 });
 
-Route::middleware('auth')->group(function(){
-    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])->name('logout');
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
+        ->name('logout');
 });
