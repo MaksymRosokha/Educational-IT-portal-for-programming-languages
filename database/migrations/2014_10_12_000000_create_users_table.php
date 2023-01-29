@@ -23,7 +23,9 @@ return new class extends Migration {
             $table->boolean('admin')->default(false);
             $table->timestamp("blocked_until")->nullable()->default(null);
             $table->date('date_of_birthday')->nullable()->default(null);
-            $table->string('avatar')->default('public/storage/images/users/avatars/default/defaultUserAvatar.png');
+            $table->string('avatar')
+                ->default('public/storage/images/users/avatars/default/defaultUserAvatar.png')
+                ->nullable();
             $table->text('about_me')->nullable()->default(null);
             $table->timestamps();
             $table->rememberToken();
