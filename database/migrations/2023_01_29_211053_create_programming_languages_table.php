@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('logo')
-                ->default('public/images/programming languages/logos/default/defaultProgrammingLanguageLogo.png')
+                ->default('default/defaultProgrammingLanguageLogo.png')
                 ->nullable();
             $table->timestamps();
         });

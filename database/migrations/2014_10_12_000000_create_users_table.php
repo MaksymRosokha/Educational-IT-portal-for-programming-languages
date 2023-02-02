@@ -24,7 +24,7 @@ return new class extends Migration {
             $table->timestamp("blocked_until")->nullable()->default(null);
             $table->date('date_of_birthday')->nullable()->default(null);
             $table->string('avatar')
-                ->default('public/storage/images/users/avatars/default/defaultUserAvatar.png')
+                ->default('default/defaultUserAvatar.png')
                 ->nullable();
             $table->text('about_me')->nullable()->default(null);
             $table->timestamps();
