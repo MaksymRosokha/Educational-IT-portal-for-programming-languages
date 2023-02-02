@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('main');
+Route::get('/programming_languages', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showPage'])
+    ->name('programming_languages');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])

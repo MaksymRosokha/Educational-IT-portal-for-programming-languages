@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <h2>Content</h2>
+    <a href="{{ route('programming_languages') }}">Мови програмування</a>
 @endsection
