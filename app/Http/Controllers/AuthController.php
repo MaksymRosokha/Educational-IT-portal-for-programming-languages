@@ -6,28 +6,50 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 
+/**
+ * Controller for authentication
+ */
 class AuthController extends Controller
 {
+    /**
+     * Path to folder of user avatars
+     */
     private const PATH_TO_USER_AVATARS = 'storage/images/users/avatars/';
-    private const PATH_TO_DEFAULT_USER_AVATAR = 'public/storage/images/users/avatars/default/defaultUserAvatar.png';
+    /**
+     * Default user avatar
+     */
+    private const DEFAULT_USER_AVATAR = 'default/defaultUserAvatar.png';
 
-    public function showLoginForm(): string
+    /**
+     * Shows login form
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function showLoginForm()
     {
         return view('auth.signIn');
     }
 
-    public function showSignUpForm(): string
+    /**
+     * Shows sign up form
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function showSignUpForm()
     {
         return view('auth.signUp');
     }
 
+    /**
+     * Registers user and redirects to main page
+     *
+     * @param RegisterRequest $request register data
+     * @return \Illuminate\Http\RedirectResponse redirect to main page
+     */
     public function registerUser(RegisterRequest $request)
     {
         $data = $request->validated();
         $avatar = $this->moveUserAvatarToStorage($request);
-        $avatar = empty($avatar)
-            ? AuthController::PATH_TO_DEFAULT_USER_AVATAR
-            : 'public/' . AuthController::PATH_TO_USER_AVATARS . $avatar;
 
         $user = User::create([
             'email' => $data['email'],
@@ -46,11 +68,16 @@ class AuthController extends Controller
         return redirect()->route('main');
     }
 
-    private function moveUserAvatarToStorage(RegisterRequest $request): ?string
+    /**
+     * Moves user`s avatar to storage and returns new avatar name or default.
+     *
+     * @param RegisterRequest $request register data
+     * @return string new avatar name or default
+     */
+    private function moveUserAvatarToStorage(RegisterRequest $request): string
     {
         if ($request->hasFile('avatar')) {
             $avatarData = $request->file('avatar');
-            $avatarExtension = $avatarData->getClientOriginalExtension();
             $newAvatarName = $this->generateRandomString(20) .
                 '=' .
                 date('Y-m-d H.i.s') .
@@ -68,9 +95,15 @@ class AuthController extends Controller
 
             return $newAvatarName;
         }
-        return null;
+        return AuthController::DEFAULT_USER_AVATAR;
     }
 
+    /**
+     * Generates random string.
+     *
+     * @param int $length the length of the string to be generated
+     * @return string generated string
+     */
     private function generateRandomString(int $length = 10): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -82,6 +115,12 @@ class AuthController extends Controller
         return $randomString;
     }
 
+    /**
+     * Logins user, and if successful, redirects to the main page.
+     *
+     * @param LoginRequest $request login data
+     * @return \Illuminate\Http\RedirectResponse redirect
+     */
     public function loginUser(LoginRequest $request)
     {
         if (auth('web')->attempt($request->validated())) {
@@ -90,6 +129,11 @@ class AuthController extends Controller
         return redirect()->route('login')->withErrors(['email' => 'email або пароль введені не правильно']);
     }
 
+    /**
+     * Logouts user and redirects.
+     *
+     * @return \Illuminate\Http\RedirectResponse redirect
+     */
     public function logoutUser()
     {
         auth('web')->logout();
