@@ -19,4 +19,13 @@ class ProgrammingLanguage extends Model
         'description',
         'logo',
     ];
+
+    /**
+     * Returns programs in this programming language
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany programs
+     */
+    public function programs(){
+        return $this->hasMany(ProgramInProgrammingLanguage::class);
+    }
 }

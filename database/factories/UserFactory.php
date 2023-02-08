@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'admin' => false,
             'blocked_until' => null,
             'date_of_birthday' => fake()->date(),
-            'about_me' => fake()->text(),
+            'about_me' => fake()->text(2000),
         ];
     }
 

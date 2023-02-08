@@ -19,8 +19,13 @@ Route::get('/profile/{login}', [\App\Http\Controllers\UserController::class, 'sh
 
 Route::get('/programming_languages', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showPage'])
     ->name('programming_languages');
-Route::get('/programming_language/{id}', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showOneLanguage'])
+Route::get('/programming_language/{id}', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showOneLanguage']
+)
     ->name('programming_language');
+Route::get(
+    '/programming_language/program/{programID}',
+    [\App\Http\Controllers\ProgrammingLanguageController::class, 'showProgram']
+)->name('programInProgrammingLanguage');
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])
@@ -38,8 +43,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
         ->name('logout');
 
-    Route::middleware('admin')->group(function (){
+    Route::middleware('admin')->group(function () {
         Route::get('/admin', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
-        Route::get('/admin/delete_user/{id}',[\App\Http\Controllers\UserController::class, 'deleteUser'])->name('deleteUser');
+        Route::get('/admin/delete_user/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser'])->name(
+            'deleteUser'
+        );
     });
 });

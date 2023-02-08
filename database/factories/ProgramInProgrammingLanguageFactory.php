@@ -2,12 +2,13 @@
 
 namespace Database\Factories;
 
+use App\Models\ProgrammingLanguage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProgrammingLanguage>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class ProgrammingLanguageFactory extends Factory
+class ProgramInProgrammingLanguageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +18,9 @@ class ProgrammingLanguageFactory extends Factory
     public function definition()
     {
         return [
+            'programming_language_id' => fake()->randomElement(ProgrammingLanguage::all()),
             'name' => fake()->company(),
-            'description' => fake()->text(5000),
+            'description' => fake()->text(2000),
         ];
     }
 }
