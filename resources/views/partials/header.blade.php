@@ -10,4 +10,7 @@
 @auth('web')
     <a href="{{ route('logout') }}">Вихід</a>
     <a href="{{ route('profile', auth('web')->user()->login) }}">Профіль</a>
+    @if(auth('web')->user()->admin === 1)
+        <a href="{{ route('admin') }}">Адмін-панель</a>
+    @endif
 @endauth

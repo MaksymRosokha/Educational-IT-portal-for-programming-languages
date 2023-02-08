@@ -7,7 +7,7 @@
 @section('content')
     <section>
         <h2>Вхід</h2>
-        <form action="{{ route('login_process') }}" method="POST">
+        <form action="{{ route('loginProcess') }}" method="POST">
             @csrf
 
             @error('email')

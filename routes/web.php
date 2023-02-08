@@ -26,15 +26,20 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])
         ->name('login');
     Route::post('/login', [\App\Http\Controllers\AuthController::class, 'loginUser'])
-        ->name('login_process');
+        ->name('loginProcess');
 
     Route::get('/signup', [\App\Http\Controllers\AuthController::class, 'showSignUpForm'])
         ->name('signUp');
     Route::post('/signup', [\App\Http\Controllers\AuthController::class, 'registerUser'])
-        ->name('registerUser');
+        ->name('registerProcess');
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
         ->name('logout');
+
+    Route::middleware('admin')->group(function (){
+        Route::get('/admin', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
+        Route::get('/admin/delete_user/{id}',[\App\Http\Controllers\UserController::class, 'deleteUser'])->name('deleteUser');
+    });
 });
