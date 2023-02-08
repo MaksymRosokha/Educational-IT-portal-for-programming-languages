@@ -27,6 +27,8 @@ Route::get(
     [\App\Http\Controllers\ProgrammingLanguageController::class, 'showProgram']
 )->name('programInProgrammingLanguage');
 
+Route::get('/lesson/{lessonID}', [\App\Http\Controllers\LessonController::class, 'showLesson'])->name('lesson');
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])
         ->name('login');

@@ -16,7 +16,6 @@ class ProgramInProgrammingLanguage extends Model
     public $table = 'programs_in_programming_language';
 
     protected $fillable = [
-        'programming_language_id',
         'name',
         'image',
         'description',
@@ -29,5 +28,14 @@ class ProgramInProgrammingLanguage extends Model
      */
     public function programmingLanguage(){
         return $this->belongsTo(ProgrammingLanguage::class);
+    }
+
+    /**
+     * Returns this program`s lessons.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function lessons(){
+        return $this->hasMany(Lesson::class, "program_id");
     }
 }
