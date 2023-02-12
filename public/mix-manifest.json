@@ -1,5 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/images/icon.png": "/images/icon.png"
+    "/js/bootstrap.js": "/js/bootstrap.js",
+    "/css/reboot.css": "/css/reboot.css",
+    "/css/main.css": "/css/main.css",
+    "/css/header.css": "/css/header.css",
+    "/css/app.css": "/css/app.css"
 }
