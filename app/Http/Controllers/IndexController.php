@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgrammingLanguage;
 use Illuminate\Http\Request;
 
 /**
@@ -15,6 +16,9 @@ class IndexController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(){
-        return view('main', ['isMainPage' => true]);
+        return view('main', [
+            'isMainPage' => true,
+            'programmingLanguages' => ProgrammingLanguage::all()
+        ]);
     }
 }

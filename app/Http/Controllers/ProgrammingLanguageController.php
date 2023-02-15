@@ -12,17 +12,6 @@ class ProgrammingLanguageController extends Controller
 {
 
     /**
-     * Shows page of programming languages.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function showPage()
-    {
-        return view('programmingLanguages.programmingLanguages', ['programmingLanguages' => ProgrammingLanguage::all()]
-        );
-    }
-
-    /**
      * Shows one programming language page by ID.
      *
      * @param int $id programming language ID

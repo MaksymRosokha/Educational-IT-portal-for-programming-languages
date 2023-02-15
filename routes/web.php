@@ -17,8 +17,6 @@ Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('
 
 Route::get('/profile/{login}', [\App\Http\Controllers\UserController::class, 'showUserProfile'])->name('profile');
 
-Route::get('/programming_languages', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showPage'])
-    ->name('programming_languages');
 Route::get('/programming_language/{id}', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showOneLanguage']
 )
     ->name('programming_language');

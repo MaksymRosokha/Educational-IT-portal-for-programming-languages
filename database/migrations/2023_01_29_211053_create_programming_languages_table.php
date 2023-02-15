@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('programming_languages', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 200);
+            $table->string('name', 100);
             $table->text('description');
             $table->string('logo', 300)
                 ->default('default/defaultProgrammingLanguageLogo.png')
