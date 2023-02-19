@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('programs_in_programming_language', function (Blueprint $table) {
             $table->id();
             $table->foreignId('programming_language_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('name', 200);
+            $table->string('name', 100);
             $table->string('image', 300)->default('default/defaultProgramInProgrammingLanguageImage.png')->nullable();
             $table->text('description');
             $table->timestamps();

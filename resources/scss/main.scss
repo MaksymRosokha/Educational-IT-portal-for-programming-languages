@@ -23,17 +23,6 @@
 
 .programming-language {
 
-  &__link {
-    text-decoration: none;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    border-radius: inherit;
-    padding: 1vw;
-  }
-
   // .programming-language__container
 
   &__content {
@@ -67,6 +56,16 @@
 
   }
 
+  &__link {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border-radius: inherit;
+    padding: 1vw;
+  }
 
   // .programming-language__logo
 

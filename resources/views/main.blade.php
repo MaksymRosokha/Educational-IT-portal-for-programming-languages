@@ -14,18 +14,17 @@
 
         <div class="programming-languages__list">
             @foreach($programmingLanguages as $programmingLanguage)
-
-                    <div class="programming-language__content">
-                        <a class="programming-language__link" href="{{ route('programming_language', $programmingLanguage->id) }}">
+                <div class="programming-language__content">
+                    <a class="programming-language__link"
+                       href="{{ route('programming_language', $programmingLanguage->id) }}">
                         <img class="programming-language__logo"
                              src="/storage/images/programming languages/logos/{{ $programmingLanguage->logo }}"
                              alt="">
                         <h3 class="programming-language__name">
                             {{ $programmingLanguage->name }}
                         </h3>
-                        </a>
-                    </div>
-
+                    </a>
+                </div>
             @endforeach
         </div>
     </div>
