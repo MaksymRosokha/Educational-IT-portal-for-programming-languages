@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/reboot.css"/>
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/header.css"/>
+    <link rel="stylesheet" href="/css/footer.css"/>
     <link rel="stylesheet" href="@yield('css_file')"/>
     <script src="/js/app.js" defer></script>
 </head>
@@ -19,7 +20,7 @@
         @include('partials.header')
     </header>
 
-    <main class="main">
+    <main>
         @yield('content')
     </main>
 
