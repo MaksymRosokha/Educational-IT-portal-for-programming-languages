@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
 use App\Models\ProgramInProgrammingLanguage;
 use App\Models\ProgrammingLanguage;
 
@@ -36,7 +37,10 @@ class ProgrammingLanguageController extends Controller
         }
         return view(
             'programmingLanguages.programsInProgrammingLanguage.program',
-            ['program' => ProgramInProgrammingLanguage::query()->findOrFail($programID)]
+            [
+                'program' => ProgramInProgrammingLanguage::query()->findOrFail($programID),
+                'lessons' => Lesson::query()->where('program_id', '=', $programID)->orderBy('sequence_number'),
+            ]
         );
     }
 }

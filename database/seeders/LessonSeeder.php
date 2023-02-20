@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Lesson;
+use App\Models\ProgramInProgrammingLanguage;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class LessonSeeder extends Seeder
 {
@@ -15,6 +17,10 @@ class LessonSeeder extends Seeder
      */
     public function run()
     {
-        Lesson::factory(200)->create();
+        for($i = 0; $i < 200; $i++) {
+            DB::transaction(function () {
+                Lesson::factory()->create();
+            });
+        }
     }
 }

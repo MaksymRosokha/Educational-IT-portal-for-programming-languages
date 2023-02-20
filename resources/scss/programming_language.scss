@@ -13,15 +13,30 @@
   &__logo {
     width: 30%;
     height: auto;
+
+    @media(max-width: 900px) {
+      width: 25vw;
+      height: 25vw;
+    }
   }
 
   // .programming-language__name
 
   &__name {
-    width: 50%;
+    width: 65%;
+    max-width: 65%;
     align-self: center;
     margin-left: 1vw;
     font-size: 3em;
+    word-break: break-word;
+
+    @media(max-width: 800px) {
+      font-size: 2em;
+    }
+
+    @media(max-width: 500px) {
+      font-size: 1.5em;
+    }
   }
 
   // .programming-language__description

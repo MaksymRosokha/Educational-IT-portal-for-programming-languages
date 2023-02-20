@@ -16,10 +16,11 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('program_id')->constrained('programs_in_programming_language')
                 ->cascadeOnUpdate()->cascadeOnDelete();
-            $table->integer('sequence_number')->unique();
+            $table->integer('sequence_number');
             $table->string('title', 300);
             $table->text('content');
             $table->timestamps();
+            $table->unique(['program_id', 'sequence_number']);
         });
     }
 
