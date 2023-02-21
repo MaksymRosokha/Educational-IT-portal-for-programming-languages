@@ -1,11 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
-    "/css/program.css": "/css/program.css",
     "/css/main.css": "/css/main.css",
+    "/css/lesson.css": "/css/lesson.css",
     "/css/header.css": "/css/header.css",
     "/css/footer.css": "/css/footer.css",
     "/css/app.css": "/css/app.css",
     "/css/reboot.css": "/css/reboot.css",
-    "/css/programming_language.css": "/css/programming_language.css"
+    "/css/programming_language.css": "/css/programming_language.css",
+    "/css/program.css": "/css/program.css"
 }
