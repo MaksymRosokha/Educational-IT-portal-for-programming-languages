@@ -1,4 +1,11 @@
 .program {
+  display: flex;
+  height: 100%;
+  // .program__list-of-lessons
+
+  &__list-of-lessons {
+
+  }
 
   // .program__content
 
@@ -7,6 +14,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    align-items: start;
+  }
+
+  &__main-info {
+    display: flex;
   }
 
   // .program__image
@@ -15,7 +27,7 @@
     width: 30%;
     height: auto;
 
-    @media(max-width: 900px) {
+    @media(max-width: 1200px) {
       width: 25vw;
       height: 25vw;
     }
@@ -24,8 +36,6 @@
   // .program__name
 
   &__name {
-    width: 65%;
-    max-width: 65%;
     align-self: center;
     margin-left: 1vw;
     font-size: 3em;
@@ -51,28 +61,33 @@
     font-size: 1.2em;
   }
 
-  // .program__list-of-lessons
-
-  &__list-of-lessons {
-    @media(max-width: 800px) {
-      margin: auto;
-    }
-  }
 }
 
 .list-of-lessons {
 
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: left;
   background-color: #d2d5ef;
   padding: 0 1vw 1vw 1vw;
+  border-radius: 10px;
+  margin: 0;
+
+
+  @media(max-width: 800px) {
+    min-width: 50px;
+  }
 
   // .list-of-lessons__title
 
   &__title {
     text-align: center;
+
+    @media(max-width: 800px) {
+      display: none;
+    }
   }
 
   // .list-of-lessons__lesson
@@ -82,6 +97,7 @@
 
     @media(max-width: 800px) {
       margin: 0.5vw 0;
+      display: none;
     }
 
     @media(max-width: 426px) {
@@ -91,12 +107,16 @@
 }
 
 .lesson {
-  width: 300px;
+  width: 200px;
   height: 35px;
   display: flex;
   background-color: #718096;
   border-radius: 5px;
   box-shadow: 0 0 2px 1px black;
+
+  @media(max-width: 800px) {
+    display: none;
+  }
 
   &:hover {
     background-color: #8fa0b7;
@@ -126,5 +146,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
   }
 }
