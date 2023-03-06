@@ -4,8 +4,8 @@
     Навчальний IT-портал для мов програмування
 @endsection
 
-@section('css_file')
-    /css/main.css
+@section('styles')
+    <link rel="stylesheet" href="/css/main.css"/>
 @endsection
 
 @section('content')

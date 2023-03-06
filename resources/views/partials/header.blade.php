@@ -1,3 +1,8 @@
+@section('styles')
+    @parent
+    <link rel="stylesheet" href="/css/header.css"/>
+@endsection
+
 <header class="header">
     <div class="info">
         <img class="info__logo" src="/storage/images/icon.png" alt="">

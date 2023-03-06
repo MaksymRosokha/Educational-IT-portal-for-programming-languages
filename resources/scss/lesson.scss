@@ -1,13 +1,34 @@
-.lesson {
+.current-lesson {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  word-break: break-word;
+  padding: .5vw;
+  width: 100%;
+  
+  @media (max-width: 800px) {
+    padding: 1vw;
+  }
+  @media (max-width: 500px) {
+    padding: 1.5vw;
+  }
 
   // .lesson__title
 
   &__title {
+    min-width: 200px;
     text-align: center;
+    color: rgb(253, 253, 125);
+    box-shadow: 0 0.5px 2px 1px #000000;
+    background-color: rgba(81, 96, 119);
+    border-radius: 10px;
+    padding: .3vw;
   }
 
   // .lesson__content
 
   &__content {
+    width: 100%;
   }
 }

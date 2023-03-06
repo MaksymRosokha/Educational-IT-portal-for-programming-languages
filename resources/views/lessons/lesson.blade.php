@@ -1,16 +1,8 @@
-@extends('layouts.app')
-
-@section('css_file')
-    /css/lesson.css
-@endsection()
-
-@section('title')
-    {{ $lesson->title }}
+@section('styles')
+    <link rel="stylesheet" href="/css/lesson.css"/>
 @endsection
 
-@section('content')
-    <div class="lesson">
-        <h2 class="lesson__title">{{ $lesson->title }}</h2>
-        <p class="lesson__content">{!! $lesson->content !!}</p>
-    </div>
-@endsection
+<div class="current-lesson">
+    <h2 class="current-lesson__title">{{ $lesson->title }}</h2>
+    <div class="current-lesson__content">{!! $lesson->content !!}</div>
+</div>

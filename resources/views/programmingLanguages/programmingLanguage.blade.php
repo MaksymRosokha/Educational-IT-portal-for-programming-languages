@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('css_file')
-    /css/programming_language.css
+@section('styles')
+    <link rel="stylesheet" href="/css/programming_language.css"/>
 @endsection
 
 @section('title')

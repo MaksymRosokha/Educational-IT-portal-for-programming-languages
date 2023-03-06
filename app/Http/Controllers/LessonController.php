@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
-use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
@@ -14,10 +13,18 @@ class LessonController extends Controller
      * @param int $lessonID ID of the lesson
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function showLesson($lessonID){
-        if(!intval($lessonID)){
+    public function showLesson($lessonID)
+    {
+        if (!intval($lessonID)) {
             abort(404);
         }
-        return view('lessons.lesson', ['lesson' => Lesson::query()->findOrFail($lessonID)]);
+        $currentLesson = Lesson::query()->findOrFail($lessonID);
+        $program = $currentLesson->program()->first();
+
+        return view('programmingLanguages.programsInProgrammingLanguage.program', [
+            'currentLesson' => $currentLesson,
+            'program' => $program,
+            'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
+        ]);
     }
 }

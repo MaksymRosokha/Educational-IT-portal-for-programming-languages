@@ -35,11 +35,14 @@ class ProgrammingLanguageController extends Controller
         if (!intval($programID)) {
             abort(404);
         }
+
+        $program = ProgramInProgrammingLanguage::query()->findOrFail($programID);
+
         return view(
             'programmingLanguages.programsInProgrammingLanguage.program',
             [
-                'program' => ProgramInProgrammingLanguage::query()->findOrFail($programID),
-                'lessons' => Lesson::query()->where('program_id', '=', $programID)->orderBy('sequence_number'),
+                'program' => $program,
+                'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
             ]
         );
     }

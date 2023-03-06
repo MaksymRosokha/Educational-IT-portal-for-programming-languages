@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/header.css"/>
     <link rel="stylesheet" href="/css/footer.css"/>
-    <link rel="stylesheet" href="@yield('css_file')"/>
+    @yield('styles')
     <script src="/js/app.js" defer></script>
+    @yield('scripts')
 </head>
 <body>
 <div class="container">
