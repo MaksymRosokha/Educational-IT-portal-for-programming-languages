@@ -17,5 +17,5 @@ getFiles('resources/scss/').forEach(function (filePath) {
 });
 
 getFiles('resources/js/').forEach(function (filePath) {
-    mix.js('resources/js/' + filePath, 'public/js');
+    mix.js('resources/js/' + filePath, 'public/js').vue();
 });
