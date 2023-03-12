@@ -1,0 +1,132 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus{
+  border-bottom: solid 2px black;
+  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-grow: 1;
+
+  // .sign-in__wrapper
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 350px;
+    background-color: rgba(99, 158, 243, 0.66);
+    border-radius: 20px;
+    padding: .8vw;
+    margin: .8vw;
+
+    @media(min-width: 2560px) {
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  // .sign-in__title
+
+  &__title {
+    color: #1b2f57;
+  }
+
+  // .sign-in__form
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  // .sign-in__additional-links
+
+  &__additional-links {
+    width: 100%;
+  }
+
+  // .sign-in__forgot-password
+
+  &__forgot-password {
+    margin-bottom: .3vw;
+  }
+
+  // .sign-in__sign-up
+
+  &__sign-up {
+  }
+}
+
+.sign-in-form {
+  padding: 1vw;
+  width: 100%;
+
+  // .sign-in-form__error
+
+  &__error {
+    color: red;
+  }
+
+  // .sign-in-form__label
+
+  &__label{
+
+  }
+
+  // .sign-in-form__input-field
+
+  &__input-field {
+    display: inline;
+    margin-bottom: .5vw;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px black;
+    font-weight: 600;
+    outline: none;
+  }
+
+  // .sign-in-form__do-sign-in
+
+  &__do-sign-in {
+    background-color: #162939;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      transition: background-color .8s;
+      background-color: #31536e;
+    }
+  }
+}
+
+
+.additional-link {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  // .additional-link__label
+
+  &__label {
+    color: #031e48;
+  }
+
+  // .additional-link__link
+
+  &__link {
+    color: #0b3486;
+  }
+}
+
