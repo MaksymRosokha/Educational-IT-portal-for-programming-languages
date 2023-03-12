@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
+    "/js/hamburgerMenuForProgram.js": "/js/hamburgerMenuForProgram.js",
     "/css/lesson.css": "/css/lesson.css",
     "/css/header.css": "/css/header.css",
     "/css/footer.css": "/css/footer.css",

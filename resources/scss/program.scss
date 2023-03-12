@@ -1,11 +1,6 @@
 .program {
   display: flex;
 
-  @media(max-width: 800px) {
-    flex-direction: row-reverse;
-  }
-
-
   // .program__list-of-lessons
 
   &__list-of-lessons {
@@ -20,6 +15,16 @@
     flex-wrap: wrap;
     justify-content: left;
     align-items: start;
+
+    @media(max-width: 700px) {
+      display: none;
+    }
+
+    &--showed-content {
+      @media(max-width: 700px) {
+        display: flex;
+      }
+    }
   }
 
   &__main-info {
@@ -80,35 +85,102 @@
   border-radius: 10px;
   margin: 0;
 
-
-  @media(max-width: 800px) {
-    min-width: 50px;
-    min-height: 50px;
+  @media(max-width: 700px){
+    max-width: 100%;
+    width: 100%;
   }
+
+  &--hid-content {
+    max-width: fit-content;
+    width: fit-content;
+  }
+
+  &__hamburger-menu {
+
+  }
+
 
   // .list-of-lessons__title
 
   &__title {
     text-align: center;
 
-    @media(max-width: 800px) {
-      display: none;
-    }
   }
 
   // .list-of-lessons__lesson
 
   &__lesson {
     margin: 0.3vw 0;
+    align-self: center;
 
-    @media(max-width: 800px) {
-      //margin: 0.5vw 0;
-      display: none;
+    @media (max-width: 700px) {
+      margin: 0.5vw;
+    }
+  }
+}
+
+.hamburger-menu {
+  position: sticky;
+  width: 45px;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 10px;
+  z-index: 1;
+  background-color: #bec1e0;
+
+  &:hover {
+    transition: background-color 1.5s;
+    background-color: #a2a7d0;
+    cursor: pointer;
+  }
+
+  &:before, &:after {
+    content: '';
+    background-color: #6e0101;
+    transition: all 1s ease 0s;
+    position: absolute;
+    width: 35px;
+    height: 5px;
+    border-radius: 5px;
+    left: 5px;
+  }
+
+  &:before {
+    transform:rotate(45deg);
+    top: 18px;
+  }
+
+  &:after {
+    transform:rotate(-45deg);
+    bottom: 18px;
+  }
+
+  &--hid-content {
+
+    &:before, &:after {
+      background-color: #260060;
+      transform:rotate(0);
     }
 
-    @media(max-width: 426px) {
-      //margin: 0.8vw 0;
+    &:before {
+      top: 9px;
     }
+
+    &:after {
+      bottom: 9px;
+    }
+  }
+
+  &--hid-content &__decoration {
+    content: '';
+    background-color: #260060;
+    transition: all 2s ease 0s;
+    position: absolute;
+    width: 35px;
+    height: 5px;
+    border-radius: 5px;
+    top: 17.7px;
+    left: 5px;
   }
 }
 
@@ -120,9 +192,11 @@
   color: white;
   border-radius: 5px;
   box-shadow: 0 0 2px 1px black;
+  transition: background-color .3s ease 0s;
 
-  @media(max-width: 800px) {
-    display: none;
+  @media (max-width: 700px) {
+    width: 95%;
+    height: 50px;
   }
 
   &:hover {
@@ -145,6 +219,8 @@
   // .lesson__link
 
   &__link {
+    display: flex;
+    align-items: center;
     color: inherit;
     text-decoration: none;
     width: 100%;
@@ -165,6 +241,24 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+}
 
+.link-to-program {
+  color: #84e5ff;
+  background-color: #718096;
+  text-decoration: none;
+  align-self: center;
+  width: fit-content;
+  font-size: 1.2em;
+  padding: .3vw;
+  border-radius: 5px;
+
+  @media (max-width:700px){
+    padding: 1vw;
+  }
+
+  &:hover {
+    color: #ffff78;
   }
 }
