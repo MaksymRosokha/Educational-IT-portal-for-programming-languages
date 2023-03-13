@@ -31,23 +31,14 @@
             </form>
             <div class="sign-in__additional-links">
                 <div class="additional-link sign-in__forgot-password">
-                    <label class="additional-link__label" for="">Забули пароль?</label>
+                    <label class="additional-link__label" for="additional-link__link">Забули пароль?</label>
                     <a class="additional-link__link" href="#">Відновити</a>
                 </div>
                 <div class="additional-link sign-in__sign-up">
-                    <label class="additional-link__label" for="">Не маєте акаунту?</label>
+                    <label class="additional-link__label" for="additional-link__link">Не маєте акаунту?</label>
                     <a class="additional-link__link" href="{{ route('signUp') }}">Реєстрація</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <script>
-        let items = document.querySelectorAll('.sign-in-form__input-field');
-        items.forEach(input => {
-            input.addEventListener('select', () => {
-                input.style.backgroundColor = 'transparent';
-            });
-        });
-    </script>
 @endsection
