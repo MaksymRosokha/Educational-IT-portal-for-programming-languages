@@ -18,7 +18,12 @@ class UserController extends Controller
     public function showUserProfile(string $login)
     {
         $user = User::query()->where('login', '=', $login)->firstOrFail();
-        $isOwnProfile = $login === auth('web')->user()->login;
+        $isOwnProfile = false;
+
+        if(!empty(auth('web')->user()->login)){
+            $isOwnProfile = $login === auth('web')->user()->login;
+        }
+
         return view('users.profile', ['user' => $user, 'isOwnProfile' => $isOwnProfile]);
     }
 
