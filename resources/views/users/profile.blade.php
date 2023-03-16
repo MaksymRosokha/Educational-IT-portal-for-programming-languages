@@ -11,7 +11,7 @@
 @section('content')
     <div class="profile">
         <div class="profile__general-information">
-            <h2 class="profile__title">Ваш профіль</h2>
+            <h2 class="profile__title">@if($isOwnProfile) Ваш профіль @else Профіль {{ $user->login }} @endif</h2>
         </div>
         <div class="profile__wrapper">
             <img class="profile__avatar"
