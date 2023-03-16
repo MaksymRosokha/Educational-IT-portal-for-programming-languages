@@ -1,7 +1,13 @@
 .footer {
   min-height: 200px;
   background-color: #4a5568;
-  box-shadow: 0 -2px #000000;
+  box-shadow: 0 0 5px 1px #000000;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+.footer__container {
+  max-width: 1440px;
+  width: 100%;
 }
