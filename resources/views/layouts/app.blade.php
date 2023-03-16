@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     <link rel="icon" href="/storage/images/icon.png" type="image/icon type">
     <link rel="stylesheet" href="/css/reboot.css"/>
-    <link rel="stylesheet" href="/css/app.css?v=1"/>
+    <link rel="stylesheet" href="/css/app.css"/>
     <link rel="stylesheet" href="/css/header.css"/>
     <link rel="stylesheet" href="/css/footer.css"/>
     @yield('styles')
