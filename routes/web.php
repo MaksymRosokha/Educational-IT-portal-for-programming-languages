@@ -42,6 +42,8 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
         ->name('logout');
+    Route::post('/profile/change_password', [\App\Http\Controllers\UserController::class, 'changeUserPassword'])
+        ->name('changePassword');
 
     Route::middleware('admin')->group(function () {
         Route::get('/admin', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');

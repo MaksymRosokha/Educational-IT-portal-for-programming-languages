@@ -8,10 +8,18 @@
     <link rel="stylesheet" href="/css/profile.css">
 @endsection
 
+@section('scripts')
+    <script src="/js/profile.js" defer></script>
+@endsection
 @section('content')
-    <div class="profile">
+
+    <div id="profile" class="profile">
         <div class="profile__general-information">
-            <h2 class="profile__title">@if($isOwnProfile) Ваш профіль @else Профіль {{ $user->login }} @endif</h2>
+            <h2 class="profile__title">@if($isOwnProfile)
+                    Ваш профіль
+                @else
+                    Профіль {{ $user->login }}
+                @endif</h2>
         </div>
         <div class="profile__wrapper">
             <img class="profile__avatar"
@@ -50,15 +58,21 @@
         </div>
         @if($isOwnProfile)
             <div class="profile__additional-abilities additional-abilities">
-                <button class="additional-abilities__button additional-abilities__change-password">
-                    Змінити пароль
-                </button>
-                <button class="additional-abilities__button additional-abilities__edit-profile">
-                    Редагувати профіль
-                </button>
-                <button class="additional-abilities__button additional-abilities__delete-account">
-                    Видалити акаунт
-                </button>
+                <button-with-modal-window class="additional-abilities__button"
+                                          button-text="Змінити пароль">
+                    <password-changer class="password-changer"
+                                      link="{{ route('changePassword') }}">
+                    </password-changer>
+                </button-with-modal-window>
+
+                <button-with-modal-window class="additional-abilities__button"
+                                          button-text="Редагувати профіль">
+                    Редагуваня профілю
+                </button-with-modal-window>
+                <button-with-modal-window class="additional-abilities__button"
+                                          button-text="Видалити акаунт">
+                    Видалення акаунту
+                </button-with-modal-window>
             </div>
         @endif
     </div>
