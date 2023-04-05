@@ -88,6 +88,18 @@
 .list-of-lessons__title {
   text-align: center;
 }
+.list-of-lessons__lessons {
+  max-width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: left;
+  background-color: inherit;
+  margin: 0;
+  padding: 0;
+}
 .list-of-lessons__lesson {
   margin: 0.3vw 0;
   align-self: center;

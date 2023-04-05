@@ -13,48 +13,50 @@
 @endsection
 @section('content')
 
-    <div id="profile" class="profile">
+    <section id="profile" class="profile">
         <div class="profile__general-information">
-            <h2 class="profile__title">@if($isOwnProfile)
+            <h2 class="profile__title">
+                @if($isOwnProfile)
                     Ваш профіль
                 @else
                     Профіль {{ $user->login }}
-                @endif</h2>
+                @endif
+            </h2>
         </div>
         <div class="profile__wrapper">
             <img class="profile__avatar"
                  src="/storage/images/users/avatars/{{ $user->avatar }}"
-                 alt="">
-            <div class="profile__info-wrapper">
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Логін:</label>
-                    <p class="profile__field-information">{{ $user->login }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Email: </label>
-                    <p class="profile__field-information">{{ $user->email }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Ім'я: </label>
-                    <p class="profile__field-information">{{ $user->name }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Дата народження: </label>
-                    <p class="profile__field-information">{{ $user->date_of_birthday }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Про вас: </label>
-                    <p class="profile__field-information">{{ $user->about_me }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Дата реєстрації: </label>
-                    <p class="profile__field-information">{{ $user->created_at }}</p>
-                </div>
-                <div class="profile__info-block">
-                    <label class="profile__name-of-field-information" for="">Дата останнього оновлення: </label>
-                    <p class="profile__field-information">{{ $user->updated_at }}</p>
-                </div>
-            </div>
+                 alt="Аватар користувача">
+            <table class="profile__info-wrapper">
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Логін:</th>
+                    <td class="profile__field-information">{{ $user->login }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Email: </th>
+                    <td class="profile__field-information">{{ $user->email }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Ім'я: </th>
+                    <td class="profile__field-information">{{ $user->name }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Дата народження: </th>
+                    <td class="profile__field-information">{{ $user->date_of_birthday }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Про вас: </th>
+                    <td class="profile__field-information">{{ $user->about_me }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Дата реєстрації: </th>
+                    <td class="profile__field-information">{{ $user->created_at }}</td>
+                </tr>
+                <tr class="profile__info-block">
+                    <th class="profile__name-of-field-information">Дата останнього оновлення: </th>
+                    <td class="profile__field-information">{{ $user->updated_at }}</td>
+                </tr>
+            </table>
         </div>
         @if($isOwnProfile)
             <div class="profile__additional-abilities additional-abilities">
@@ -75,5 +77,5 @@
                 </button-with-modal-window>
             </div>
         @endif
-    </div>
+    </section>
 @endsection

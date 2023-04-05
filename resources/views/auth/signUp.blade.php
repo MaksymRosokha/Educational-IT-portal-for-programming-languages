@@ -21,8 +21,9 @@
                 @error('email')
                 <p class="sign-up-form__error">{{ $message }}</p>
                 @enderror
-                <label class="sign-up-form__label" for="sign-up-form__input-field">Email:</label>
-                <input class="sign-up-form__input-field"
+                <label class="sign-up-form__label" for="email-field">Email:</label>
+                <input id="email-field"
+                       class="sign-up-form__input-field"
                        type="email"
                        name="email"
                        placeholder="Введіть email"
@@ -33,8 +34,9 @@
                 @error('login')
                 <p class="sign-up-form__error">{{ $message }}</p>
                 @enderror
-                <label class="sign-up-form__label" for="sign-up-form__input-field">Login:</label>
-                <input class="sign-up-form__input-field"
+                <label class="sign-up-form__label" for="login-field">Login:</label>
+                <input id="login-field"
+                       class="sign-up-form__input-field"
                        type="text" name="login"
                        placeholder="Введіть login"
                        required
@@ -44,8 +46,9 @@
                 @error('password')
                 <p class="sign-up-form__error">{{ $message }}</p>
                 @enderror
-                <label class="sign-up-form__label" for="sign-up-form__input-field">Пароль:</label>
-                <input class="sign-up-form__input-field"
+                <label class="sign-up-form__label" for="password-field">Пароль:</label>
+                <input id="password-field"
+                       class="sign-up-form__input-field"
                        type="password"
                        name="password"
                        placeholder="Введіть пароль"
@@ -59,8 +62,9 @@
                     @error('name')
                     <p class="sign-up-form__error">{{ $message }}</p>
                     @enderror
-                    <label class="sign-up-form__label" for="sign-up-form__input-field">Ім'я:</label>
-                    <input class="sign-up-form__input-field"
+                    <label class="sign-up-form__label" for="name-field">Ім'я:</label>
+                    <input id="name-field"
+                           class="sign-up-form__input-field"
                            type="text"
                            name="name"
                            placeholder="Введіть ваше ім'я"
@@ -70,8 +74,9 @@
                     @error('date_of_birthday')
                     <p class="sign-up-form__error">{{ $message }}</p>
                     @enderror
-                    <label class="sign-up-form__label" for="sign-up-form__input-field">Дата народження:</label>
-                    <input class="sign-up-form__input-field sign-up-form__input-date"
+                    <label class="sign-up-form__label" for="date-of-birthday-field">Дата народження:</label>
+                    <input id="date-of-birthday-field"
+                           class="sign-up-form__input-field sign-up-form__input-date"
                            type="date"
                            name="date_of_birthday"
                            min="1900-01-01"
@@ -80,8 +85,9 @@
                     @error('avatar')
                     <p class="sign-up-form__error">{{ $message }}</p>
                     @enderror
-                    <label class="sign-up-form__label" for="sign-up-form__input-field">Аватар:</label>
-                    <input class="sign-up-form__input-field sign-up-form__input-file"
+                    <label class="sign-up-form__label" for="avatar-field">Аватар:</label>
+                    <input id="avatar-field"
+                           class="sign-up-form__input-field sign-up-form__input-file"
                            type="file"
                            name="avatar"
                            accept="image/*">
@@ -89,8 +95,9 @@
                     @error('about_me')
                     <p class="sign-up-form__error">{{ $message }}</p>
                     @enderror
-                    <label class="sign-up-form__label" for="sign-up-form__input-field">Інформація про вас:</label>
-                    <textarea class="sign-up-form__input-field sign-up-form__input-textarea"
+                    <label class="sign-up-form__label" for="about-me-field">Інформація про вас:</label>
+                    <textarea id="about-me-field"
+                              class="sign-up-form__input-field sign-up-form__input-textarea"
                               name="about_me"
                               minlength="10"
                               maxlength="2000"
@@ -103,12 +110,14 @@
                     Зареєструватися
                 </button>
             </form>
-            <div class="sign-up__additional-links">
-                <div class="additional-link sign-up__sign-in">
-                    <label class="additional-link__label" for="additional-link__link">Вже маєте акаунт?</label>
-                    <a class="additional-link__link" href="{{ route('login') }}">Вхід</a>
-                </div>
-            </div>
+            <table class="sign-up__additional-links">
+                <tr class="additional-link sign-up__sign-in">
+                    <th class="additional-link__label">Вже маєте акаунт?</th>
+                    <td class="additional-link__link">
+                        <a class="additional-link__link" href="{{ route('login') }}">Вхід</a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </section>
 @endsection

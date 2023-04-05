@@ -80,7 +80,7 @@ class AuthController extends Controller
             $avatarData = $request->file('avatar');
             $newAvatarName = $this->generateRandomString(20) .
                 '=' .
-                date('Y-m-d H.i.s') .
+                date('Y-m-d~H.i.s') .
                 '.' .
                 $avatarData->getClientOriginalExtension();
 

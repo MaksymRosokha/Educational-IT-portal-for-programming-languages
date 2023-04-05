@@ -1,12 +1,8 @@
 .programming-language {
-
-  // .programming-language__content
-  &__content{
     padding: 2vw 2vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-  }
 
   // .programming-language__logo
 
@@ -56,6 +52,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    list-style-type: none;
+    padding: 0;
   }
 }
 

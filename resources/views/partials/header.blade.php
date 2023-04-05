@@ -1,13 +1,17 @@
 @section('styles')
     @parent
-    <link rel="stylesheet" href="/css/header.css"/>
+    <link rel="stylesheet" href="/css/header.css">
 @endsection
 
-<header class="header">
-    <div class="header__container">
+<div class="header">
+    <nav class="header__container">
         <div class="info">
-            <img class="info__logo" src="/storage/images/icon.png" alt="">
-            <h1 class="info__title">Навчальний IT-портал для мов програмування</h1>
+            <a class="info__link" href="{{ route('main') }}">
+                <img class="info__logo" src="/storage/images/icon.png" alt="">
+            </a>
+            <a class="info__link" href="{{ route('main') }}">
+                <h1 class="info__title">Навчальний IT-портал для мов програмування</h1>
+            </a>
         </div>
         <div class="references">
             @if( !isset($isMainPage) || $isMainPage === false)
@@ -25,5 +29,5 @@
                 <a class="references__link" href="{{ route('logout') }}">Вихід</a>
             @endauth
         </div>
-    </div>
-</header>
+    </nav>
+</div>

@@ -30,6 +30,9 @@
   color: #ffffff;
   text-shadow: 2px 1px #000000;
 }
+.info__link {
+  text-decoration: none;
+}
 
 .references {
   flex-shrink: 3;

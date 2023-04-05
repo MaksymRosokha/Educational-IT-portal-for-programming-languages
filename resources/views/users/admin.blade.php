@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="admin">
+    <section class="admin">
         <h2 class="admin__title">Адмін-панель</h2>
         <div class="admin__search search">
             <form class="search__form" action="#" method="POST">
@@ -23,56 +23,56 @@
                     <div class="user__avatar avatar">
                         <img class="avatar__image"
                              src="/storage/images/users/avatars/{{ $user->avatar }}"
-                             alt="">
+                             alt="Аватар користувача {{ $user->login }}">
                     </div>
-                    <div class="user__text-info">
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Id:</label>
-                            <p class="user__info">{{ $user->id }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">email:</label>
-                            <p class="user__info">{{ $user->email }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Логін:</label>
-                            <p class="user__info">{{ $user->login }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Ім'я:</label>
-                            <p class="user__info">{{ $user->name }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Активний:</label>
-                            <p class="user__info">{{ $user->active === 1 ? "Так" : "Ні" }}</p>
-                        </div>
+                    <table class="user__text-info">
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Id:</th>
+                            <td class="user__info">{{ $user->id }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">email:</th>
+                            <td class="user__info">{{ $user->email }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Логін:</th>
+                            <td class="user__info">{{ $user->login }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Ім'я:</th>
+                            <td class="user__info">{{ $user->name }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Активний:</th>
+                            <td class="user__info">{{ $user->active === 1 ? "Так" : "Ні" }}</td>
+                        </tr>
                         @if(!empty($user->blocked_until))
-                            <div class="user__info-block">
-                                <label class="user__name-of-info" for="user__info">Заблокований до:</label>
-                                <p class="user__info">{{ $user->blocked_until }}</p>
-                            </div>
+                            <tr class="user__info-block">
+                                <th class="user__name-of-info">Заблокований до:</th>
+                                <td class="user__info">{{ $user->blocked_until }}</td>
+                            </tr>
                         @endif
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Дата народження:</label>
-                            <p class="user__info">{{ $user->date_of_birthday }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Про користувача:</label>
-                            <p class="user__info">{{ $user->about_me }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Дата створення:</label>
-                            <p class="user__info">{{ $user->created_at }}</p>
-                        </div>
-                        <div class="user__info-block">
-                            <label class="user__name-of-info" for="user__info">Дата оновлення:</label>
-                            <p class="user__info">{{ $user->updated_at }}</p>
-                        </div>
-                    </div>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Дата народження:</th>
+                            <td class="user__info">{{ $user->date_of_birthday }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Про користувача:</th>
+                            <td class="user__info">{{ $user->about_me }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Дата створення:</th>
+                            <td class="user__info">{{ $user->created_at }}</td>
+                        </tr>
+                        <tr class="user__info-block">
+                            <th class="user__name-of-info">Дата оновлення:</th>
+                            <td class="user__info">{{ $user->updated_at }}</td>
+                        </tr>
+                    </table>
 
                     <div class="user__additional-abilities additional-abilities">
                         <div class="additional-abilities__ability role">
-                            <label class="role__name" for="role__selector">Роль:</label>
+                            <label class="role__name">Роль:</label>
                             <select class="role__selector" name="role">
                                 <option class="role__point">Користувач</option>
                                 <option class="role__point" @if($user->admin === 1) selected @endif>Адміністратор
@@ -85,12 +85,13 @@
                         </button>
                         <button class="additional-abilities__ability additional-abilities__delete"
                                 type="submit">
-                            <a class="additional-abilities__link"
-                               href="{{ route('deleteUser', $user->id) }}">Видалити</a>
+{{--                            <a class="additional-abilities__link"--}}
+{{--                               href="{{ route('deleteUser', $user->id) }}">Видалити</a>--}}
+                            Видалити
                         </button>
                     </div>
                 </div>
             @endforeach
         </div>
-    </div>
+    </section>
 @endsection

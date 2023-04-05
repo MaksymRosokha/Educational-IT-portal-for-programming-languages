@@ -18,27 +18,43 @@
                 @error('email')
                 <p class="sign-in-form__error">{{ $message }}</p>
                 @enderror
-                <label for="sign-in-form__input-field" class="sign-in-form__label">Email:</label>
-                <input class="sign-in-form__input-field" type="email" name="email" placeholder="Введіть ваш email"
-                       required maxlength="320" minlength="3">
+                <label class="sign-in-form__label" for="email-field">Email:</label>
+                <input id="email-field"
+                       class="sign-in-form__input-field"
+                       type="email"
+                       name="email"
+                       placeholder="Введіть ваш email"
+                       required
+                       maxlength="320"
+                       minlength="3">
                 @error('password')
                 <p class="sign-in-form__error">{{ $message }}</p>
                 @enderror
-                <label for="sign-in-form__input-field" class="sign-in-form__label">Пароль:</label>
-                <input class="sign-in-form__input-field" type="password" name="password"
-                       placeholder="Введіть ваш пароль" required minlength="6" maxlength="100">
+                <label class="sign-in-form__label" for="password-field">Пароль:</label>
+                <input id="password-field"
+                       class="sign-in-form__input-field"
+                       type="password"
+                       name="password"
+                       placeholder="Введіть ваш пароль"
+                       required
+                       minlength="6"
+                       maxlength="100">
                 <button class="sign-in-form__do-sign-in" type="submit">Увійти</button>
             </form>
-            <div class="sign-in__additional-links">
-                <div class="additional-link sign-in__forgot-password">
-                    <label class="additional-link__label" for="additional-link__link">Забули пароль?</label>
-                    <a class="additional-link__link" href="#">Відновити</a>
-                </div>
-                <div class="additional-link sign-in__sign-up">
-                    <label class="additional-link__label" for="additional-link__link">Не маєте акаунту?</label>
-                    <a class="additional-link__link" href="{{ route('signUp') }}">Реєстрація</a>
-                </div>
-            </div>
+            <table class="sign-in__additional-links">
+                <tr class="additional-link sign-in__forgot-password">
+                    <th class="additional-link__label">Забули пароль?</th>
+                    <td class="additional-link__link">
+                        <a class="additional-link__link" href="#">Відновити</a>
+                    </td>
+                </tr>
+                <tr class="additional-link sign-in__sign-up">
+                    <th class="additional-link__label">Не маєте акаунту?</th>
+                    <td class="additional-link__link">
+                        <a class="additional-link__link" href="{{ route('signUp') }}">Реєстрація</a>
+                    </td>
+                </tr>
+            </table>
         </div>
     </section>
 @endsection

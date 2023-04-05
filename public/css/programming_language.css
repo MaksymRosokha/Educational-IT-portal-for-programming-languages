@@ -1,4 +1,4 @@
-.programming-language__content {
+.programming-language {
   padding: 2vw 2vw;
   display: flex;
   flex-wrap: wrap;
@@ -44,6 +44,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 .program-in-programming-language__content {

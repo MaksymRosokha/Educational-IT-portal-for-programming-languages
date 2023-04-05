@@ -82,6 +82,7 @@ input:-webkit-autofill:focus {
 }
 .additional-link__label {
   color: #031e48;
+  font-weight: 400;
 }
 .additional-link__link {
   color: #0b3486;
