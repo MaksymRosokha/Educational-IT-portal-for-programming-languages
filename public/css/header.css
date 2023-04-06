@@ -25,6 +25,12 @@
   width: 50px;
   height: 50px;
 }
+@media (min-width: 1800px) {
+  .info__logo {
+    width: 80px;
+    height: 80px;
+  }
+}
 .info__title {
   font-size: 2em;
   color: #ffffff;
@@ -45,6 +51,7 @@
   margin: 0 5px;
   text-transform: uppercase;
   font-weight: 500;
+  font-size: 1em;
 }
 .references__link:hover {
   color: #fddba4;

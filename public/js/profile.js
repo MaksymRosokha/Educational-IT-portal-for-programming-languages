@@ -28761,7 +28761,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".button-with-modal-window__button[data-v-24c31fb5] {\n  border-radius: 10px;\n  width: 200px;\n  height: 40px;\n  transition: background-color 0.5s, color 1s, border 1s;\n  background-color: #6e01d3;\n  color: white;\n  box-shadow: 0 0 5px 1px #5e5eff;\n  border: none;\n  font-weight: 600;\n}\n.button-with-modal-window__button[data-v-24c31fb5]:hover {\n  color: #000464;\n  background-color: #da7bff;\n  box-shadow: 0 0 10px 1px #3c3cfa;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".button-with-modal-window__button[data-v-24c31fb5] {\n  border-radius: 10px;\n  width: 200px;\n  height: 40px;\n  transition: background-color 0.5s, color 1s, border 1s;\n  background-color: #6e01d3;\n  color: white;\n  box-shadow: 0 0 5px 1px #5e5eff;\n  border: none;\n  font-weight: 600;\n}\n.button-with-modal-window__button[data-v-24c31fb5]:hover {\n  color: #000464;\n  background-color: #da7bff;\n  box-shadow: 0 0 10px 1px #3c3cfa;\n}\n@media (min-width: 1800px) {\n.button-with-modal-window__button[data-v-24c31fb5] {\n    width: 300px;\n    height: 50px;\n}\n}\n@media (max-width: 768px) {\n.button-with-modal-window__button[data-v-24c31fb5] {\n    font-size: 1.2em;\n}\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -28785,7 +28785,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-button[data-v-2c4f26d6] {\n  width: 100%;\n  height: 30px;\n  background-color: #162939;\n  color: #ffffff;\n  border: none;\n  border-radius: 5px;\n  font-size: 1em;\n}\n.form-button[data-v-2c4f26d6]:hover {\n  transition: background-color 0.8s;\n  background-color: #31536e;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-button[data-v-2c4f26d6] {\n  width: 100%;\n  height: 30px;\n  background-color: #162939;\n  color: #ffffff;\n  border: none;\n  border-radius: 5px;\n  font-size: 1em;\n}\n@media (min-width: 1800px) {\n.form-button[data-v-2c4f26d6] {\n    height: 40px;\n}\n}\n.form-button[data-v-2c4f26d6]:hover {\n  transition: background-color 0.8s;\n  background-color: #31536e;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

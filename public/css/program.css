@@ -5,34 +5,21 @@
   flex-grow: 1;
 }
 .program__content {
-  padding: 2vw 2vw;
+  padding: 1vw 1vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  align-items: start;
-}
-@media (max-width: 700px) {
-  .program__content {
-    display: none;
-  }
-}
-@media (max-width: 700px) {
-  .program__content--showed-content {
-    display: flex;
-  }
+  align-items: flex-start;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .program__main-info {
   display: flex;
 }
 .program__image {
   width: 30%;
-  height: auto;
-}
-@media (max-width: 1200px) {
-  .program__image {
-    width: 25vw;
-    height: 25vw;
-  }
+  height: 30%;
 }
 .program__name {
   align-self: center;
@@ -73,7 +60,7 @@
   border-radius: 10px;
   margin: 0;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .list-of-lessons {
     max-width: 100%;
     width: 100%;
@@ -85,11 +72,16 @@
   width: -moz-fit-content;
   width: fit-content;
 }
+.list-of-lessons__hamburger-menu {
+  margin-bottom: 1vw;
+}
 .list-of-lessons__title {
   text-align: center;
+  font-size: 1.5em;
 }
 .list-of-lessons__lessons {
-  max-width: 100%;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
@@ -100,11 +92,17 @@
   margin: 0;
   padding: 0;
 }
+@media (max-width: 600px) {
+  .list-of-lessons__lessons {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 .list-of-lessons__lesson {
   margin: 0.3vw 0;
   align-self: center;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .list-of-lessons__lesson {
     margin: 0.5vw;
   }
@@ -166,7 +164,7 @@
 
 .lesson {
   width: 200px;
-  height: 35px;
+  height: 40px;
   display: flex;
   background-color: #718096;
   color: white;
@@ -174,7 +172,12 @@
   box-shadow: 0 0 2px 1px black;
   transition: background-color 0.3s ease 0s;
 }
-@media (max-width: 700px) {
+@media (min-width: 1800px) {
+  .lesson {
+    height: 50px;
+  }
+}
+@media (max-width: 600px) {
   .lesson {
     width: 95%;
     height: 50px;
@@ -207,10 +210,20 @@
 }
 .lesson__content {
   padding: 0.2vw;
-  font-size: 1.2em;
+  font-size: 1.3em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+@media (min-width: 1800px) {
+  .lesson__content {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 600px) {
+  .lesson__content {
+    font-size: 1.5em;
+  }
 }
 
 .link-to-program {
@@ -220,11 +233,11 @@
   align-self: center;
   width: -moz-fit-content;
   width: fit-content;
-  font-size: 1.2em;
+  font-size: 1.3em;
   padding: 0.3vw;
   border-radius: 5px;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .link-to-program {
     padding: 1vw;
   }

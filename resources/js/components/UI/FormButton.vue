@@ -25,6 +25,10 @@ export default {
   border-radius: 5px;
   font-size: 1em;
 
+  @media(min-width: 1800px) {
+    height: 40px;
+  }
+
   &:hover {
     transition: background-color .8s;
     background-color: #31536e;

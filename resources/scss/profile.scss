@@ -15,6 +15,7 @@
 
   &__title {
     text-align: center;
+    font-size: 1.8em;
   }
 
   // .profile__wrapper
@@ -34,13 +35,16 @@
   // .profile__avatar
 
   &__avatar {
-    width: 25%;
-    height: auto;
+    width: 260px;
+    height: 260px;
+    //height: auto;
     border-radius: 50%;
     border: solid 2px black;
+    overflow:hidden;
 
     @media(max-width: 700px){
-      width: 50%;
+      width: 200px;
+      height: 200px;
     }
   }
 
@@ -92,6 +96,7 @@
   // .profile__additional-abilities
 
   &__additional-abilities {
+    margin: 1vw;
   }
 
   &__modal-window{
@@ -102,10 +107,9 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  margin: 1vw;
 
   &__button {
-
+    margin: .5vw;
   }
 }
 

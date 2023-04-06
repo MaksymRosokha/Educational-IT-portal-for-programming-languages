@@ -1,18 +1,15 @@
 .programming-language {
-  padding: 2vw 2vw;
+  padding: 1vw 1vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
+  align-items: flex-start;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .programming-language__logo {
   width: 30%;
   height: auto;
-}
-@media (max-width: 900px) {
-  .programming-language__logo {
-    width: 25vw;
-    height: 25vw;
-  }
 }
 .programming-language__name {
   width: 65%;
@@ -22,14 +19,14 @@
   font-size: 3em;
   word-break: break-word;
 }
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .programming-language__name {
-    font-size: 2em;
+    font-size: 2.5em;
   }
 }
 @media (max-width: 500px) {
   .programming-language__name {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 .programming-language__description {
@@ -38,7 +35,7 @@
   margin-top: 1vw;
   margin-bottom: 1vw;
   text-align: justify;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .programming-language__programs {
   display: flex;
@@ -55,10 +52,23 @@
   margin: 1vw;
   border-radius: 15px;
   box-shadow: 0 0 2px 1px black;
+  overflow: hidden;
 }
 .program-in-programming-language__content:hover {
   background-color: #7889a2;
   box-shadow: 0 1px 2px 1px black;
+}
+@media (min-width: 1440px) {
+  .program-in-programming-language__content {
+    width: 350px;
+    height: 150px;
+  }
+}
+@media (min-width: 1800px) {
+  .program-in-programming-language__content {
+    width: 500px;
+    height: 200px;
+  }
 }
 .program-in-programming-language__link {
   text-decoration: none;

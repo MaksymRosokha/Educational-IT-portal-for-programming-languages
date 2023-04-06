@@ -10,6 +10,7 @@
 }
 .profile__title {
   text-align: center;
+  font-size: 1.8em;
 }
 .profile__wrapper {
   background-color: #c3d3ee;
@@ -23,14 +24,16 @@
   margin: 1vw;
 }
 .profile__avatar {
-  width: 25%;
-  height: auto;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   border: solid 2px black;
+  overflow: hidden;
 }
 @media (max-width: 700px) {
   .profile__avatar {
-    width: 50%;
+    width: 200px;
+    height: 200px;
   }
 }
 .profile__info-wrapper {
@@ -72,10 +75,15 @@
   margin: 0;
   word-break: break-word;
 }
+.profile__additional-abilities {
+  margin: 1vw;
+}
 .additional-abilities {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
-  margin: 1vw;
+}
+.additional-abilities__button {
+  margin: 0.5vw;
 }

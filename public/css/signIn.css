@@ -21,21 +21,23 @@ input:-webkit-autofill:focus {
   justify-content: space-evenly;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 350px;
-  height: 350px;
+  min-width: 300px;
+  min-height: 300px;
   background-color: rgba(99, 158, 243, 0.66);
   border-radius: 20px;
-  padding: 0.8vw;
-  margin: 0.8vw;
-}
-@media (min-width: 2560px) {
-  .sign-in__wrapper {
-    width: 500px;
-    height: 500px;
+  padding: 1.5vw;
+  margin: 1vw;
+  /*@media(min-width: 1440px) {
+    width: 450px;
   }
+
+  @media(min-width: 1800px) {
+    width: 600px;
+  }*/
 }
 .sign-in__title {
   color: #1b2f57;
+  font-size: 2em;
 }
 .sign-in__form {
   display: flex;
@@ -54,6 +56,10 @@ input:-webkit-autofill:focus {
 }
 .sign-in-form__error {
   color: red;
+  font-size: 1.1em;
+}
+.sign-in-form__label {
+  font-size: 1.1em;
 }
 .sign-in-form__input-field {
   display: inline;
@@ -63,18 +69,8 @@ input:-webkit-autofill:focus {
   border-bottom: solid 2px black;
   font-weight: 600;
   outline: none;
+  font-size: 1.1em;
 }
-.sign-in-form__do-sign-in {
-  background-color: #162939;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-}
-.sign-in-form__do-sign-in:hover {
-  transition: background-color 0.8s;
-  background-color: #31536e;
-}
-
 .additional-link {
   display: flex;
   width: 100%;
@@ -83,7 +79,29 @@ input:-webkit-autofill:focus {
 .additional-link__label {
   color: #031e48;
   font-weight: 400;
+  font-size: 0.9em;
+}
+@media (min-width: 1600px) {
+  .additional-link__label {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 768px) {
+  .additional-link__label {
+    font-size: 1.1em;
+  }
 }
 .additional-link__link {
   color: #0b3486;
+  font-size: 0.9em;
+}
+@media (min-width: 1600px) {
+  .additional-link__link {
+    font-size: 1.1em;
+  }
+}
+@media (max-width: 768px) {
+  .additional-link__link {
+    font-size: 1.1em;
+  }
 }

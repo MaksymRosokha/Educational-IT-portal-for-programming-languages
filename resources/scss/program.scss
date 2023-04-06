@@ -13,21 +13,13 @@
   // .program__content
 
   &__content {
-    padding: 2vw 2vw;
+    padding: 1vw 1vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    align-items: start;
-
-    @media(max-width: 700px) {
-      display: none;
-    }
-
-    &--showed-content {
-      @media(max-width: 700px) {
-        display: flex;
-      }
-    }
+    align-items: flex-start;
+    width: 100%;
+    height: fit-content;
   }
 
   &__main-info {
@@ -38,12 +30,7 @@
 
   &__image {
     width: 30%;
-    height: auto;
-
-    @media(max-width: 1200px) {
-      width: 25vw;
-      height: 25vw;
-    }
+    height: 30%;
   }
 
   // .program__name
@@ -88,7 +75,7 @@
   border-radius: 10px;
   margin: 0;
 
-  @media(max-width: 700px){
+  @media(max-width: 600px){
     max-width: 100%;
     width: 100%;
   }
@@ -99,7 +86,7 @@
   }
 
   &__hamburger-menu {
-
+    margin-bottom: 1vw;
   }
 
 
@@ -107,10 +94,11 @@
 
   &__title {
     text-align: center;
+    font-size: 1.5em;
   }
 
   &__lessons {
-    max-width: 100%;
+    max-width: fit-content;
     width: fit-content;
     display: flex;
     flex-wrap: wrap;
@@ -119,6 +107,11 @@
     background-color: inherit;
     margin: 0;
     padding: 0;
+
+    @media(max-width: 600px){
+      max-width: 100%;
+      width: 100%;
+    }
   }
 
   // .list-of-lessons__lesson
@@ -127,7 +120,7 @@
     margin: 0.3vw 0;
     align-self: center;
 
-    @media (max-width: 700px) {
+    @media (max-width: 600px) {
       margin: 0.5vw;
     }
   }
@@ -200,7 +193,7 @@
 
 .lesson {
   width: 200px;
-  height: 35px;
+  height: 40px;
   display: flex;
   background-color: #718096;
   color: white;
@@ -208,7 +201,11 @@
   box-shadow: 0 0 2px 1px black;
   transition: background-color .3s ease 0s;
 
-  @media (max-width: 700px) {
+  @media (min-width: 1800px) {
+    height: 50px;
+  }
+
+  @media (max-width: 600px) {
     width: 95%;
     height: 50px;
   }
@@ -244,17 +241,24 @@
     &:hover {
       color: inherit;
     }
-
   }
 
   // .lesson__content
 
   &__content {
     padding: .2vw;
-    font-size: 1.2em;
+    font-size: 1.3em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @media (min-width: 1800px) {
+      font-size: 1.1em;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 1.5em;
+    }
   }
 }
 
@@ -264,11 +268,11 @@
   text-decoration: none;
   align-self: center;
   width: fit-content;
-  font-size: 1.2em;
+  font-size: 1.3em;
   padding: .3vw;
   border-radius: 5px;
 
-  @media (max-width:700px){
+  @media (max-width:600px){
     padding: 1vw;
   }
 

@@ -39,7 +39,7 @@
                        required
                        minlength="6"
                        maxlength="100">
-                <button class="sign-in-form__do-sign-in" type="submit">Увійти</button>
+                <form-button class="sign-in-form__do-sign-in" type="submit">Увійти</form-button>
             </form>
             <table class="sign-in__additional-links">
                 <tr class="additional-link sign-in__forgot-password">

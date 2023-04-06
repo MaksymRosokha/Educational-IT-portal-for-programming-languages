@@ -19,7 +19,8 @@
             @foreach($programmingLanguage->programs as $program)
                 <li class="program-in-programming-language program-in-programming-language__content">
                     <a class="program-in-programming-language__link"
-                       href="{{ route('programInProgrammingLanguage', ['programID' => $program->id]) }}">
+                       href="{{ route('programInProgrammingLanguage', ['programID' => $program->id]) }}"
+                       title="{{ $program->name }}">
                         <img class="program-in-programming-language__image"
                              src="/storage/images/programmingLanguages/programsInProgrammingLanguages/images/{{ $program->image }}"
                              alt="">

@@ -36,7 +36,8 @@
                     @endif
                 @endif">
                         <a class="lesson__link"
-                           href="{{ route('lesson', ['lessonID' => $lesson->id]) }}">
+                           href="{{ route('lesson', ['lessonID' => $lesson->id]) }}"
+                           title="{{ $lesson->title }}">
                             <div class="lesson__content">
                                 {{ $lesson->sequence_number }}.{{ $lesson->title }}
                             </div>

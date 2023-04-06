@@ -16,7 +16,8 @@
             @foreach($programmingLanguages as $programmingLanguage)
                 <li class="programming-language__content">
                     <a class="programming-language__link"
-                       href="{{ route('programming_language', $programmingLanguage->id) }}">
+                       href="{{ route('programming_language', $programmingLanguage->id) }}"
+                       title="{{ $programmingLanguage->name }}">
                         <img class="programming-language__logo"
                              src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
                              alt="">

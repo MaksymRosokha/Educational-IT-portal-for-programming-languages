@@ -23,9 +23,16 @@
   height: 200px;
   margin: 1vw;
   border-radius: 15px;
+  overflow: hidden;
 }
 .programming-language__content:hover {
   background-color: #99bcee;
+}
+@media (min-width: 1800px) {
+  .programming-language__content {
+    width: 600px;
+    height: 300px;
+  }
 }
 @media (max-width: 870px) {
   .programming-language__content {

@@ -33,9 +33,15 @@
     height: 200px;
     margin: 1vw;
     border-radius: 15px;
+    overflow: hidden;
 
     &:hover {
       background-color: #99bcee;
+    }
+
+    @media(min-width: 1800px) {
+      width: 600px;
+      height: 300px;
     }
 
     @media(max-width: 870px) {

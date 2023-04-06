@@ -58,6 +58,15 @@ export default {
       background-color: #da7bff;
       box-shadow: 0 0 10px 1px #3c3cfa;
     }
+
+    @media (min-width: 1800px) {
+      width: 300px;
+      height: 50px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2em;
+    }
   }
 
   &__modal-window {

@@ -31,7 +31,7 @@
                             <td class="user__info">{{ $user->id }}</td>
                         </tr>
                         <tr class="user__info-block">
-                            <th class="user__name-of-info">email:</th>
+                            <th class="user__name-of-info">Email:</th>
                             <td class="user__info">{{ $user->email }}</td>
                         </tr>
                         <tr class="user__info-block">
@@ -79,16 +79,14 @@
                                 </option>
                             </select>
                         </div>
-                        <button class="additional-abilities__ability additional-abilities__block"
-                                type="submit">
+                        <button-with-modal-window class="additional-abilities__ability"
+                                                  button-text="Заблокувати">
                             Заблокувати
-                        </button>
-                        <button class="additional-abilities__ability additional-abilities__delete"
-                                type="submit">
-{{--                            <a class="additional-abilities__link"--}}
-{{--                               href="{{ route('deleteUser', $user->id) }}">Видалити</a>--}}
-                            Видалити
-                        </button>
+                        </button-with-modal-window>
+                        <button-with-modal-window class="additional-abilities__ability"
+                                                  button-text="Видалити">
+                            <a href="{{ route('deleteUser', $user->id) }}">Видалити</a>
+                        </button-with-modal-window>
                     </div>
                 </div>
             @endforeach

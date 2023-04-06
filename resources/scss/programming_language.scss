@@ -1,19 +1,16 @@
 .programming-language {
-    padding: 2vw 2vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
+  padding: 1vw 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: flex-start;
+  height: fit-content;
 
   // .programming-language__logo
 
   &__logo {
     width: 30%;
     height: auto;
-
-    @media(max-width: 900px) {
-      width: 25vw;
-      height: 25vw;
-    }
   }
 
   // .programming-language__name
@@ -26,12 +23,12 @@
     font-size: 3em;
     word-break: break-word;
 
-    @media(max-width: 800px) {
-      font-size: 2em;
+    @media(max-width: 768px) {
+      font-size: 2.5em;
     }
 
     @media(max-width: 500px) {
-      font-size: 1.5em;
+      font-size: 2em;
     }
   }
 
@@ -43,7 +40,7 @@
     margin-top: 1vw;
     margin-bottom: 1vw;
     text-align: justify;
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
 
   // .programming-language__programs
@@ -68,10 +65,21 @@
     margin: 1vw;
     border-radius: 15px;
     box-shadow: 0 0 2px 1px black;
+    overflow: hidden;
 
     &:hover {
       background-color: #7889a2;
       box-shadow: 0 1px 2px 1px black;
+    }
+
+    @media (min-width: 1440px) {
+      width: 350px;
+      height: 150px;
+    }
+
+    @media (min-width: 1800px) {
+      width: 500px;
+      height: 200px;
     }
   }
 

@@ -105,10 +105,7 @@
 
                 </details>
 
-                <button class="sign-up-form__do-register"
-                        type="submit">
-                    Зареєструватися
-                </button>
+                <form-button class="sign-up-form__do-register" type="submit">Зареєструватися</form-button>
             </form>
             <table class="sign-up__additional-links">
                 <tr class="additional-link sign-up__sign-in">
