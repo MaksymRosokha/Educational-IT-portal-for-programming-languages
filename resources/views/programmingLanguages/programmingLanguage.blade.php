@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
+@section('title', $programmingLanguage->name)
+
 @section('styles')
     <link rel="stylesheet" href="/css/programming_language.css">
-@endsection
-
-@section('title')
-    {{ $programmingLanguage->name }}
 @endsection
 
 @section('content')

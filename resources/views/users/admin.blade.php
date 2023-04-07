@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    Адмін-панель
-@endsection
+@section('title', 'Адмін-панель')
 
 @section('styles')
     <link rel="stylesheet" href="/css/admin.css">

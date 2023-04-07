@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    {{ $user->login }}
-@endsection
+@section('title', $user->login)
 
 @section('styles')
     <link rel="stylesheet" href="/css/profile.css">

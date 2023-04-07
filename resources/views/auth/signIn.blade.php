@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    Вхід
-@endsection
+@section('title', 'Вхід')
 
 @section('styles')
     <link rel="stylesheet" href="/css/signIn.css">

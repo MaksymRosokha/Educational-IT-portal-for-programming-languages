@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    Навчальний IT-портал для мов програмування
-@endsection
+@section('title', 'Навчальний IT-портал для мов програмування')
 
 @section('styles')
     <link rel="stylesheet" href="/css/main.css">
