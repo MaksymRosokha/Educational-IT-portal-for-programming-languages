@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="/css/profile.css">
 @endsection
 
-@section('scripts')
-    <script src="/js/profile.js" defer></script>
-@endsection
 @section('content')
 
     <section id="profile" class="profile">

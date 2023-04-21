@@ -20943,12 +20943,12 @@ __webpack_require__.r(__webpack_exports__);
     sendData: function sendData() {
       var _this = this;
       this.result.errors = {};
-      axios.post(this.link, {
-        old_password: this.old_password,
-        new_password: this.new_password,
-        confirm_password: this.confirm_password,
-        _token: this._token
-      }).then(function (response) {
+      var formData = new FormData();
+      formData.append('old_password', this.old_password);
+      formData.append('new_password', this.new_password);
+      formData.append('confirm_password', this.confirm_password);
+      formData.append('_token', this.csrf);
+      axios.post(this.link, formData).then(function (response) {
         _this.result.text = "Пароль успішно змінено.";
         _this.result.type = "success";
         _this.result.isVisible = true;
@@ -21185,31 +21185,30 @@ var _withScopeId = function _withScopeId(n) {
 var _hoisted_1 = {
   "class": "password-changer"
 };
-var _hoisted_2 = ["action"];
-var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "password-changer__input",
     "class": "password-changer__label"
   }, "Введіть старий пароль:", -1 /* HOISTED */);
 });
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "password-changer__input",
     "class": "password-changer__label"
   }, "Введіть новий пароль:", -1 /* HOISTED */);
 });
-var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "for": "password-changer__input",
     "class": "password-changer__label"
   }, "Повторіть новий пароль:", -1 /* HOISTED */);
 });
-var _hoisted_6 = ["value"];
-var _hoisted_7 = {
+var _hoisted_5 = ["value"];
+var _hoisted_6 = {
   key: 0,
   "class": "result-window__errors"
 };
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "result-window__list-of-errors"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21220,10 +21219,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "password-changer__form",
     onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.sendData && $options.sendData.apply($options, arguments);
-    }, ["prevent"])),
-    method: "post",
-    action: $props.link
-  }, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    }, ["prevent"]))
+  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
     "class": "password-changer__input",
     "name-of-input": "old_password",
     "type-of-input": "password",
@@ -21232,7 +21229,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "min-length-of-input": "6",
     "max-length-of-input": "100",
     onData: this.setOldPassword
-  }, null, 8 /* PROPS */, ["onData"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+  }, null, 8 /* PROPS */, ["onData"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
     "class": "password-changer__input",
     "name-of-input": "new_password",
     "type-of-input": "password",
@@ -21241,7 +21238,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "min-length-of-input": "6",
     "max-length-of-input": "100",
     onData: this.setNewPassword
-  }, null, 8 /* PROPS */, ["onData"]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+  }, null, 8 /* PROPS */, ["onData"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
     "class": "password-changer__input",
     "name-of-input": "confirm_password",
     "type-of-input": "password",
@@ -21254,14 +21251,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: "hidden",
     name: "_token",
     value: $options.csrf
-  }, null, 8 /* PROPS */, _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
+  }, null, 8 /* PROPS */, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
     "class": "password-changer__btn-change"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Змінити пароль")];
     }),
     _: 1 /* STABLE */
-  })], 40 /* PROPS, HYDRATE_EVENTS */, _hoisted_2), $data.result.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_success_or_fail_modal_window, {
+  })], 32 /* HYDRATE_EVENTS */), $data.result.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_success_or_fail_modal_window, {
     key: 0,
     "class": "password-changer__result-window result-window",
     onCloseModalWindow: $options.closeResultWindow,
@@ -21269,7 +21266,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     type: this.result.type
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [Object.keys($data.result.errors).length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.result.errors, function (error, key) {
+      return [Object.keys($data.result.errors).length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.result.errors, function (error, key) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
           "class": "result-window__error",
           key: key

@@ -1,6 +1,6 @@
 <template>
   <div class="password-changer">
-    <form class="password-changer__form" @submit.prevent="sendData" method="post" :action="link">
+    <form class="password-changer__form" @submit.prevent="sendData">
       <label for="password-changer__input" class="password-changer__label">Введіть старий пароль:</label>
       <form-input-field class="password-changer__input"
                         name-of-input="old_password"
@@ -85,13 +85,13 @@ export default {
     },
     sendData() {
       this.result.errors = {};
+      const formData = new FormData();
+      formData.append('old_password', this.old_password);
+      formData.append('new_password', this.new_password);
+      formData.append('confirm_password', this.confirm_password);
+      formData.append('_token', this.csrf);
 
-      axios.post(this.link, {
-        old_password: this.old_password,
-        new_password: this.new_password,
-        confirm_password: this.confirm_password,
-        _token: this._token
-      })
+      axios.post(this.link, formData)
           .then(response => {
             this.result.text = "Пароль успішно змінено.";
             this.result.type = "success";
