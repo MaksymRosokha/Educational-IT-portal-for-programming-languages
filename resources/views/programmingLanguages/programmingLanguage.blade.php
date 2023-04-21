@@ -21,7 +21,7 @@
                        title="{{ $program->name }}">
                         <img class="program-in-programming-language__image"
                              src="/storage/images/programmingLanguages/programsInProgrammingLanguages/images/{{ $program->image }}"
-                             alt="">
+                             alt="Логотип програми {{ $program->name }}">
                         <h4 class="program-in-programming-language__name">
                             {{ $program->name }}
                         </h4>

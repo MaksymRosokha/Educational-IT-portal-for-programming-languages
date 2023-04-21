@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="format-detection" content="telephone=no">
 
-    <meta name="author" content="Росоха Максим Валентинович">
-    <meta name="copyright" content="Росоха Максим Валентинович">
+    <meta name="author" content="Maksym Valentynovych Rosokha">
+    <meta name="copyright" content="Maksym Valentynovych Rosokha">
     <meta name="address" content="Україна, Закарпатська область, Хустський район, село Нижній Бистрий">
 
     <meta name="description"
@@ -22,9 +22,11 @@
     <meta name="keywords"
           content="it, IT portal, programming, IT-портал, навчання, learning, програмування, Java, C++, JavaScript, PHP, C#, уроки, lessons, вправи, онлайн-ресурс, ">
 
+    <link rel="canonical" href="{{ route('main') }}"/>
+
     <meta property="og:title" content="Навчальний IT-портал для мов програмування — @yield('title')">
     <meta property="og:local" content="uk_UA">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="{{ route('main') }}">
     <meta property="og:image" content="/storage/images/icon.png">
     <meta property="og:site_name" content="Навчальний IT-портал для мов програмування">

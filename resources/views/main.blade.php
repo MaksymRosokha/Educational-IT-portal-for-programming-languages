@@ -18,7 +18,7 @@
                        title="{{ $programmingLanguage->name }}">
                         <img class="programming-language__logo"
                              src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
-                             alt="">
+                             alt="Логотип мови програмування {{ $programmingLanguage->name }}">
                         <h3 class="programming-language__name">
                             {{ $programmingLanguage->name }}
                         </h3>

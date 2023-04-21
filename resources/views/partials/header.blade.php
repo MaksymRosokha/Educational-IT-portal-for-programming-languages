@@ -7,7 +7,7 @@
     <nav class="header__container">
         <div class="info">
             <a class="info__link" href="{{ route('main') }}">
-                <img class="info__logo" src="/storage/images/icon.png" alt="">
+                <img class="info__logo" src="/storage/images/icon.png" alt="Логотип">
             </a>
             <a class="info__link" href="{{ route('main') }}">
                 <h1 class="info__title">Навчальний IT-портал для мов програмування</h1>

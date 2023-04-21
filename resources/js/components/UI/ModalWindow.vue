@@ -46,7 +46,6 @@ export default {
     min-height: 200px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 0 5px 1px white;
