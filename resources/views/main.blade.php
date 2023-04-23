@@ -9,6 +9,17 @@
 @section('content')
     <section class="programming-languages">
         <h2 class="programming-languages__title">Мови програмування</h2>
+        @if($isAdmin)
+            <admin-panel title="Мови програмування"
+                         class="programming-languages__admin-panel admin-panel">
+                <button-with-modal-window button-text="Створити"
+                                          title="Створення мови програмування"
+                                          class="admin-panel__button">
+                    <programming-language-creator link="{{ route('createProgrammingLanguage') }}">
+                    </programming-language-creator>
+                </button-with-modal-window>
+            </admin-panel>
+        @endif
 
         <ol class="programming-languages__list">
             @foreach($programmingLanguages as $programmingLanguage)

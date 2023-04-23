@@ -20996,6 +20996,10 @@ __webpack_require__.r(__webpack_exports__);
     buttonText: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: false
     }
   },
   methods: {
@@ -21110,6 +21114,12 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     closeWindow: function closeWindow() {
       this.$emit('closeModalWindow');
+    }
+  },
+  props: {
+    title: {
+      type: String,
+      required: false
     }
   }
 });
@@ -21308,13 +21318,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.buttonText), 1 /* TEXT */), $data.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_modal_window, {
     key: 0,
     "class": "button-with-modal-window__modal-window",
+    title: this.title,
     onCloseModalWindow: $options.closeWindow
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)];
     }),
     _: 3 /* FORWARDED */
-  }, 8 /* PROPS */, ["onCloseModalWindow"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+  }, 8 /* PROPS */, ["title", "onCloseModalWindow"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),
@@ -21401,6 +21412,9 @@ var _hoisted_1 = {
   "class": "modal-window__header"
 };
 var _hoisted_2 = {
+  "class": "modal-window__title"
+};
+var _hoisted_3 = {
   "class": "modal-window__content"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21412,12 +21426,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "modal-window__wrapper",
     onClick: _cache[1] || (_cache[1] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {}, ["stop"]))
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(this.title), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
     "class": "modal-window__close",
     onClick: _cache[0] || (_cache[0] = function () {
       return $options.closeWindow && $options.closeWindow.apply($options, arguments);
     })
-  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])])]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default", {}, undefined, true)])])]);
 }
 
 /***/ }),
@@ -28830,7 +28844,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".modal-window[data-v-297e0bed] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  z-index: 15;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.modal-window__wrapper[data-v-297e0bed] {\n  min-width: 200px;\n  min-height: 200px;\n  display: flex;\n  flex-direction: column;\n  background-color: #ffffff;\n  border-radius: 15px;\n  box-shadow: 0 0 5px 1px white;\n  padding: 2vw;\n  margin: 2vw;\n}\n.modal-window__header[data-v-297e0bed] {\n  display: flex;\n  justify-content: flex-end;\n  position: sticky;\n}\n.modal-window__close[data-v-297e0bed] {\n  position: sticky;\n  width: 40px;\n  height: 40px;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: background-color 0.3s;\n}\n.modal-window__close[data-v-297e0bed]:hover {\n  background-color: rgba(255, 0, 0, 0.64);\n}\n.modal-window__close[data-v-297e0bed]:before, .modal-window__close[data-v-297e0bed]:after {\n  content: \"\";\n  background-color: #8c0202;\n  transition: all 1s ease 0s;\n  position: absolute;\n  width: 35px;\n  height: 5px;\n  border-radius: 5px;\n  left: 2.3px;\n}\n.modal-window__close[data-v-297e0bed]:before {\n  transform: rotate(45deg);\n  top: 18px;\n}\n.modal-window__close[data-v-297e0bed]:after {\n  transform: rotate(-45deg);\n  bottom: 18px;\n}\n.modal-window__content[data-v-297e0bed] {\n  min-width: 200px;\n  min-height: 200px;\n  margin: 1vw;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".modal-window[data-v-297e0bed] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  z-index: 15;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.modal-window__wrapper[data-v-297e0bed] {\n  min-width: 200px;\n  min-height: 200px;\n  display: flex;\n  flex-direction: column;\n  background-color: #ffffff;\n  border-radius: 15px;\n  box-shadow: 0 0 5px 1px white;\n  padding: 2vw;\n  margin: 2vw;\n}\n.modal-window__header[data-v-297e0bed] {\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  position: sticky;\n}\n.modal-window__title[data-v-297e0bed] {\n  width: 100%;\n  font-size: 1.5em;\n  font-weight: 600;\n  margin-right: 10px;\n}\n.modal-window__close[data-v-297e0bed] {\n  position: sticky;\n  width: 50px;\n  min-width: 50px;\n  height: 50px;\n  min-height: 50px;\n  cursor: pointer;\n  border-radius: 50%;\n  transition: background-color 0.3s;\n}\n.modal-window__close[data-v-297e0bed]:hover {\n  background-color: rgba(255, 0, 0, 0.64);\n}\n.modal-window__close[data-v-297e0bed]:before, .modal-window__close[data-v-297e0bed]:after {\n  content: \"\";\n  background-color: #8c0202;\n  transition: all 1s ease 0s;\n  position: absolute;\n  width: 40px;\n  height: 5px;\n  border-radius: 5px;\n  left: 5px;\n}\n.modal-window__close[data-v-297e0bed]:before {\n  transform: rotate(45deg);\n  top: 22px;\n}\n.modal-window__close[data-v-297e0bed]:after {\n  transform: rotate(-45deg);\n  bottom: 22px;\n}\n.modal-window__content[data-v-297e0bed] {\n  min-width: 200px;\n  min-height: 200px;\n  margin: 1vw;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

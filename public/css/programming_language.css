@@ -36,6 +36,9 @@
   margin-bottom: 1vw;
   text-align: justify;
   font-size: 1.3em;
+  white-space: pre-wrap;
+  width: 100%;
+  padding: 5px;
 }
 .programming-language__programs {
   display: flex;

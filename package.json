@@ -29,5 +29,9 @@
     },
     "keywords": [],
     "author": "Maksym Rosokha",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "tinymce": "^6.4.1"
+    }
 }

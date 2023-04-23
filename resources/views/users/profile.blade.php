@@ -56,19 +56,20 @@
         @if($isOwnProfile)
             <div class="profile__additional-abilities additional-abilities">
                 <button-with-modal-window class="additional-abilities__button"
-                                          button-text="Змінити пароль">
+                                          button-text="Змінити пароль"
+                title="Змінення паролю">
                     <password-changer class="password-changer"
                                       link="{{ route('changePassword') }}">
                     </password-changer>
                 </button-with-modal-window>
 
                 <button-with-modal-window class="additional-abilities__button"
-                                          button-text="Редагувати профіль">
-                    Редагуваня профілю
+                                          button-text="Редагувати профіль"
+                                          title="Редагуваня профілю">
                 </button-with-modal-window>
                 <button-with-modal-window class="additional-abilities__button"
-                                          button-text="Видалити акаунт">
-                    Видалення акаунту
+                                          button-text="Видалити акаунт"
+                                          title="Видалення акаунту">
                 </button-with-modal-window>
             </div>
         @endif

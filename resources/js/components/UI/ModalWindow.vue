@@ -2,6 +2,7 @@
   <div class="modal-window" @click="closeWindow">
     <div class="modal-window__wrapper" @click.stop>
       <header class="modal-window__header">
+        <h5 class="modal-window__title">{{this.title}}</h5>
         <span class="modal-window__close" @click="closeWindow"></span>
       </header>
       <main class="modal-window__content">
@@ -22,6 +23,12 @@ export default {
   methods: {
     closeWindow() {
       this.$emit('closeModalWindow');
+    }
+  },
+  props: {
+    title: {
+      type: String,
+      required: false
     }
   }
 }
@@ -56,13 +63,23 @@ export default {
   &__header {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     position: sticky;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-right: 10px;
   }
 
   &__close {
     position: sticky;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s;
@@ -76,20 +93,20 @@ export default {
       background-color: #8c0202;
       transition: all 1s ease 0s;
       position: absolute;
-      width: 35px;
+      width: 40px;
       height: 5px;
       border-radius: 5px;
-      left: 2.30px;
+      left: 5px;
     }
 
     &:before {
       transform: rotate(45deg);
-      top: 18px;
+      top: 22px;
     }
 
     &:after {
       transform: rotate(-45deg);
-      bottom: 18px;
+      bottom: 22px;
     }
   }
 

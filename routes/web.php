@@ -45,10 +45,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/change_password', [\App\Http\Controllers\UserController::class, 'changeUserPassword'])
         ->name('changePassword');
 
-    Route::middleware('admin')->group(function () {
-        Route::get('/admin', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
-        Route::get('/admin/delete_user/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser'])->name(
+
+    Route::middleware('admin')->prefix('admin')->group(function () {
+        Route::get('/', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
+        Route::get('/delete_user/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser'])->name(
             'deleteUser'
         );
+
+
+        Route::post('/create_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'create'])->name('createProgrammingLanguage');
     });
 });

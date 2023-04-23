@@ -5,7 +5,9 @@
  */
 import './bootstrap';
 import { createApp } from 'vue';
-import components from "./components/UI/index";
+import Editor from '@tinymce/tinymce-vue';
+import UIComponents from "./components/UI/index";
+import adminComponents from "./components/admin/index";
 import PasswordChanger from "./components/PasswordChanger.vue";
 // /**
 //  * Next, we will create a fresh Vue application instance. You may then begin
@@ -14,7 +16,11 @@ import PasswordChanger from "./components/PasswordChanger.vue";
 //  */
 //
 const app = createApp({});
-components.forEach(component => {
+app.component('editor', Editor);
+UIComponents.forEach(component => {
+    app.component(component.name, component);
+});
+adminComponents.forEach(component => {
     app.component(component.name, component);
 });
 app.component('password-changer', PasswordChanger);

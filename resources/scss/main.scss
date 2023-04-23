@@ -21,6 +21,9 @@
     list-style-type: none;
     padding: 0;
   }
+
+  &__admin-panel {
+  }
 }
 
 .programming-language {
@@ -91,5 +94,12 @@
     margin: 2%;
     width: 60%;
     font-size: 1.6em;
+  }
+}
+
+.admin-panel {
+
+  &__button {
+    margin: 5px;
   }
 }

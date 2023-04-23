@@ -16,7 +16,6 @@
   list-style-type: none;
   padding: 0;
 }
-
 .programming-language__content {
   background-color: #7ca8e8;
   width: 400px;
@@ -77,4 +76,8 @@
   margin: 2%;
   width: 60%;
   font-size: 1.6em;
+}
+
+.admin-panel__button {
+  margin: 5px;
 }

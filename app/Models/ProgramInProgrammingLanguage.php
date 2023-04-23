@@ -17,7 +17,7 @@ class ProgramInProgrammingLanguage extends Model
 
     protected $fillable = [
         'name',
-        'image',
+        'logo',
         'description',
     ];
 

@@ -12,7 +12,7 @@
              src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
              alt="Логотип мови програмування {{ $programmingLanguage->name }}">
         <h2 class="programming-language__name">{{ $programmingLanguage->name }}</h2>
-        <p class="programming-language__description">{{ $programmingLanguage->description }}</p>
+        <pre class="programming-language__description">{!! $programmingLanguage->description !!}</pre>
         <ol class="programming-language__programs">
             @foreach($programmingLanguage->programs as $program)
                 <li class="program-in-programming-language program-in-programming-language__content">

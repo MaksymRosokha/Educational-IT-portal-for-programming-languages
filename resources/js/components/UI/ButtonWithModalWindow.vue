@@ -5,6 +5,7 @@
       {{ this.buttonText }}
     </button>
     <modal-window class="button-with-modal-window__modal-window"
+                  :title="this.title"
                   v-if="isVisible"
                   @close-modal-window="closeWindow">
       <slot></slot>
@@ -25,6 +26,10 @@ export default {
     buttonText: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: false
     }
   },
   methods: {
