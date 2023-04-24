@@ -15,8 +15,15 @@
                                           title="Редагування мови програмування"
                                           class="admin-panel__button">
                     <programming-language-updater link="{{ route('updateProgrammingLanguage') }}"
-                                                  programming-language="{{$programmingLanguage}}">
+                                                  programming-language="{{ $programmingLanguage }}">
                     </programming-language-updater>
+                </button-with-modal-window>
+                <button-with-modal-window button-text="Видалити"
+                                          title="Видалення мови програмування"
+                                          class="admin-panel__button">
+                    <programming-language-deleter link="{{ route('deleteProgrammingLanguage') }}"
+                                                  id="{{ $programmingLanguage->id }}">
+                    </programming-language-deleter>
                 </button-with-modal-window>
             </admin-panel>
         @endif

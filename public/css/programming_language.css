@@ -1,4 +1,5 @@
 .programming-language {
+  width: 100%;
   padding: 1vw 1vw;
   display: flex;
   flex-wrap: wrap;
@@ -95,4 +96,8 @@
   margin-left: 1%;
   font-size: 1.2em;
   word-break: break-word;
+}
+
+.admin-panel__button {
+  margin: 0 5px 0 5px;
 }

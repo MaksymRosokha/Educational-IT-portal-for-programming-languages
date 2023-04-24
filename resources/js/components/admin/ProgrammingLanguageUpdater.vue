@@ -32,7 +32,7 @@
       />
 
       <input type="hidden" name="_token" :value="csrf">
-      <form-button class="programming-language-updater__btn-change">Створити</form-button>
+      <form-button class="programming-language-updater__btn-submit">Редагувати</form-button>
     </form>
 
     <success-or-fail-modal-window
@@ -107,7 +107,6 @@ export default {
             this.result.text = 'Мову програмування успішно відредаговано';
             this.result.type = "success";
             this.result.isVisible = true;
-            this.clearData();
           })
           .catch(error => {
             if (error.response && error.response.data && error.response.data.errors) {
@@ -158,7 +157,7 @@ export default {
   &__editor {
   }
 
-  &__btn-change {
+  &__btn-submit {
     margin-top: 20px;
   }
 

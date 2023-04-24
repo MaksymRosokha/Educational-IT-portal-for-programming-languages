@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class UpdateProgrammingLanguageRequest extends FormRequest
+class DeleteProgrammingLanguageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return Auth::check();
+        return Auth::check() && Auth::user()->admin === 1;
     }
 
     /**
@@ -24,9 +24,6 @@ class UpdateProgrammingLanguageRequest extends FormRequest
     {
         return [
             'id' => ['required', 'int'],
-            'name' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:10000'],
-            'logo' => ['nullable', 'image', 'max:10240'],
         ];
     }
 }

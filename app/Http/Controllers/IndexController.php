@@ -17,7 +17,7 @@ class IndexController extends Controller
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(){
-        $isAdmin = Auth::check() &&  Auth::user()->admin === 1;
+        $isAdmin = Auth::check() && Auth::user()->admin === 1;
 
         return view('main', [
             'isMainPage' => true,

@@ -55,5 +55,6 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/create_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'create'])->name('createProgrammingLanguage');
         Route::post('/update_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'update'])->name('updateProgrammingLanguage');
+        Route::post('/delete_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'delete'])->name('deleteProgrammingLanguage');
     });
 });

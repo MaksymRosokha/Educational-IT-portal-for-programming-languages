@@ -32,7 +32,7 @@
       />
 
       <input type="hidden" name="_token" :value="csrf">
-      <form-button class="programming-language-creator__btn-change">Створити</form-button>
+      <form-button class="programming-language-creator__btn-submit">Створити</form-button>
     </form>
 
     <success-or-fail-modal-window
@@ -165,7 +165,7 @@ export default {
 
   // .programming-language-creator__btn-change
 
-  &__btn-change {
+  &__btn-submit {
     margin-top: 20px;
   }
 

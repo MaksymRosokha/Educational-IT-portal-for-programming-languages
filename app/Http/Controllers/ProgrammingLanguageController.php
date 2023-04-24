@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateProgrammingLanguageRequest;
-use App\Http\Requests\UpdateProgrammingLanguageRequest;
+use App\Http\Requests\admin\CreateProgrammingLanguageRequest;
+use App\Http\Requests\admin\DeleteProgrammingLanguageRequest;
+use App\Http\Requests\admin\UpdateProgrammingLanguageRequest;
 use App\Models\ProgramInProgrammingLanguage;
 use App\Models\ProgrammingLanguage;
 use Illuminate\Support\Facades\Auth;
@@ -139,5 +140,19 @@ class ProgrammingLanguageController extends Controller
             'logo' => $logo,
             'description' => $data['description'],
         ]);
+    }
+
+    public function delete(DeleteProgrammingLanguageRequest $request)
+    {
+        $data = $request->validated();
+        $programmingLanguage = ProgrammingLanguage::query()->findOrFail($data['id']);
+
+        if (Storage::exists('public/images/programmingLanguages/logos/' . $programmingLanguage->logo)
+            && $programmingLanguage->logo !== ProgrammingLanguageController::DEFAULT_IMAGE) {
+            Storage::delete('public/images/programmingLanguages/logos/' . $programmingLanguage->logo);
+        }
+        $programmingLanguage->delete();
+
+        return redirect()->route('main');
     }
 }
