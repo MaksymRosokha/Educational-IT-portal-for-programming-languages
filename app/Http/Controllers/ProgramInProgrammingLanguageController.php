@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CreateProgramInProgrammingLanguageRequest;
+use App\Http\Requests\admin\UpdateProgramInProgrammingLanguageRequest;
 use App\Models\ProgramInProgrammingLanguage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProgramInProgrammingLanguageController extends Controller
 {
@@ -29,6 +32,7 @@ class ProgramInProgrammingLanguageController extends Controller
             [
                 'program' => $program,
                 'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
+                'isAdmin' => Auth::check() && Auth::user()->admin === 1,
             ]
         );
     }
@@ -36,9 +40,9 @@ class ProgramInProgrammingLanguageController extends Controller
     public function create(CreateProgramInProgrammingLanguageRequest $request)
     {
         $data = $request->validated();
-        if ($request->hasFile('logo')) {
+        if ($request->hasFile('image')) {
             $image = $this->moveImageToStorage(
-                imageData: $request->file('logo'),
+                imageData: $request->file('image'),
                 pathToFolder: ProgramInProgrammingLanguageController::PATH_TO_IMAGES
             );
         } else {
@@ -51,6 +55,34 @@ class ProgramInProgrammingLanguageController extends Controller
         $program->image = $image;
         $program->description = $data['description'];
         $program->save();
+    }
+
+    public function update(UpdateProgramInProgrammingLanguageRequest $request)
+    {
+        $data = $request->validated();
+        $program = ProgramInProgrammingLanguage::query()->findOrFail($data['id']);
+        $image = $program->image;
+
+        if ($request->hasFile('image')) {
+            if (Storage::exists('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image)
+                && $image !== ProgramInProgrammingLanguageController::DEFAULT_IMAGE) {
+                Storage::delete('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image);
+            }
+            $image = $this->moveImageToStorage(
+                imageData: $request->file('image'),
+                pathToFolder: ProgramInProgrammingLanguageController::PATH_TO_IMAGES
+            );
+        } else {
+            if ($image === '') {
+                $image = ProgramInProgrammingLanguageController::DEFAULT_IMAGE;
+            }
+        }
+
+        $program->update([
+            'name' => $data['name'],
+            'image' => $image,
+            'description' => $data['description'],
+        ]);
     }
 
     private function moveImageToStorage($imageData, string $pathToFolder): string

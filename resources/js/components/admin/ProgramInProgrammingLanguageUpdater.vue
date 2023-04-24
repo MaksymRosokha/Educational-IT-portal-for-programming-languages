@@ -1,42 +1,42 @@
 <template>
-  <div class="program-in-programming-language-creator">
-    <form class="program-in-programming-language-creator__form" @submit.prevent="sendData">
-      <label for="name" class="program-in-programming-language-creator__label">Введіть назву:</label>
+  <div class="program-in-programming-language-updater">
+    <form class="program-in-programming-language-updater__form" @submit.prevent="sendData">
+      <label for="name" class="program-in-programming-language-updater__label">Введіть назву:</label>
       <form-input-field id="name"
-                        class="program-in-programming-language-creator__input"
+                        class="program-in-programming-language-updater__input"
                         name-of-input="name"
                         type-of-input="text"
                         placeholder-of-input="Введіть назву"
                         :is-required="true"
                         max-length-of-input="100"
-                        :value-of-input="name"
+                        :value-of-input="programData.name"
                         @data="setName"/>
-      <label for="image" class="program-in-programming-language-creator__label">Виберіть зображення:</label>
+      <label for="image" class="program-in-programming-language-updater__label">Виберіть зображення:</label>
       <input id="image"
              ref="imageInput"
-             class="program-in-programming-language-creator__input program-in-programming-language-creator__input--file"
+             class="program-in-programming-language-updater__input programming-language-updater__input--file"
              type="file"
              name="image"
              accept="image/*"
              @change="setImage">
-      <label for="editor" class="program-in-programming-language-creator__label">Напишіть опис:</label>
+      <label for="editor" class="program-in-programming-language-updater__label">Напишіть опис:</label>
       <editor
           id="editor"
-          class="program-in-programming-language-creator__editor"
+          class="program-in-programming-language-updater__editor"
           api-key="5sy00rkq4ju0ge2hwggvivhvpqh0vc78l3fd7vvcxuxj026e"
           :init="{
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect typography inlinecss code',
             toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
           }"
-          v-model="description"
+          v-model="programData.description"
       />
 
       <input type="hidden" name="_token" :value="csrf">
-      <form-button class="program-in-programming-language-creator__btn-submit">Створити</form-button>
+      <form-button class="program-in-programming-language-updater__btn-submit">Редагувати</form-button>
     </form>
 
     <success-or-fail-modal-window
-        class="program-in-programming-language-creator__result-window result-window"
+        class="program-in-programming-language-updater__result-window result-window"
         v-if="result.isVisible"
         @close-modal-window="closeResultWindow"
         :text="this.result.text"
@@ -53,14 +53,14 @@
 </template>
 
 <script>
+
 export default {
-  name: "ProgramInProgrammingLanguageCreator",
+  name: "ProgramInProgrammingLanguageUpdater",
   data() {
     return {
-      name: "",
       image: '',
-      description: "",
       _token: this.csrf,
+      programData: {},
       result: {
         errors: {},
         isVisible: false,
@@ -74,8 +74,8 @@ export default {
       type: String,
       required: true,
     },
-    programmingLanguageId: {
-      type: Number,
+    program: {
+      type: Object,
       required: true,
     }
   },
@@ -84,20 +84,18 @@ export default {
       this.image = event.target.files[0];
     },
     setName(value) {
-      this.name = value;
+      this.programData.name = value;
     },
-    clearData() {
-      this.name = '';
-      this.$refs.imageInput.value = null;
-      this.description = '';
+    setData(){
+      this.programData = JSON.parse(this.program);
     },
     sendData() {
       this.result.errors = {};
       const formData = new FormData();
-      formData.append('programmingLanguageID', this.programmingLanguageId);
-      formData.append('name', this.name);
+      formData.append('id', this.programData.id);
+      formData.append('name', this.programData.name);
       formData.append('image', this.image);
-      formData.append('description', this.description);
+      formData.append('description', this.programData.description);
       formData.append('_token', this.csrf);
 
       axios.post(this.link, formData, {
@@ -106,15 +104,14 @@ export default {
         }
       })
           .then(response => {
-            this.result.text = 'Програму для мови програмування успішно створено';
+            this.result.text = 'Програму успішно відредаговано';
             this.result.type = "success";
             this.result.isVisible = true;
-            this.clearData();
           })
           .catch(error => {
             if (error.response && error.response.data && error.response.data.errors) {
               this.result.errors = error.response.data.errors;
-              this.result.text = 'Не вдалося cтворити програму для мови програмування';
+              this.result.text = 'Не вдалося відредагувати програму';
               this.result.type = "fail";
               this.result.isVisible = true;
             }
@@ -123,6 +120,9 @@ export default {
     closeResultWindow() {
       this.result.isVisible = false;
     }
+  },
+  beforeMount() {
+    this.setData();
   },
   computed: {
     csrf() {
@@ -134,7 +134,7 @@ export default {
 
 <style scoped lang="scss">
 
-.program-in-programming-language-creator {
+.program-in-programming-language-updater {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 100%;
@@ -167,17 +167,11 @@ export default {
 
 .result-window {
 
-  // .result-window__errors
-
   &__errors {
   }
 
-  // .result-window__list-of-errors
-
   &__list-of-errors {
   }
-
-  // .result-window__error
 
   &__error {
   }

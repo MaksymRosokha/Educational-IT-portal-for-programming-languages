@@ -5,6 +5,7 @@ import ProgrammingLanguageUpdater from "./ProgrammingLanguageUpdater.vue";
 import ProgrammingLanguageDeleter from "./ProgrammingLanguageDeleter.vue";
 
 import ProgramInProgrammingLanguageCreator from "./ProgramInProgrammingLanguageCreator.vue";
+import ProgramInProgrammingLanguageUpdater from "./ProgramInProgrammingLanguageUpdater.vue"
 
 export default [
     AdminPanel,
@@ -12,4 +13,6 @@ export default [
     ProgrammingLanguageUpdater,
     ProgrammingLanguageDeleter,
     ProgramInProgrammingLanguageCreator,
+    ProgramInProgrammingLanguageUpdater,
+
 ]

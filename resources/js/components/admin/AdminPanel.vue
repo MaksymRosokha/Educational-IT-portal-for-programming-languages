@@ -38,6 +38,7 @@ export default {
     padding: 1vw;
     margin: 1vw;
     border-radius: 1vw;
+    width: 100%;
 
     // .admin-panel__header
 

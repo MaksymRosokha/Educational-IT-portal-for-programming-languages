@@ -11,8 +11,6 @@
   justify-content: left;
   align-items: flex-start;
   width: 100%;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .program__main-info {
   display: flex;
@@ -47,7 +45,6 @@
   width: 100%;
   padding: 5px;
 }
-
 .list-of-lessons {
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -246,4 +243,8 @@
 }
 .link-to-program:hover {
   color: #ffff78;
+}
+
+.admin-panel__button {
+  margin: 0 5px 0 5px;
 }

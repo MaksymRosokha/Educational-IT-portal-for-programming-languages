@@ -19,7 +19,6 @@
     justify-content: left;
     align-items: flex-start;
     width: 100%;
-    height: fit-content;
   }
 
   &__main-info {
@@ -61,6 +60,10 @@
     white-space: pre-wrap;
     width: 100%;
     padding: 5px;
+  }
+
+  &__admin-panel{
+
   }
 
 }
@@ -280,5 +283,12 @@
 
   &:hover {
     color: #ffff78;
+  }
+}
+
+.admin-panel {
+
+  &__button {
+    margin: 0 5px 0 5px;
   }
 }

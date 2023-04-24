@@ -48,10 +48,6 @@
   list-style-type: none;
   padding: 0;
 }
-.programming-language__admin-panel {
-  width: 100%;
-}
-
 .program-in-programming-language__content {
   background-color: #718096;
   width: 300px;
