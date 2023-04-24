@@ -16,6 +16,7 @@ class ProgramInProgrammingLanguage extends Model
     public $table = 'programs_in_programming_language';
 
     protected $fillable = [
+        'programming_language_id',
         'name',
         'logo',
         'description',

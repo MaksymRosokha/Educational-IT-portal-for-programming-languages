@@ -32,6 +32,18 @@
              alt="Логотип мови програмування {{ $programmingLanguage->name }}">
         <h2 class="programming-language__name">{{ $programmingLanguage->name }}</h2>
         <pre class="programming-language__description">{!! $programmingLanguage->description !!}</pre>
+        @if($isAdmin)
+            <admin-panel title="Програми для мови програмування"
+                         class="programming-language__admin-panel admin-panel">
+                <button-with-modal-window button-text="Створити"
+                                          title="Створення програми для мови програмування"
+                                          class="admin-panel__button">
+                    <program-in-programming-language-creator link="{{ route('createProgramInProgrammingLanguage') }}"
+                                                  programming-language-id="{{ $programmingLanguage->id }}">
+                    </program-in-programming-language-creator>
+                </button-with-modal-window>
+            </admin-panel>
+        @endif
         <ol class="programming-language__programs">
             @foreach($programmingLanguage->programs as $program)
                 <li class="program-in-programming-language program-in-programming-language__content">

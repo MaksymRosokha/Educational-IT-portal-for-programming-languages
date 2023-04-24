@@ -55,10 +55,10 @@
                     <div class="program__main-info">
                         <img class="program__image"
                              src="/storage/images/programmingLanguages/programsInProgrammingLanguages/images/{{ $program->image }}"
-                             alt="">
+                             alt="Зображення програми {{ $program->name }}">
                         <h2 class="program__name">{{ $program->name }}</h2>
                     </div>
-                    <p class="program__description">{{ $program->description }}</p>
+                    <pre class="program__description">{!! $program->description !!}</pre>
                 </article>
             @endif
         </div>

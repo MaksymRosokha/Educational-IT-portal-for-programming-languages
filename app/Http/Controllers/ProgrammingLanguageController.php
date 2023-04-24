@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\admin\CreateProgrammingLanguageRequest;
 use App\Http\Requests\admin\DeleteProgrammingLanguageRequest;
 use App\Http\Requests\admin\UpdateProgrammingLanguageRequest;
-use App\Models\ProgramInProgrammingLanguage;
 use App\Models\ProgrammingLanguage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -33,29 +32,6 @@ class ProgrammingLanguageController extends Controller
             'programmingLanguage' => $programmingLanguage,
             'isAdmin' => $isAdmin,
         ]);
-    }
-
-    /**
-     * Shows program by ID
-     *
-     * @param int $programID program ID
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function showProgram($programID)
-    {
-        if (!intval($programID)) {
-            abort(404);
-        }
-
-        $program = ProgramInProgrammingLanguage::query()->findOrFail($programID);
-
-        return view(
-            'programmingLanguages.programsInProgrammingLanguage.program',
-            [
-                'program' => $program,
-                'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
-            ]
-        );
     }
 
     public function create(CreateProgrammingLanguageRequest $request)
