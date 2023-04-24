@@ -8,6 +8,18 @@
 
 @section('content')
     <article class="programming-language">
+        @if($isAdmin)
+            <admin-panel title="Мова програмування"
+                         class="programming-language__admin-panel admin-panel">
+                <button-with-modal-window button-text="Редагувати"
+                                          title="Редагування мови програмування"
+                                          class="admin-panel__button">
+                    <programming-language-updater link="{{ route('updateProgrammingLanguage') }}"
+                                                  programming-language="{{$programmingLanguage}}">
+                    </programming-language-updater>
+                </button-with-modal-window>
+            </admin-panel>
+        @endif
         <img class="programming-language__logo"
              src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
              alt="Логотип мови програмування {{ $programmingLanguage->name }}">

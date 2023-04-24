@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProgrammingLanguageRequest;
-use App\Models\Lesson;
+use App\Http\Requests\UpdateProgrammingLanguageRequest;
 use App\Models\ProgramInProgrammingLanguage;
 use App\Models\ProgrammingLanguage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * This class is controller for programming languages
@@ -24,7 +26,12 @@ class ProgrammingLanguageController extends Controller
     public function showOneLanguage($id)
     {
         $programmingLanguage = ProgrammingLanguage::query()->findOrFail($id);
-        return view('programmingLanguages.programmingLanguage', ['programmingLanguage' => $programmingLanguage]);
+        $isAdmin = Auth::check() && Auth::user()->admin === 1;
+
+        return view('programmingLanguages.programmingLanguage', [
+            'programmingLanguage' => $programmingLanguage,
+            'isAdmin' => $isAdmin,
+        ]);
     }
 
     /**
@@ -50,7 +57,8 @@ class ProgrammingLanguageController extends Controller
         );
     }
 
-    public function create(CreateProgrammingLanguageRequest $request){
+    public function create(CreateProgrammingLanguageRequest $request)
+    {
         $data = $request->validated();
         if ($request->hasFile('logo')) {
             $logo = $this->moveImageToStorage(
@@ -103,5 +111,33 @@ class ProgrammingLanguageController extends Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    public function update(UpdateProgrammingLanguageRequest $request)
+    {
+        $data = $request->validated();
+        $programmingLanguage = ProgrammingLanguage::query()->findOrFail($data['id']);
+        $logo = $programmingLanguage->logo;
+
+        if ($request->hasFile('logo')) {
+            if (Storage::exists('public/images/programmingLanguages/logos/' . $programmingLanguage->logo)
+                && $logo !== ProgrammingLanguageController::DEFAULT_IMAGE) {
+                Storage::delete('public/images/programmingLanguages/logos/' . $programmingLanguage->logo);
+            }
+            $logo = $this->moveImageToStorage(
+                imageData: $request->file('logo'),
+                pathToFolder: ProgrammingLanguageController::PATH_TO_IMAGES
+            );
+        } else {
+            if ($logo === '') {
+                $logo = ProgrammingLanguageController::DEFAULT_IMAGE;
+            }
+        }
+
+        $programmingLanguage->update([
+            'name' => $data['name'],
+            'logo' => $logo,
+            'description' => $data['description'],
+        ]);
     }
 }

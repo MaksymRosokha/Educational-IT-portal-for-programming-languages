@@ -55,6 +55,10 @@
     list-style-type: none;
     padding: 0;
   }
+
+  &__admin-panel {
+    width: 100%;
+  }
 }
 
 .program-in-programming-language {
@@ -113,5 +117,13 @@
     margin-left: 1%;
     font-size: 1.2em;
     word-break: break-word;
+  }
+}
+
+.admin-panel {
+
+
+  &__button {
+
   }
 }
