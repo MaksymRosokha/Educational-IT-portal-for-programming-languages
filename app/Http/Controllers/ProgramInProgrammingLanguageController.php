@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CreateProgramInProgrammingLanguageRequest;
+use App\Http\Requests\admin\DeleteProgramInProgrammingLanguageRequest;
 use App\Http\Requests\admin\UpdateProgramInProgrammingLanguageRequest;
 use App\Models\ProgramInProgrammingLanguage;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +84,20 @@ class ProgramInProgrammingLanguageController extends Controller
             'image' => $image,
             'description' => $data['description'],
         ]);
+    }
+
+    public function delete(DeleteProgramInProgrammingLanguageRequest $request)
+    {
+        $data = $request->validated();
+        $program = ProgramInProgrammingLanguage::query()->findOrFail($data['id']);
+
+        if (Storage::exists('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image)
+            && $program->image !== ProgramInProgrammingLanguageController::DEFAULT_IMAGE) {
+            Storage::delete('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image);
+        }
+        $program->delete();
+
+        return redirect()->route('main');
     }
 
     private function moveImageToStorage($imageData, string $pathToFolder): string

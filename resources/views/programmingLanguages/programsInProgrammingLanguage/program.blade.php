@@ -60,6 +60,13 @@
                                                                  program="{{ $program }}">
                         </program-in-programming-language-updater>
                     </button-with-modal-window>
+                    <button-with-modal-window button-text="Видалити"
+                                              title="Видалення програми для мови програмування"
+                                              class="admin-panel__button">
+                        <program-in-programming-language-deleter link="{{ route('deleteProgramInProgrammingLanguage') }}"
+                                                                 id="{{ $program->id }}">
+                        </program-in-programming-language-deleter>
+                    </button-with-modal-window>
                 </admin-panel>
                 <article class="program__content">
                     <div class="program__main-info">
