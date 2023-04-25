@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CreateLessonRequest;
+use App\Http\Requests\admin\UpdateLessonRequest;
 use App\Models\Lesson;
+use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
@@ -26,6 +28,7 @@ class LessonController extends Controller
             'currentLesson' => $currentLesson,
             'program' => $program,
             'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
+            'isAdmin' => Auth::check() && Auth::user()->admin === 1,
         ]);
     }
 
@@ -40,5 +43,16 @@ class LessonController extends Controller
         $program->title = $data['title'];
         $program->content = $data['content'];
         $program->save();
+    }
+
+    public function update(UpdateLessonRequest $request)
+    {
+        $data = $request->validated();
+        $program = Lesson::query()->findOrFail($data['id']);
+
+        $program->update([
+            'title' => $data['title'],
+            'content' => $data['content'],
+        ]);
     }
 }

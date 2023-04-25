@@ -9,6 +9,7 @@ import ProgramInProgrammingLanguageUpdater from "./ProgramInProgrammingLanguageU
 import ProgramInProgrammingLanguageDeleter from "./ProgramInProgrammingLanguageDeleter.vue"
 
 import LessonCreator from "./LessonCreator.vue";
+import LessonUpdater from "./LessonUpdater.vue";
 
 export default [
     AdminPanel,
@@ -19,4 +20,5 @@ export default [
     ProgramInProgrammingLanguageUpdater,
     ProgramInProgrammingLanguageDeleter,
     LessonCreator,
+    LessonUpdater,
 ]

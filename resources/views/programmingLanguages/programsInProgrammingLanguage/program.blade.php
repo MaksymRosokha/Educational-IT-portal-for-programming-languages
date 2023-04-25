@@ -51,30 +51,34 @@
             @if(isset($currentLesson) && !empty($currentLesson))
                 @include('lessons.lesson', ['lesson' => $currentLesson])
             @else
-                <admin-panel title="Програма для мови програмування"
-                             class="program__admin-panel admin-panel">
-                    <button-with-modal-window button-text="Редагувати"
-                                              title="Редагування програми для мови програмування"
-                                              class="admin-panel__button">
-                        <program-in-programming-language-updater link="{{ route('updateProgramInProgrammingLanguage') }}"
-                                                                 program="{{ $program }}">
-                        </program-in-programming-language-updater>
-                    </button-with-modal-window>
-                    <button-with-modal-window button-text="Створити урок"
-                                              title="Створення уроку"
-                                              class="admin-panel__button">
-                        <lesson-creator link="{{ route('createLesson') }}"
-                                        program-id="{{ $program->id }}">
-                        </lesson-creator>
-                    </button-with-modal-window>
-                    <button-with-modal-window button-text="Видалити"
-                                              title="Видалення програми для мови програмування"
-                                              class="admin-panel__button">
-                        <program-in-programming-language-deleter link="{{ route('deleteProgramInProgrammingLanguage') }}"
-                                                                 id="{{ $program->id }}">
-                        </program-in-programming-language-deleter>
-                    </button-with-modal-window>
-                </admin-panel>
+                @if($isAdmin)
+                    <admin-panel title="Програма для мови програмування"
+                                 class="program__admin-panel admin-panel">
+                        <button-with-modal-window button-text="Редагувати"
+                                                  title="Редагування програми для мови програмування"
+                                                  class="admin-panel__button">
+                            <program-in-programming-language-updater
+                                    link="{{ route('updateProgramInProgrammingLanguage') }}"
+                                    program="{{ $program }}">
+                            </program-in-programming-language-updater>
+                        </button-with-modal-window>
+                        <button-with-modal-window button-text="Створити урок"
+                                                  title="Створення уроку"
+                                                  class="admin-panel__button">
+                            <lesson-creator link="{{ route('createLesson') }}"
+                                            program-id="{{ $program->id }}">
+                            </lesson-creator>
+                        </button-with-modal-window>
+                        <button-with-modal-window button-text="Видалити"
+                                                  title="Видалення програми для мови програмування"
+                                                  class="admin-panel__button">
+                            <program-in-programming-language-deleter
+                                    link="{{ route('deleteProgramInProgrammingLanguage') }}"
+                                    id="{{ $program->id }}">
+                            </program-in-programming-language-deleter>
+                        </button-with-modal-window>
+                    </admin-panel>
+                @endif
                 <article class="program__content">
                     <div class="program__main-info">
                         <img class="program__image"
