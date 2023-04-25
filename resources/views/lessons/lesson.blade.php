@@ -14,8 +14,17 @@
                         lesson="{{ $lesson }}">
                 </lesson-updater>
             </button-with-modal-window>
+            <button-with-modal-window button-text="Видалити"
+                                      title="Видалення уроку"
+                                      class="admin-panel__button">
+                <lesson-deleter
+                        link="{{ route('deleteLesson') }}"
+                        id="{{ $lesson->id }}">
+                </lesson-deleter>
+            </button-with-modal-window>
         </admin-panel>
     @endif
+
     <h2 class="current-lesson__title">{{ $lesson->title }}</h2>
     <pre class="current-lesson__content">{!! $lesson->content !!}</pre>
 </article>

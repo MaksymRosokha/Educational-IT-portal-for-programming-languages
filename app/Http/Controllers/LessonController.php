@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CreateLessonRequest;
+use App\Http\Requests\admin\DeleteLessonRequest;
 use App\Http\Requests\admin\UpdateLessonRequest;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Auth;
@@ -54,5 +55,15 @@ class LessonController extends Controller
             'title' => $data['title'],
             'content' => $data['content'],
         ]);
+    }
+
+    public function delete(DeleteLessonRequest $request)
+    {
+        $data = $request->validated();
+        $program = Lesson::query()->findOrFail($data['id']);
+
+        $program->delete();
+
+        return redirect()->route('main');
     }
 }

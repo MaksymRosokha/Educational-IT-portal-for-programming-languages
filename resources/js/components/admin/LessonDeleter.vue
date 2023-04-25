@@ -1,23 +1,23 @@
 <template>
-  <div class="program-in-programming-language-deleter">
-    <form class="program-in-programming-language-deleter__form" @submit.prevent="sendData">
-      <p class="program-in-programming-language-deleter__label">
-        Ви впевнені, що бажаєте видалити програму?
+  <div class="lesson-deleter">
+    <form class="lesson-deleter__form" @submit.prevent="this.sendData">
+      <p class="lesson-deleter__label">
+        Ви впевнені, що бажаєте видалити урок?
       </p>
 
-      <input type="hidden" name="_token" :value="csrf">
-      <form-button class="program-in-programming-language-deleter__btn-submit">Видалити</form-button>
+      <input type="hidden" name="_token" :value="this.csrf">
+      <form-button class="lesson-deleter__btn-submit">Видалити</form-button>
     </form>
 
     <success-or-fail-modal-window
-        class="program-in-programming-language-deleter__result-window result-window"
-        v-if="result.isVisible"
+        class="lesson-deleter__result-window result-window"
+        v-if="this.result.isVisible"
         @close-modal-window="closeResultWindow"
         :text="this.result.text"
         :type="this.result.type">
-      <div class="result-window__errors" v-if="Object.keys(result.errors).length">
+      <div class="result-window__errors" v-if="Object.keys(this.result.errors).length">
         <ul class="result-window__list-of-errors">
-          <li class="result-window__error" v-for="(error, key) in result.errors" :key="key">
+          <li class="result-window__error" v-for="(error, key) in this.result.errors" :key="key">
             {{ error }}
           </li>
         </ul>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "ProgramInProgrammingLanguageDeleter",
+  name: "LessonDeleter",
   data() {
     return {
       _token: this.csrf,
@@ -59,14 +59,14 @@ export default {
 
       axios.post(this.link, formData)
           .then(response => {
-            this.result.text = 'Програму успішно видалено';
+            this.result.text = 'Урок успішно видалено';
             this.result.type = "success";
             this.result.isVisible = true;
           })
           .catch(error => {
             if (error.response && error.response.data && error.response.data.errors) {
               this.result.errors = error.response.data.errors;
-              this.result.text = 'Не вдалося видалити програму';
+              this.result.text = 'Не вдалося видалити укрок';
               this.result.type = "fail";
               this.result.isVisible = true;
             }
@@ -86,7 +86,7 @@ export default {
 
 <style scoped lang="scss">
 
-.program-in-programming-language-deleter {
+.lesson-deleter {
   max-height: 100%;
 
   &__form {
