@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\admin\CreateLessonRequest;
 use App\Models\Lesson;
 
 class LessonController extends Controller
@@ -26,5 +27,18 @@ class LessonController extends Controller
             'program' => $program,
             'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
         ]);
+    }
+
+    public function create(CreateLessonRequest $request)
+    {
+        $data = $request->validated();
+        $countOfLessons = Lesson::query()->where('program_id', '=', $data['programID'])->count();
+
+        $program = new Lesson();
+        $program->program_id = $data['programID'];
+        $program->sequence_number = $countOfLessons + 1;
+        $program->title = $data['title'];
+        $program->content = $data['content'];
+        $program->save();
     }
 }

@@ -8,6 +8,8 @@ import ProgramInProgrammingLanguageCreator from "./ProgramInProgrammingLanguageC
 import ProgramInProgrammingLanguageUpdater from "./ProgramInProgrammingLanguageUpdater.vue"
 import ProgramInProgrammingLanguageDeleter from "./ProgramInProgrammingLanguageDeleter.vue"
 
+import LessonCreator from "./LessonCreator.vue";
+
 export default [
     AdminPanel,
     ProgrammingLanguageCreator,
@@ -16,5 +18,5 @@ export default [
     ProgramInProgrammingLanguageCreator,
     ProgramInProgrammingLanguageUpdater,
     ProgramInProgrammingLanguageDeleter,
-
+    LessonCreator,
 ]

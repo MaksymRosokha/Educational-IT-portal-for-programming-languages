@@ -4,5 +4,5 @@
 
 <article class="current-lesson">
     <h2 class="current-lesson__title">{{ $lesson->title }}</h2>
-    <div class="current-lesson__content">{!! $lesson->content !!}</div>
+    <pre class="current-lesson__content">{!! $lesson->content !!}</pre>
 </article>

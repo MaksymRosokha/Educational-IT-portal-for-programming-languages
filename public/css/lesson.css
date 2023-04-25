@@ -27,5 +27,13 @@
   padding: 0.3vw;
 }
 .current-lesson__content {
+  display: block;
+  word-break: break-word;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  text-align: justify;
+  font-size: 1.3em;
+  white-space: pre-wrap;
   width: 100%;
+  padding: 5px;
 }

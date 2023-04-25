@@ -10,6 +10,7 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
+        'program_id',
         'sequence_number',
         'title',
         'content',

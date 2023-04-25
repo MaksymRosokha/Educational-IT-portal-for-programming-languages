@@ -60,6 +60,13 @@
                                                                  program="{{ $program }}">
                         </program-in-programming-language-updater>
                     </button-with-modal-window>
+                    <button-with-modal-window button-text="Створити урок"
+                                              title="Створення уроку"
+                                              class="admin-panel__button">
+                        <lesson-creator link="{{ route('createLesson') }}"
+                                        program-id="{{ $program->id }}">
+                        </lesson-creator>
+                    </button-with-modal-window>
                     <button-with-modal-window button-text="Видалити"
                                               title="Видалення програми для мови програмування"
                                               class="admin-panel__button">
