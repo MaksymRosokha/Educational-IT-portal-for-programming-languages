@@ -74,6 +74,10 @@ export default {
     link: {
       type: String,
       required: true,
+    },
+    id: {
+      type: Number,
+      required: true,
     }
   },
   methods: {
@@ -89,6 +93,7 @@ export default {
     sendData() {
       this.result.errors = {};
       const formData = new FormData();
+      formData.append('id', this.id);
       formData.append('old_password', this.oldPassword);
       formData.append('new_password', this.newPassword);
       formData.append('confirm_password', this.confirmPassword);

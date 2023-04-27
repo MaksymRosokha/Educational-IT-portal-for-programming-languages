@@ -161,7 +161,6 @@ export default {
       formData.append('avatar', this.avatar);
       formData.append('about_me', this.userData.about_me.trim());
       formData.append('_token', this.csrf);
-      console.log(this.userData.about_me.trim())
 
       axios.post(this.link, formData, {
         headers: {

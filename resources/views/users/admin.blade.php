@@ -82,8 +82,11 @@
                             Заблокувати
                         </button-with-modal-window>
                         <button-with-modal-window class="additional-abilities__ability"
-                                                  button-text="Видалити">
-                            <a href="{{ route('deleteUser', $user->id) }}">Видалити</a>
+                                                  button-text="Видалити"
+                                                  title="Видалення акаунту">
+                            <user-deleter link="{{ route('deleteUser') }}"
+                                          id="{{ $user->id }}">
+                            </user-deleter>
                         </button-with-modal-window>
                     </div>
                 </div>

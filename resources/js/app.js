@@ -8,7 +8,7 @@ import { createApp } from 'vue';
 import Editor from '@tinymce/tinymce-vue';
 import UIComponents from "./components/UI/index";
 import adminComponents from "./components/admin/index";
-import profileComponents from "./components/profile/index";
+import userComponents from "./components/user/index";
 // /**
 //  * Next, we will create a fresh Vue application instance. You may then begin
 //  * registering components with the application instance so they are ready
@@ -23,7 +23,7 @@ UIComponents.forEach(component => {
 adminComponents.forEach(component => {
     app.component(component.name, component);
 });
-profileComponents.forEach(component => {
+userComponents.forEach(component => {
     app.component(component.name, component);
 });
 /**

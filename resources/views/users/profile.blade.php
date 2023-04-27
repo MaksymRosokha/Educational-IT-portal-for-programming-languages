@@ -59,7 +59,8 @@
                                           button-text="Змінити пароль"
                                           title="Змінення паролю">
                     <password-changer class="password-changer"
-                                      link="{{ route('changePassword') }}">
+                                      link="{{ route('changePassword') }}"
+                                      id="{{ $user->id }}">
                     </password-changer>
                 </button-with-modal-window>
 
@@ -74,6 +75,10 @@
                 <button-with-modal-window class="additional-abilities__button"
                                           button-text="Видалити акаунт"
                                           title="Видалення акаунту">
+                    <user-deleter class="user-deleter"
+                                  link="{{ route('deleteUser') }}"
+                                  id="{{ $user->id }}">
+                    </user-deleter>
                 </button-with-modal-window>
             </div>
         @endif

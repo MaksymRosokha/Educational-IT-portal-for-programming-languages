@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('main');
 
-Route::get('/profile/{login}', [\App\Http\Controllers\UserController::class, 'showUserProfile'])->name('profile');
+Route::get('/user/{login}', [\App\Http\Controllers\UserController::class, 'showUserProfile'])->name('user');
 
 Route::get('/programming_language/{id}', [\App\Http\Controllers\ProgrammingLanguageController::class, 'showOneLanguage']
 )->name('programming_language');
@@ -42,29 +42,47 @@ Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
         ->name('logout');
 
-    Route::post('/profile/change_password', [\App\Http\Controllers\UserController::class, 'changeUserPassword'])
+    Route::post('/user/change_password', [\App\Http\Controllers\UserController::class, 'changeUserPassword'])
         ->name('changePassword');
-    Route::post('/profile/edit_profile', [\App\Http\Controllers\UserController::class, 'editProfile'])
+    Route::post('/user/edit_profile', [\App\Http\Controllers\UserController::class, 'editProfile'])
         ->name('editProfile');
-
+    Route::post('/delete_user', [\App\Http\Controllers\UserController::class, 'deleteUser'])
+        ->name('deleteUser');
 
     Route::middleware('admin')->prefix('admin')->group(function () {
         Route::get('/', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
-        Route::get('/delete_user/{id}', [\App\Http\Controllers\UserController::class, 'deleteUser'])->name(
-            'deleteUser'
-        );
 
+        Route::post(
+            '/create_programming_language',
+            [\App\Http\Controllers\ProgrammingLanguageController::class, 'create']
+        )->name('createProgrammingLanguage');
+        Route::post(
+            '/update_programming_language',
+            [\App\Http\Controllers\ProgrammingLanguageController::class, 'update']
+        )->name('updateProgrammingLanguage');
+        Route::post(
+            '/delete_programming_language',
+            [\App\Http\Controllers\ProgrammingLanguageController::class, 'delete']
+        )->name('deleteProgrammingLanguage');
 
-        Route::post('/create_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'create'])->name('createProgrammingLanguage');
-        Route::post('/update_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'update'])->name('updateProgrammingLanguage');
-        Route::post('/delete_programming_language', [\App\Http\Controllers\ProgrammingLanguageController::class, 'delete'])->name('deleteProgrammingLanguage');
+        Route::post(
+            '/create_program_in_programming_language',
+            [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'create']
+        )->name('createProgramInProgrammingLanguage');
+        Route::post(
+            '/update_program_in_programming_language',
+            [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'update']
+        )->name('updateProgramInProgrammingLanguage');
+        Route::post(
+            '/delete_program_in_programming_language',
+            [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'delete']
+        )->name('deleteProgramInProgrammingLanguage');
 
-        Route::post('/create_program_in_programming_language', [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'create'])->name('createProgramInProgrammingLanguage');
-        Route::post('/update_program_in_programming_language', [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'update'])->name('updateProgramInProgrammingLanguage');
-        Route::post('/delete_program_in_programming_language', [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'delete'])->name('deleteProgramInProgrammingLanguage');
-
-        Route::post('/create_lesson', [\App\Http\Controllers\LessonController::class, 'create'])->name('createLesson');
-        Route::post('/update_lesson', [\App\Http\Controllers\LessonController::class, 'update'])->name('updateLesson');
-        Route::post('/delete_lesson', [\App\Http\Controllers\LessonController::class, 'delete'])->name('deleteLesson');
+        Route::post('/create_lesson', [\App\Http\Controllers\LessonController::class, 'create'])
+            ->name('createLesson');
+        Route::post('/update_lesson', [\App\Http\Controllers\LessonController::class, 'update'])
+            ->name('updateLesson');
+        Route::post('/delete_lesson', [\App\Http\Controllers\LessonController::class, 'delete'])
+            ->name('deleteLesson');
     });
 });

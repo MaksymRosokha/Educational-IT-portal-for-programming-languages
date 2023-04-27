@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\profile\ChangePasswordRequest;
-use App\Http\Requests\profile\EditProfileRequest;
+use App\Http\Requests\user\ChangePasswordRequest;
+use App\Http\Requests\user\DeleteUserRequest;
+use App\Http\Requests\user\EditProfileRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,21 +47,15 @@ class UserController extends Controller
         return view('users.admin', ['users' => User::all()]);
     }
 
-    /**
-     * Deletes user from database and refreshes admin page
-     *
-     * @param int $id the ID of the user
-     * @return \Illuminate\Http\RedirectResponse redirect to admin panel
-     */
-    public function deleteUser(int $id)
-    {
-        User::query()->findOrFail($id)->delete();
-        return redirect()->route('admin');
-    }
-
     public function changeUserPassword(ChangePasswordRequest $changePasswordRequest)
     {
         $data = $changePasswordRequest->validated();
+        $user = User::query()->findOrFail($data['id']);
+
+        if (Auth::id() != $user->id) {
+            return response()->json(['errors' => ['access' => 'Ви не маєте доступу до редагування цього акаунту']],
+                403);
+        }
         $errors = [];
 
         if (!Hash::check($data['old_password'], auth('web')->user()->password)) {
@@ -72,7 +68,7 @@ class UserController extends Controller
             $errors[] = 'Новий пароль не може бути ідентичним старому.';
         }
         if ($errors === []) {
-            User::whereId(auth()->user()->id)->update([
+            $user->update([
                 'password' => Hash::make($data['new_password']),
             ]);
             return true;
@@ -85,6 +81,11 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $user = User::query()->findOrFail($data['id']);
+
+        if (Auth::id() != $user->id) {
+            return response()->json(['errors' => ['access' => 'Ви не маєте доступу до редагування цього акаунту']],
+                403);
+        }
 
         $email = $data['email'] ?? $user->email;
         $login = $data['login'] ?? $user->login;
@@ -110,8 +111,9 @@ class UserController extends Controller
             'name' => $name,
             'date_of_birthday' => $dateOfBirthday,
             'about_me' => $aboutMe,
-            'avatar' => $avatar
+            'avatar' => $avatar,
         ]);
+        return redirect()->back();
     }
 
     private function moveImageToStorage($imageData, string $pathToFolder): string
@@ -149,5 +151,24 @@ class UserController extends Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    public function deleteUser(DeleteUserRequest $request)
+    {
+        $data = $request->validated();
+        $id = $data['id'];
+
+        if (Auth::id() == $id || auth('web')->user()->admin === 1) {
+            $user = User::query()->findOrFail($id);
+            $avatar = $user->avatar;
+            if (Storage::exists('public/images/users/avatars/' . $avatar)
+                && $avatar !== UserController::DEFAULT_IMAGE) {
+                Storage::delete('public/images/users/avatars/' . $avatar);
+            }
+
+            $user->delete();
+            return true;
+        }
+        return response()->json(['errors' => ['access' => 'Ви не маєте доступу до видалення цього акаунту']], 403);
     }
 }

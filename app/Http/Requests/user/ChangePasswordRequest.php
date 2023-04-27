@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\profile;
+namespace App\Http\Requests\user;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +25,7 @@ class ChangePasswordRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => ['required', 'int'],
             'old_password' => ['required', 'string', 'min:6', 'max:100'],
             'new_password' => ['required', 'string', 'min:6', 'max:100'],
             'confirm_password' => ['required', 'string', 'min:6', 'max:100'],

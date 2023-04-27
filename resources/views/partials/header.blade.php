@@ -22,7 +22,7 @@
                 <a class="references__link" href="{{ route('signUp') }}">Реєстрація</a>
             @endguest
             @auth('web')
-                <a class="references__link" href="{{ route('profile', auth('web')->user()->login) }}">Профіль</a>
+                <a class="references__link" href="{{ route('user', auth('web')->user()->login) }}">Профіль</a>
                 @if(auth('web')->user()->admin === 1)
                     <a class="references__link" href="{{ route('admin') }}">Адмін-панель</a>
                 @endif
