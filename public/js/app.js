@@ -21363,83 +21363,6 @@ function genPropsAccessExp(name) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js":
-/*!*********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "password-changer",
-  data: function data() {
-    return {
-      old_password: '',
-      new_password: '',
-      confirm_password: '',
-      _token: this.csrf,
-      result: {
-        errors: {},
-        isVisible: false,
-        text: "",
-        type: ''
-      }
-    };
-  },
-  props: {
-    link: {
-      type: String,
-      required: true
-    }
-  },
-  methods: {
-    setOldPassword: function setOldPassword(value) {
-      this.old_password = value;
-    },
-    setNewPassword: function setNewPassword(value) {
-      this.new_password = value;
-    },
-    setConfirmPassword: function setConfirmPassword(value) {
-      this.confirm_password = value;
-    },
-    sendData: function sendData() {
-      var _this = this;
-      this.result.errors = {};
-      var formData = new FormData();
-      formData.append('old_password', this.old_password);
-      formData.append('new_password', this.new_password);
-      formData.append('confirm_password', this.confirm_password);
-      formData.append('_token', this.csrf);
-      axios.post(this.link, formData).then(function (response) {
-        _this.result.text = "Пароль успішно змінено.";
-        _this.result.type = "success";
-        _this.result.isVisible = true;
-      })["catch"](function (error) {
-        if (error.response && error.response.data && error.response.data.errors) {
-          _this.result.errors = error.response.data.errors;
-          _this.result.text = "Не вдалося змінити пароль.";
-          _this.result.type = "fail";
-          _this.result.isVisible = true;
-        }
-      });
-    },
-    closeResultWindow: function closeResultWindow() {
-      this.result.isVisible = false;
-    }
-  },
-  computed: {
-    csrf: function csrf() {
-      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=script&lang=js":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=script&lang=js ***!
@@ -22376,116 +22299,198 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "password-changer",
+  data: function data() {
+    return {
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+      _token: this.csrf,
+      result: {
+        errors: {},
+        isVisible: false,
+        text: "",
+        type: ''
+      }
+    };
+  },
+  props: {
+    link: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    setOldPassword: function setOldPassword(value) {
+      this.oldPassword = value;
+    },
+    setNewPassword: function setNewPassword(value) {
+      this.newPassword = value;
+    },
+    setConfirmPassword: function setConfirmPassword(value) {
+      this.confirmPassword = value;
+    },
+    sendData: function sendData() {
+      var _this = this;
+      this.result.errors = {};
+      var formData = new FormData();
+      formData.append('old_password', this.oldPassword);
+      formData.append('new_password', this.newPassword);
+      formData.append('confirm_password', this.confirmPassword);
+      formData.append('_token', this.csrf);
+      axios.post(this.link, formData).then(function (response) {
+        _this.result.text = "Пароль успішно змінено";
+        _this.result.type = "success";
+        _this.result.isVisible = true;
+      })["catch"](function (error) {
+        if (error.response && error.response.data && error.response.data.errors) {
+          _this.result.errors = error.response.data.errors;
+          _this.result.text = "Не вдалося змінити пароль";
+          _this.result.type = "fail";
+          _this.result.isVisible = true;
+        }
+      });
+    },
+    closeResultWindow: function closeResultWindow() {
+      this.result.isVisible = false;
+    }
+  },
+  computed: {
+    csrf: function csrf() {
+      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    }
+  }
+});
 
-var _withScopeId = function _withScopeId(n) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-b869e6e8"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
-};
-var _hoisted_1 = {
-  "class": "password-changer"
-};
-var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "password-changer__input",
-    "class": "password-changer__label"
-  }, "Введіть старий пароль:", -1 /* HOISTED */);
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "ProfileEditor",
+  data: function data() {
+    return {
+      userData: {},
+      avatar: '',
+      maxDate: '',
+      oldEmail: '',
+      oldLogin: '',
+      _token: this.csrf,
+      result: {
+        errors: {},
+        isVisible: false,
+        text: "",
+        type: ''
+      }
+    };
+  },
+  props: {
+    link: {
+      type: String,
+      required: true
+    },
+    user: {
+      type: String,
+      required: true
+    }
+  },
+  methods: {
+    setData: function setData() {
+      this.userData = JSON.parse(this.user);
+      this.oldEmail = this.userData.email;
+      this.oldLogin = this.userData.login;
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd;
+      }
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+      this.maxDate = yyyy + '-' + mm + '-' + dd;
+    },
+    setAvatar: function setAvatar(event) {
+      this.avatar = event.target.files[0];
+    },
+    setEmail: function setEmail(value) {
+      this.userData.email = value;
+    },
+    setLogin: function setLogin(value) {
+      this.userData.login = value;
+    },
+    setName: function setName(value) {
+      this.userData.name = value;
+    },
+    sendData: function sendData() {
+      var _this = this;
+      this.result.errors = {};
+      var formData = new FormData();
+      if (this.userData.email.trim() !== this.oldEmail) {
+        formData.append('email', this.userData.email.trim());
+      }
+      if (this.userData.login.trim() !== this.oldLogin) {
+        formData.append('login', this.userData.login.trim());
+      }
+      formData.append('id', this.userData.id);
+      formData.append('name', this.userData.name.trim());
+      formData.append('date_of_birthday', this.userData.date_of_birthday);
+      formData.append('avatar', this.avatar);
+      formData.append('about_me', this.userData.about_me.trim());
+      formData.append('_token', this.csrf);
+      console.log(this.userData.about_me.trim());
+      axios.post(this.link, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(function (response) {
+        _this.result.text = "Профіль успішно відредаговано";
+        _this.result.type = "success";
+        _this.result.isVisible = true;
+      })["catch"](function (error) {
+        if (error.response && error.response.data && error.response.data.errors) {
+          _this.result.errors = error.response.data.errors;
+          _this.result.text = "Не вдалося відредагувати профіль";
+          _this.result.type = "fail";
+          _this.result.isVisible = true;
+        }
+      });
+    },
+    closeResultWindow: function closeResultWindow() {
+      this.result.isVisible = false;
+    }
+  },
+  mounted: function mounted() {
+    this.setData();
+  },
+  computed: {
+    csrf: function csrf() {
+      return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    }
+  }
 });
-var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "password-changer__input",
-    "class": "password-changer__label"
-  }, "Введіть новий пароль:", -1 /* HOISTED */);
-});
-var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-    "for": "password-changer__input",
-    "class": "password-changer__label"
-  }, "Повторіть новий пароль:", -1 /* HOISTED */);
-});
-var _hoisted_5 = ["value"];
-var _hoisted_6 = {
-  key: 0,
-  "class": "result-window__errors"
-};
-var _hoisted_7 = {
-  "class": "result-window__list-of-errors"
-};
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_form_input_field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-input-field");
-  var _component_form_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-button");
-  var _component_success_or_fail_modal_window = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("success-or-fail-modal-window");
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    "class": "password-changer__form",
-    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.sendData && $options.sendData.apply($options, arguments);
-    }, ["prevent"]))
-  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
-    "class": "password-changer__input",
-    "name-of-input": "old_password",
-    "type-of-input": "password",
-    "placeholder-of-input": "Введіть старий пароль",
-    "is-required": true,
-    "min-length-of-input": "6",
-    "max-length-of-input": "100",
-    onData: this.setOldPassword
-  }, null, 8 /* PROPS */, ["onData"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
-    "class": "password-changer__input",
-    "name-of-input": "new_password",
-    "type-of-input": "password",
-    "placeholder-of-input": "Введіть новий пароль",
-    "is-required": true,
-    "min-length-of-input": "6",
-    "max-length-of-input": "100",
-    onData: this.setNewPassword
-  }, null, 8 /* PROPS */, ["onData"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
-    "class": "password-changer__input",
-    "name-of-input": "confirm_password",
-    "type-of-input": "password",
-    "placeholder-of-input": "Повторіть новий пароль",
-    "is-required": true,
-    "min-length-of-input": "6",
-    "max-length-of-input": "100",
-    onData: this.setConfirmPassword
-  }, null, 8 /* PROPS */, ["onData"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "hidden",
-    name: "_token",
-    value: $options.csrf
-  }, null, 8 /* PROPS */, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
-    "class": "password-changer__btn-change"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Змінити пароль")];
-    }),
-    _: 1 /* STABLE */
-  })], 32 /* HYDRATE_EVENTS */), $data.result.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_success_or_fail_modal_window, {
-    key: 0,
-    "class": "password-changer__result-window result-window",
-    onCloseModalWindow: $options.closeResultWindow,
-    text: this.result.text,
-    type: this.result.type
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [Object.keys($data.result.errors).length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.result.errors, function (error, key) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
-          "class": "result-window__error",
-          key: key
-        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1 /* TEXT */);
-      }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
-    }),
-    _: 1 /* STABLE */
-  }, 8 /* PROPS */, ["onCloseModalWindow", "text", "type"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
-}
 
 /***/ }),
 
@@ -23610,6 +23615,291 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-d2b573b4"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+var _hoisted_1 = {
+  "class": "password-changer"
+};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "old_password",
+    "class": "password-changer__label"
+  }, "Введіть старий пароль:", -1 /* HOISTED */);
+});
+var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "new_password",
+    "class": "password-changer__label"
+  }, "Введіть новий пароль:", -1 /* HOISTED */);
+});
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "confirm_password",
+    "class": "password-changer__label"
+  }, "Повторіть новий пароль:", -1 /* HOISTED */);
+});
+var _hoisted_5 = ["value"];
+var _hoisted_6 = {
+  key: 0,
+  "class": "result-window__errors"
+};
+var _hoisted_7 = {
+  "class": "result-window__list-of-errors"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+  var _component_form_input_field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-input-field");
+  var _component_form_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-button");
+  var _component_success_or_fail_modal_window = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("success-or-fail-modal-window");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    "class": "password-changer__form",
+    onSubmit: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return _this.sendData && _this.sendData.apply(_this, arguments);
+    }, ["prevent"]))
+  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "old_password",
+    "class": "password-changer__input",
+    "name-of-input": "old_password",
+    "type-of-input": "password",
+    "placeholder-of-input": "Введіть старий пароль",
+    "is-required": true,
+    "min-length-of-input": "6",
+    "max-length-of-input": "100",
+    onData: this.setOldPassword
+  }, null, 8 /* PROPS */, ["onData"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "new_password",
+    "class": "password-changer__input",
+    "name-of-input": "new_password",
+    "type-of-input": "password",
+    "placeholder-of-input": "Введіть новий пароль",
+    "is-required": true,
+    "min-length-of-input": "6",
+    "max-length-of-input": "100",
+    onData: this.setNewPassword
+  }, null, 8 /* PROPS */, ["onData"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "confirm_password",
+    "class": "password-changer__input",
+    "name-of-input": "confirm_password",
+    "type-of-input": "password",
+    "placeholder-of-input": "Повторіть новий пароль",
+    "is-required": true,
+    "min-length-of-input": "6",
+    "max-length-of-input": "100",
+    onData: this.setConfirmPassword
+  }, null, 8 /* PROPS */, ["onData"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "hidden",
+    name: "_token",
+    value: this.csrf
+  }, null, 8 /* PROPS */, _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
+    "class": "password-changer__btn-change"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Змінити пароль")];
+    }),
+    _: 1 /* STABLE */
+  })], 32 /* HYDRATE_EVENTS */), this.result.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_success_or_fail_modal_window, {
+    key: 0,
+    "class": "password-changer__result-window result-window",
+    onCloseModalWindow: $options.closeResultWindow,
+    text: this.result.text,
+    type: this.result.type
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [Object.keys(_this.result.errors).length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_this.result.errors, function (error, key) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+          "class": "result-window__error",
+          key: key
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1 /* TEXT */);
+      }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["onCloseModalWindow", "text", "type"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-c64e8596"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+var _hoisted_1 = {
+  "class": "profile-editor"
+};
+var _hoisted_2 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "email",
+    "class": "profile-editor__label"
+  }, "Введіть email:", -1 /* HOISTED */);
+});
+var _hoisted_3 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "login",
+    "class": "profile-editor__label"
+  }, "Введіть login:", -1 /* HOISTED */);
+});
+var _hoisted_4 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "for": "name",
+    "class": "profile-editor__label"
+  }, "Введіть ім'я:", -1 /* HOISTED */);
+});
+var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "class": "profile-editor__label",
+    "for": "date-of-birthday-field"
+  }, "Дата народження:", -1 /* HOISTED */);
+});
+var _hoisted_6 = ["max"];
+var _hoisted_7 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "class": "profile-editor__label",
+    "for": "avatar-field"
+  }, "Аватар:", -1 /* HOISTED */);
+});
+var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+    "class": "profile-editor__label",
+    "for": "about-me-field"
+  }, "Інформація про вас:", -1 /* HOISTED */);
+});
+var _hoisted_9 = ["value"];
+var _hoisted_10 = {
+  key: 0,
+  "class": "result-window__errors"
+};
+var _hoisted_11 = {
+  "class": "result-window__list-of-errors"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _this = this;
+  var _component_form_input_field = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-input-field");
+  var _component_form_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("form-button");
+  var _component_success_or_fail_modal_window = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("success-or-fail-modal-window");
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    "class": "profile-editor__form",
+    onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return _this.sendData && _this.sendData.apply(_this, arguments);
+    }, ["prevent"]))
+  }, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "email",
+    "class": "profile-editor__input",
+    "name-of-input": "email",
+    "type-of-input": "email",
+    "placeholder-of-input": "Введіть email",
+    "is-required": true,
+    "min-length-of-input": "3",
+    "max-length-of-input": "320",
+    "value-of-input": this.userData.email,
+    onData: this.setEmail
+  }, null, 8 /* PROPS */, ["value-of-input", "onData"]), _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "login",
+    "class": "profile-editor__input",
+    "name-of-input": "login",
+    "type-of-input": "text",
+    "placeholder-of-input": "Введіть login",
+    "is-required": true,
+    "min-length-of-input": "3",
+    "max-length-of-input": "50",
+    "value-of-input": this.userData.login,
+    onData: this.setLogin
+  }, null, 8 /* PROPS */, ["value-of-input", "onData"]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_input_field, {
+    id: "name",
+    "class": "profile-editor__input",
+    "name-of-input": "name",
+    "type-of-input": "text",
+    "placeholder-of-input": "Введіть ім'я",
+    "is-required": false,
+    "max-length-of-input": "200",
+    "value-of-input": this.userData.name,
+    onData: this.setName
+  }, null, 8 /* PROPS */, ["value-of-input", "onData"]), _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "date-of-birthday-field",
+    "class": "profile-editor__input profile-editor__input-date",
+    type: "date",
+    name: "date_of_birthday",
+    min: "1900-01-01",
+    max: this.maxDate,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return _this.userData.date_of_birthday = $event;
+    })
+  }, null, 8 /* PROPS */, _hoisted_6), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, this.userData.date_of_birthday]]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    id: "avatar-field",
+    "class": "profile-editor__input profile-editor__input-file",
+    ref: "imageData",
+    type: "file",
+    name: "avatar",
+    accept: "image/*",
+    onChange: _cache[1] || (_cache[1] = function () {
+      return _this.setAvatar && _this.setAvatar.apply(_this, arguments);
+    })
+  }, null, 544 /* HYDRATE_EVENTS, NEED_PATCH */), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
+    id: "about-me-field",
+    "class": "profile-editor__input profile-editor__input-textarea",
+    name: "about_me",
+    minlength: "10",
+    maxlength: "2000",
+    placeholder: "Напишіть інформацію про себе",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return _this.userData.about_me = $event;
+    })
+  }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, this.userData.about_me]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "hidden",
+    name: "_token",
+    value: $options.csrf
+  }, null, 8 /* PROPS */, _hoisted_9), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_form_button, {
+    "class": "profile-editor__btn-change"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Редагувати")];
+    }),
+    _: 1 /* STABLE */
+  })], 32 /* HYDRATE_EVENTS */), this.result.isVisible ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_success_or_fail_modal_window, {
+    key: 0,
+    "class": "profile-editor__result-window result-window",
+    onCloseModalWindow: $options.closeResultWindow,
+    text: this.result.text,
+    type: this.result.type
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [Object.keys(_this.result.errors).length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_this.result.errors, function (error, key) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
+          "class": "result-window__error",
+          key: key
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(error), 1 /* TEXT */);
+      }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1 /* STABLE */
+  }, 8 /* PROPS */, ["onCloseModalWindow", "text", "type"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -23623,7 +23913,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/main/ts/index.js");
 /* harmony import */ var _components_UI_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UI/index */ "./resources/js/components/UI/index.js");
 /* harmony import */ var _components_admin_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin/index */ "./resources/js/components/admin/index.js");
-/* harmony import */ var _components_PasswordChanger_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/PasswordChanger.vue */ "./resources/js/components/PasswordChanger.vue");
+/* harmony import */ var _components_profile_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/profile/index */ "./resources/js/components/profile/index.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -23649,7 +23939,9 @@ _components_UI_index__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(function (c
 _components_admin_index__WEBPACK_IMPORTED_MODULE_4__["default"].forEach(function (component) {
   app.component(component.name, component);
 });
-app.component('password-changer', _components_PasswordChanger_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
+_components_profile_index__WEBPACK_IMPORTED_MODULE_5__["default"].forEach(function (component) {
+  app.component(component.name, component);
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -23773,6 +24065,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_AdminPanel_vue__WEBPACK_IMPORTED_MODULE_0__["default"], _ProgrammingLanguageCreator_vue__WEBPACK_IMPORTED_MODULE_1__["default"], _ProgrammingLanguageUpdater_vue__WEBPACK_IMPORTED_MODULE_2__["default"], _ProgrammingLanguageDeleter_vue__WEBPACK_IMPORTED_MODULE_3__["default"], _ProgramInProgrammingLanguageCreator_vue__WEBPACK_IMPORTED_MODULE_4__["default"], _ProgramInProgrammingLanguageUpdater_vue__WEBPACK_IMPORTED_MODULE_5__["default"], _ProgramInProgrammingLanguageDeleter_vue__WEBPACK_IMPORTED_MODULE_6__["default"], _LessonCreator_vue__WEBPACK_IMPORTED_MODULE_7__["default"], _LessonUpdater_vue__WEBPACK_IMPORTED_MODULE_8__["default"], _LessonDeleter_vue__WEBPACK_IMPORTED_MODULE_9__["default"]]);
+
+/***/ }),
+
+/***/ "./resources/js/components/profile/index.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/profile/index.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _PasswordChanger_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasswordChanger.vue */ "./resources/js/components/profile/PasswordChanger.vue");
+/* harmony import */ var _ProfileEditor_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileEditor.vue */ "./resources/js/components/profile/ProfileEditor.vue");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_PasswordChanger_vue__WEBPACK_IMPORTED_MODULE_0__["default"], _ProfileEditor_vue__WEBPACK_IMPORTED_MODULE_1__["default"]]);
 
 /***/ }),
 
@@ -30967,30 +31278,6 @@ function isnan (val) {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".password-changer__form[data-v-b869e6e8] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.password-changer__label[data-v-b869e6e8] {\n  color: #1b2f57;\n  font-weight: 600;\n  font-size: 1.2em;\n}\n.password-changer__btn-change[data-v-b869e6e8] {\n  margin-top: 20px;\n}\n.result-window__error[data-v-b869e6e8] {\n  color: red;\n  font-weight: 600;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=style&index=0&id=24c31fb5&scoped=true&lang=scss":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=style&index=0&id=24c31fb5&scoped=true&lang=scss ***!
@@ -31351,6 +31638,54 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".programming-language-updater[data-v-1
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".password-changer__form[data-v-d2b573b4] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  flex-wrap: wrap;\n  width: 100%;\n}\n.password-changer__label[data-v-d2b573b4] {\n  color: #1b2f57;\n  font-weight: 600;\n  font-size: 1.2em;\n}\n.password-changer__btn-change[data-v-d2b573b4] {\n  margin-top: 20px;\n}\n.result-window__error[data-v-d2b573b4] {\n  color: red;\n  font-weight: 600;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".profile-editor[data-v-c64e8596] {\n  overflow-x: hidden;\n  overflow-y: auto;\n  max-height: 100%;\n}\n.profile-editor__form[data-v-c64e8596] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  flex-wrap: wrap;\n  width: 100%;\n  max-height: 100%;\n}\n.profile-editor__label[data-v-c64e8596] {\n  color: #1b2f57;\n  font-weight: 600;\n  font-size: 1.2em;\n}\n.profile-editor__btn-change[data-v-c64e8596] {\n  margin-top: 20px;\n}\n.result-window__error[data-v-c64e8596] {\n  color: red;\n  font-weight: 600;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -31703,36 +32038,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_b869e6e8_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_b869e6e8_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_b869e6e8_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -32186,6 +32491,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_d2b573b4_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_d2b573b4_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_d2b573b4_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_style_index_0_id_c64e8596_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_style_index_0_id_c64e8596_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_style_index_0_id_c64e8596_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -32484,37 +32849,6 @@ exports["default"] = (sfc, props) => {
     return target;
 };
 
-
-/***/ }),
-
-/***/ "./resources/js/components/PasswordChanger.vue":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/PasswordChanger.vue ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _PasswordChanger_vue_vue_type_template_id_b869e6e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true */ "./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true");
-/* harmony import */ var _PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=script&lang=js */ "./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js");
-/* harmony import */ var _PasswordChanger_vue_vue_type_style_index_0_id_b869e6e8_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss */ "./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss");
-/* harmony import */ var D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-
-
-const __exports__ = /*#__PURE__*/(0,D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PasswordChanger_vue_vue_type_template_id_b869e6e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-b869e6e8"],['__file',"resources/js/components/PasswordChanger.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -32983,19 +33317,65 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js":
-/*!*****************************************************************************!*\
-  !*** ./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js ***!
-  \*****************************************************************************/
+/***/ "./resources/js/components/profile/PasswordChanger.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/profile/PasswordChanger.vue ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=script&lang=js");
- 
+/* harmony import */ var _PasswordChanger_vue_vue_type_template_id_d2b573b4_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true */ "./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true");
+/* harmony import */ var _PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=script&lang=js */ "./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js");
+/* harmony import */ var _PasswordChanger_vue_vue_type_style_index_0_id_d2b573b4_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss */ "./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss");
+/* harmony import */ var D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PasswordChanger_vue_vue_type_template_id_d2b573b4_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-d2b573b4"],['__file',"resources/js/components/profile/PasswordChanger.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/components/profile/ProfileEditor.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/profile/ProfileEditor.vue ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ProfileEditor_vue_vue_type_template_id_c64e8596_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true */ "./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true");
+/* harmony import */ var _ProfileEditor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileEditor.vue?vue&type=script&lang=js */ "./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js");
+/* harmony import */ var _ProfileEditor_vue_vue_type_style_index_0_id_c64e8596_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss */ "./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss");
+/* harmony import */ var D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,D_Programs_OSPanel_domains_Educational_IT_portal_for_programming_languages_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_ProfileEditor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ProfileEditor_vue_vue_type_template_id_c64e8596_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-c64e8596"],['__file',"resources/js/components/profile/ProfileEditor.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -33239,19 +33619,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true":
-/*!***********************************************************************************************!*\
-  !*** ./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true ***!
-  \***********************************************************************************************/
+/***/ "./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_template_id_b869e6e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_template_id_b869e6e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=template&id=b869e6e8&scoped=true");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=script&lang=js");
+ 
 
+/***/ }),
+
+/***/ "./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileEditor.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=script&lang=js");
+ 
 
 /***/ }),
 
@@ -33495,15 +33891,34 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss ***!
-  \**************************************************************************************************************/
+/***/ "./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true ***!
+  \*******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_b869e6e8_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/PasswordChanger.vue?vue&type=style&index=0&id=b869e6e8&scoped=true&lang=scss");
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_template_id_d2b573b4_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_template_id_d2b573b4_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=template&id=d2b573b4&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_template_id_c64e8596_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_template_id_c64e8596_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=template&id=c64e8596&scoped=true");
 
 
 /***/ }),
@@ -33699,6 +34114,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProgrammingLanguageUpdater_vue_vue_type_style_index_0_id_13b0bb63_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProgrammingLanguageUpdater.vue?vue&type=style&index=0&id=13b0bb63&scoped=true&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/admin/ProgrammingLanguageUpdater.vue?vue&type=style&index=0&id=13b0bb63&scoped=true&lang=scss");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss ***!
+  \**********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PasswordChanger_vue_vue_type_style_index_0_id_d2b573b4_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/PasswordChanger.vue?vue&type=style&index=0&id=d2b573b4&scoped=true&lang=scss");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_24_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_24_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_24_use_3_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ProfileEditor_vue_vue_type_style_index_0_id_c64e8596_scoped_true_lang_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!../../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/profile/ProfileEditor.vue?vue&type=style&index=0&id=c64e8596&scoped=true&lang=scss");
 
 
 /***/ }),

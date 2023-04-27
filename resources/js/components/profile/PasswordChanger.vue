@@ -1,8 +1,9 @@
 <template>
   <div class="password-changer">
-    <form class="password-changer__form" @submit.prevent="sendData">
-      <label for="password-changer__input" class="password-changer__label">Введіть старий пароль:</label>
-      <form-input-field class="password-changer__input"
+    <form class="password-changer__form" @submit.prevent="this.sendData">
+      <label for="old_password" class="password-changer__label">Введіть старий пароль:</label>
+      <form-input-field id="old_password"
+                        class="password-changer__input"
                         name-of-input="old_password"
                         type-of-input="password"
                         placeholder-of-input="Введіть старий пароль"
@@ -10,8 +11,9 @@
                         min-length-of-input="6"
                         max-length-of-input="100"
                         @data="this.setOldPassword"/>
-      <label for="password-changer__input" class="password-changer__label">Введіть новий пароль:</label>
-      <form-input-field class="password-changer__input"
+      <label for="new_password" class="password-changer__label">Введіть новий пароль:</label>
+      <form-input-field id="new_password"
+                        class="password-changer__input"
                         name-of-input="new_password"
                         type-of-input="password"
                         placeholder-of-input="Введіть новий пароль"
@@ -19,8 +21,9 @@
                         min-length-of-input="6"
                         max-length-of-input="100"
                         @data="this.setNewPassword"/>
-      <label for="password-changer__input" class="password-changer__label">Повторіть новий пароль:</label>
-      <form-input-field class="password-changer__input"
+      <label for="confirm_password" class="password-changer__label">Повторіть новий пароль:</label>
+      <form-input-field id="confirm_password"
+                        class="password-changer__input"
                         name-of-input="confirm_password"
                         type-of-input="password"
                         placeholder-of-input="Повторіть новий пароль"
@@ -28,18 +31,18 @@
                         min-length-of-input="6"
                         max-length-of-input="100"
                         @data="this.setConfirmPassword"/>
-      <input type="hidden" name="_token" :value="csrf">
+      <input type="hidden" name="_token" :value="this.csrf">
       <form-button class="password-changer__btn-change">Змінити пароль</form-button>
     </form>
     <success-or-fail-modal-window
         class="password-changer__result-window result-window"
-        v-if="result.isVisible"
+        v-if="this.result.isVisible"
         @close-modal-window="closeResultWindow"
         :text="this.result.text"
         :type="this.result.type">
-      <div class="result-window__errors" v-if="Object.keys(result.errors).length">
+      <div class="result-window__errors" v-if="Object.keys(this.result.errors).length">
         <ul class="result-window__list-of-errors">
-          <li class="result-window__error" v-for="(error, key) in result.errors" :key="key">
+          <li class="result-window__error" v-for="(error, key) in this.result.errors" :key="key">
             {{ error }}
           </li>
         </ul>
@@ -55,9 +58,9 @@ export default {
 
   data() {
     return {
-      old_password: '',
-      new_password: '',
-      confirm_password: '',
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: '',
       _token: this.csrf,
       result: {
         errors: {},
@@ -75,32 +78,32 @@ export default {
   },
   methods: {
     setOldPassword(value) {
-      this.old_password = value;
+      this.oldPassword = value;
     },
     setNewPassword(value) {
-      this.new_password = value;
+      this.newPassword = value;
     },
     setConfirmPassword(value) {
-      this.confirm_password = value;
+      this.confirmPassword = value;
     },
     sendData() {
       this.result.errors = {};
       const formData = new FormData();
-      formData.append('old_password', this.old_password);
-      formData.append('new_password', this.new_password);
-      formData.append('confirm_password', this.confirm_password);
+      formData.append('old_password', this.oldPassword);
+      formData.append('new_password', this.newPassword);
+      formData.append('confirm_password', this.confirmPassword);
       formData.append('_token', this.csrf);
 
       axios.post(this.link, formData)
           .then(response => {
-            this.result.text = "Пароль успішно змінено.";
+            this.result.text = "Пароль успішно змінено";
             this.result.type = "success";
             this.result.isVisible = true;
           })
           .catch(error => {
             if (error.response && error.response.data && error.response.data.errors) {
               this.result.errors = error.response.data.errors;
-              this.result.text = "Не вдалося змінити пароль.";
+              this.result.text = "Не вдалося змінити пароль";
               this.result.type = "fail";
               this.result.isVisible = true;
             }

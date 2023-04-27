@@ -57,7 +57,7 @@
             <div class="profile__additional-abilities additional-abilities">
                 <button-with-modal-window class="additional-abilities__button"
                                           button-text="Змінити пароль"
-                title="Змінення паролю">
+                                          title="Змінення паролю">
                     <password-changer class="password-changer"
                                       link="{{ route('changePassword') }}">
                     </password-changer>
@@ -66,6 +66,10 @@
                 <button-with-modal-window class="additional-abilities__button"
                                           button-text="Редагувати профіль"
                                           title="Редагуваня профілю">
+                    <profile-editor class="profile-editor"
+                                    link="{{ route('editProfile') }}"
+                                    user="{{ $user }}">
+                    </profile-editor>
                 </button-with-modal-window>
                 <button-with-modal-window class="additional-abilities__button"
                                           button-text="Видалити акаунт"

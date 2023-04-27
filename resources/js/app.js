@@ -8,7 +8,7 @@ import { createApp } from 'vue';
 import Editor from '@tinymce/tinymce-vue';
 import UIComponents from "./components/UI/index";
 import adminComponents from "./components/admin/index";
-import PasswordChanger from "./components/PasswordChanger.vue";
+import profileComponents from "./components/profile/index";
 // /**
 //  * Next, we will create a fresh Vue application instance. You may then begin
 //  * registering components with the application instance so they are ready
@@ -23,7 +23,9 @@ UIComponents.forEach(component => {
 adminComponents.forEach(component => {
     app.component(component.name, component);
 });
-app.component('password-changer', PasswordChanger);
+profileComponents.forEach(component => {
+    app.component(component.name, component);
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

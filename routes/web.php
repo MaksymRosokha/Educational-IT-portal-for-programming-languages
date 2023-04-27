@@ -41,8 +41,11 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logoutUser'])
         ->name('logout');
+
     Route::post('/profile/change_password', [\App\Http\Controllers\UserController::class, 'changeUserPassword'])
         ->name('changePassword');
+    Route::post('/profile/edit_profile', [\App\Http\Controllers\UserController::class, 'editProfile'])
+        ->name('editProfile');
 
 
     Route::middleware('admin')->prefix('admin')->group(function () {
