@@ -50,7 +50,8 @@ Route::middleware('auth')->group(function () {
         ->name('deleteUser');
 
     Route::middleware('admin')->prefix('admin')->group(function () {
-        Route::get('/', [\App\Http\Controllers\UserController::class, 'showAdminPanel'])->name('admin');
+        Route::get('/', [\App\Http\Controllers\AdminController::class, 'showAdminPanel'])->name('admin');
+        Route::post('/change_role', [\App\Http\Controllers\AdminController::class, 'changeRole'])->name('changeRole');
 
         Route::post(
             '/create_programming_language',

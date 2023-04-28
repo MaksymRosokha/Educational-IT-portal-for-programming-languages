@@ -24043,69 +24043,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/main/ts/index.js");
-/* harmony import */ var _components_UI_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UI/index */ "./resources/js/components/UI/index.js");
-/* harmony import */ var _components_admin_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin/index */ "./resources/js/components/admin/index.js");
-/* harmony import */ var _components_user_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/user/index */ "./resources/js/components/user/index.js");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-
-
-
-
-
-// /**
-//  * Next, we will create a fresh Vue application instance. You may then begin
-//  * registering components with the application instance so they are ready
-//  * to use in your application's views. An example is included for you.
-//  */
-//
-var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({});
-app.component('editor', _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
-_components_UI_index__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(function (component) {
-  app.component(component.name, component);
-});
-_components_admin_index__WEBPACK_IMPORTED_MODULE_4__["default"].forEach(function (component) {
-  app.component(component.name, component);
-});
-_components_user_index__WEBPACK_IMPORTED_MODULE_5__["default"].forEach(function (component) {
-  app.component(component.name, component);
-});
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
-//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
-// });
-
-/**
- * Finally, we will attach the application instance to a HTML element with
- * an "id" attribute of "app". This element is included with the "auth"
- * scaffolding. Otherwise, you will need to add an element yourself.
- */
-app.mount('#app');
-
-/***/ }),
-
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -32041,175 +31978,6 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ "./resources/scss/lesson.scss":
-/*!************************************!*\
-  !*** ./resources/scss/lesson.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/main.scss":
-/*!**********************************!*\
-  !*** ./resources/scss/main.scss ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/profile.scss":
-/*!*************************************!*\
-  !*** ./resources/scss/profile.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/program.scss":
-/*!*************************************!*\
-  !*** ./resources/scss/program.scss ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/programming_language.scss":
-/*!**************************************************!*\
-  !*** ./resources/scss/programming_language.scss ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/signIn.scss":
-/*!************************************!*\
-  !*** ./resources/scss/signIn.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/signUp.scss":
-/*!************************************!*\
-  !*** ./resources/scss/signUp.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/helpers.css":
-/*!***********************************!*\
-  !*** ./resources/css/helpers.css ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/reboot.css":
-/*!**********************************!*\
-  !*** ./resources/css/reboot.css ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/admin.scss":
-/*!***********************************!*\
-  !*** ./resources/scss/admin.scss ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/app.scss":
-/*!*********************************!*\
-  !*** ./resources/scss/app.scss ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/footer.scss":
-/*!************************************!*\
-  !*** ./resources/scss/footer.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/header.scss":
-/*!************************************!*\
-  !*** ./resources/scss/header.scss ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=style&index=0&id=24c31fb5&scoped=true&lang=scss":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-24.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-24.use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-24.use[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/UI/ButtonWithModalWindow.vue?vue&type=style&index=0&id=24c31fb5&scoped=true&lang=scss ***!
@@ -38739,42 +38507,7 @@ const toJSONObject = (obj) => {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -38827,97 +38560,73 @@ const toJSONObject = (obj) => {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/header": 0,
-/******/ 			"css/footer": 0,
-/******/ 			"css/app": 0,
-/******/ 			"css/admin": 0,
-/******/ 			"css/reboot": 0,
-/******/ 			"css/helpers": 0,
-/******/ 			"css/signUp": 0,
-/******/ 			"css/signIn": 0,
-/******/ 			"css/programming_language": 0,
-/******/ 			"css/program": 0,
-/******/ 			"css/profile": 0,
-/******/ 			"css/main": 0,
-/******/ 			"css/lesson": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkeducational_it_portal_for_programming_languages"] = self["webpackChunkeducational_it_portal_for_programming_languages"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/admin.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/footer.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/header.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/lesson.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/main.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/profile.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/program.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/programming_language.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/signIn.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/scss/signUp.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/css/helpers.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/header","css/footer","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson"], () => (__webpack_require__("./resources/css/reboot.css")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tinymce/tinymce-vue */ "./node_modules/@tinymce/tinymce-vue/lib/es2015/main/ts/index.js");
+/* harmony import */ var _components_UI_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/UI/index */ "./resources/js/components/UI/index.js");
+/* harmony import */ var _components_admin_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin/index */ "./resources/js/components/admin/index.js");
+/* harmony import */ var _components_user_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/user/index */ "./resources/js/components/user/index.js");
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+
+
+
+
+
+// /**
+//  * Next, we will create a fresh Vue application instance. You may then begin
+//  * registering components with the application instance so they are ready
+//  * to use in your application's views. An example is included for you.
+//  */
+//
+var app = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({});
+app.component('editor', _tinymce_tinymce_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+_components_UI_index__WEBPACK_IMPORTED_MODULE_3__["default"].forEach(function (component) {
+  app.component(component.name, component);
+});
+_components_admin_index__WEBPACK_IMPORTED_MODULE_4__["default"].forEach(function (component) {
+  app.component(component.name, component);
+});
+_components_user_index__WEBPACK_IMPORTED_MODULE_5__["default"].forEach(function (component) {
+  app.component(component.name, component);
+});
+/**
+ * The following block of code may be used to automatically register your
+ * Vue components. It will recursively scan this directory for the Vue
+ * components and automatically register them with their "basename".
+ *
+ * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+ */
+
+// Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
+//     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
+// });
+
+/**
+ * Finally, we will attach the application instance to a HTML element with
+ * an "id" attribute of "app". This element is included with the "auth"
+ * scaffolding. Otherwise, you will need to add an element yourself.
+ */
+app.mount('#app');
+})();
+
 /******/ })()
 ;

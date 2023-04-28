@@ -37,16 +37,6 @@ class UserController extends Controller
         return view('users.profile', ['user' => $user, 'isOwnProfile' => $isOwnProfile]);
     }
 
-    /**
-     * Shows admin panel
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function showAdminPanel()
-    {
-        return view('users.admin', ['users' => User::all()]);
-    }
-
     public function changeUserPassword(ChangePasswordRequest $changePasswordRequest)
     {
         $data = $changePasswordRequest->validated();

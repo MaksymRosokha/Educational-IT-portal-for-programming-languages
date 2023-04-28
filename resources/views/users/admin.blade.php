@@ -3,7 +3,11 @@
 @section('title', 'Адмін-панель')
 
 @section('styles')
-    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/admin.js') }}" defer></script>
 @endsection
 
 @section('content')
@@ -20,7 +24,7 @@
                 <div class="users__user user">
                     <div class="user__avatar avatar">
                         <img class="avatar__image"
-                             src="/storage/images/users/avatars/{{ $user->avatar }}"
+                             src="{{ asset('storage/images/users/avatars/' . $user->avatar) }}"
                              alt="Аватар користувача {{ $user->login }}">
                     </div>
                     <table class="user__text-info">
@@ -71,15 +75,17 @@
                     <div class="user__additional-abilities additional-abilities">
                         <div class="additional-abilities__ability role">
                             <label class="role__name">Роль:</label>
-                            <select class="role__selector" name="role">
-                                <option class="role__point">Користувач</option>
-                                <option class="role__point" @if($user->admin === 1) selected @endif>Адміністратор
+                            <select id="{{ $user->id }}-role" class="role__selector" name="role">
+                                <option class="role__point" value="user">
+                                    Користувач
+                                </option>
+                                <option class="role__point" value="admin" @if($user->admin === 1) selected @endif>
+                                    Адміністратор
                                 </option>
                             </select>
                         </div>
                         <button-with-modal-window class="additional-abilities__ability"
                                                   button-text="Заблокувати">
-                            Заблокувати
                         </button-with-modal-window>
                         <button-with-modal-window class="additional-abilities__ability"
                                                   button-text="Видалити"
