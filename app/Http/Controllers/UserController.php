@@ -89,9 +89,9 @@ class UserController extends Controller
 
         $email = $data['email'] ?? $user->email;
         $login = $data['login'] ?? $user->login;
-        $name = $data['name'] ?? $user->name;
-        $dateOfBirthday = $data['date_of_birthday'] ?? $user->date_of_birthday;
-        $aboutMe = $data['about_me'] ?? $user->about_me;
+        $name = $data['name'] ?? '';
+        $dateOfBirthday = $data['date_of_birthday'] ?? null;
+        $aboutMe = $data['about_me'] ?? '';
 
         $avatar = $user->avatar;
         if ($request->hasFile('avatar')) {

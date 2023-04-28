@@ -23933,7 +23933,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "about-me-field",
     "class": "profile-editor__input profile-editor__input-textarea",
     name: "about_me",
-    minlength: "10",
     maxlength: "2000",
     placeholder: "Напишіть інформацію про себе",
     "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {

@@ -58,7 +58,6 @@
       <textarea id="about-me-field"
                 class="profile-editor__input profile-editor__input-textarea"
                 name="about_me"
-                minlength="10"
                 maxlength="2000"
                 placeholder="Напишіть інформацію про себе"
                 v-model="this.userData.about_me"></textarea>

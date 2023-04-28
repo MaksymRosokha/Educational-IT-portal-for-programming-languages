@@ -34,7 +34,7 @@ class RegisterRequest extends FormRequest
                 'max:50',
             ],
             'password' => ['required', 'string', 'min:6', 'max:100'],
-            'name' => ['nullable', 'string', 'min:2', 'max:200'],
+            'name' => ['nullable', 'string', 'max:200'],
             'date_of_birthday' => [
                 'nullable',
                 'date',
@@ -42,7 +42,7 @@ class RegisterRequest extends FormRequest
                 'before:' . date('m/d/Y', strtotime('+1 day', strtotime(date('m/d/Y')))),
             ],
             'avatar' => ['nullable', 'image', 'max:10240'],
-            'about_me' => ['nullable', 'string', 'min:10', 'max:2000'],
+            'about_me' => ['nullable', 'string', 'max:2000'],
         ];
     }
 }
