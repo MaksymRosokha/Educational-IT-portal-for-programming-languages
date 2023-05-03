@@ -117,6 +117,9 @@ export default {
       this.userData = JSON.parse(this.user);
       this.oldEmail = this.userData.email;
       this.oldLogin = this.userData.login;
+      this.userData.name = (this.userData.name !== null) ? this.userData.name : '';
+      this.userData.about_me = (this.userData.about_me !== null) ? this.userData.about_me : '';
+      this.userData.date_of_birthday = (this.userData.date_of_birthday !== null) ? this.userData.date_of_birthday : '';
 
       let today = new Date();
       let dd = today.getDate();
@@ -131,7 +134,7 @@ export default {
       }
       this.maxDate = yyyy + '-' + mm + '-' + dd;
     },
-    setAvatar(event){
+    setAvatar(event) {
       this.avatar = event.target.files[0];
     },
     setEmail(value) {
@@ -147,10 +150,10 @@ export default {
       this.result.errors = {};
       const formData = new FormData();
 
-      if(this.userData.email.trim() !== this.oldEmail){
+      if (this.userData.email.trim() !== this.oldEmail) {
         formData.append('email', this.userData.email.trim());
       }
-      if(this.userData.login.trim() !== this.oldLogin){
+      if (this.userData.login.trim() !== this.oldLogin) {
         formData.append('login', this.userData.login.trim());
       }
 

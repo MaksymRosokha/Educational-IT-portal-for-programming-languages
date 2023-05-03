@@ -85,8 +85,21 @@
                             </select>
                         </div>
                         <button-with-modal-window class="additional-abilities__ability"
-                                                  button-text="Заблокувати">
+                                                  button-text="Заблокувати"
+                                                  title="Блокування користувача">
+                            <user-blocker link="{{ route('blockUser') }}"
+                                          id="{{ $user->id }}">
+                            </user-blocker>
                         </button-with-modal-window>
+                        @if($user->blocked_until !== null)
+                            <button-with-modal-window class="additional-abilities__ability"
+                                                      button-text="Розблокувати"
+                                                      title="Розблокування користувача">
+                                <user-unlocker link="{{ route('unlockUser') }}"
+                                               id="{{ $user->id }}">
+                                </user-unlocker>
+                            </button-with-modal-window>
+                        @endif
                         <button-with-modal-window class="additional-abilities__ability"
                                                   button-text="Видалити"
                                                   title="Видалення акаунту">

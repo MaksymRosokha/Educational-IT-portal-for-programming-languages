@@ -3,7 +3,7 @@
 @section('title', 'Навчальний IT-портал для мов програмування')
 
 @section('styles')
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
                        href="{{ route('programming_language', $programmingLanguage->id) }}"
                        title="{{ $programmingLanguage->name }}">
                         <img class="programming-language__logo"
-                             src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
+                             src="{{ asset('storage/images/programmingLanguages/logos/' . $programmingLanguage->logo) }}"
                              alt="Логотип мови програмування {{ $programmingLanguage->name }}">
                         <h3 class="programming-language__name">
                             {{ $programmingLanguage->name }}

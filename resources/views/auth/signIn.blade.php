@@ -3,7 +3,7 @@
 @section('title', 'Вхід')
 
 @section('styles')
-    <link rel="stylesheet" href="/css/signIn.css">
+    <link rel="stylesheet" href="{{ asset('css/signIn.css') }}">
 @endsection
 
 @section('content')

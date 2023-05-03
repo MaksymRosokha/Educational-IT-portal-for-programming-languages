@@ -1,5 +1,5 @@
 @section('styles')
-    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="{{ asset('css/lesson.css') }}">
 @endsection
 
 <article class="current-lesson">

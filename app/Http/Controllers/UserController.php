@@ -85,7 +85,7 @@ class UserController extends Controller
 
         $avatar = $user->avatar;
         if ($request->hasFile('avatar')) {
-            if (Storage::exists('public/images/users/avatars/' . $avatar)
+            if (asset('images/users/avatars/' . $avatar)
                 && $avatar !== UserController::DEFAULT_IMAGE) {
                 Storage::delete('public/images/users/avatars/' . $avatar);
             }
@@ -151,7 +151,7 @@ class UserController extends Controller
         if (Auth::id() == $id || auth('web')->user()->admin === 1) {
             $user = User::query()->findOrFail($id);
             $avatar = $user->avatar;
-            if (Storage::exists('public/images/users/avatars/' . $avatar)
+            if (asset('images/users/avatars/' . $avatar)
                 && $avatar !== UserController::DEFAULT_IMAGE) {
                 Storage::delete('public/images/users/avatars/' . $avatar);
             }
@@ -160,5 +160,14 @@ class UserController extends Controller
             return true;
         }
         return response()->json(['errors' => ['access' => 'Ви не маєте доступу до видалення цього акаунту']], 403);
+    }
+
+    public function showBlockedUserPage(){
+        $user = Auth::user();
+        Auth::logout();
+
+        return view('users.blockedUser', [
+            'user' => $user
+        ]);
     }
 }

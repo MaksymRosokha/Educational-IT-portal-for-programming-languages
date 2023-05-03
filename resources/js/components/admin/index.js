@@ -12,6 +12,9 @@ import LessonCreator from "./LessonCreator.vue";
 import LessonUpdater from "./LessonUpdater.vue";
 import LessonDeleter from "./LessonDeleter.vue";
 
+import UserBlocker from "./UserBlocker.vue";
+import UserUnlocker from "./UserUnlocker.vue";
+
 export default [
     AdminPanel,
     ProgrammingLanguageCreator,
@@ -23,4 +26,6 @@ export default [
     LessonCreator,
     LessonUpdater,
     LessonDeleter,
+    UserBlocker,
+    UserUnlocker,
 ]

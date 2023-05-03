@@ -3,7 +3,7 @@
 @section('title', $programmingLanguage->name)
 
 @section('styles')
-    <link rel="stylesheet" href="/css/programming_language.css">
+    <link rel="stylesheet" href="{{ asset('css/programming_language.css') }}">
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
             </admin-panel>
         @endif
         <img class="programming-language__logo"
-             src="/storage/images/programmingLanguages/logos/{{ $programmingLanguage->logo }}"
+             src="{{ asset('storage/images/programmingLanguages/logos/' . $programmingLanguage->logo) }}"
              alt="Логотип мови програмування {{ $programmingLanguage->name }}">
         <h2 class="programming-language__name">{{ $programmingLanguage->name }}</h2>
         <pre class="programming-language__description">{!! $programmingLanguage->description !!}</pre>
@@ -39,7 +39,7 @@
                                           title="Створення програми для мови програмування"
                                           class="admin-panel__button">
                     <program-in-programming-language-creator link="{{ route('createProgramInProgrammingLanguage') }}"
-                                                  programming-language-id="{{ $programmingLanguage->id }}">
+                                                             programming-language-id="{{ $programmingLanguage->id }}">
                     </program-in-programming-language-creator>
                 </button-with-modal-window>
             </admin-panel>
@@ -51,7 +51,7 @@
                        href="{{ route('programInProgrammingLanguage', ['programID' => $program->id]) }}"
                        title="{{ $program->name }}">
                         <img class="program-in-programming-language__image"
-                             src="/storage/images/programmingLanguages/programsInProgrammingLanguages/images/{{ $program->image }}"
+                             src="{{ asset('storage/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image) }}"
                              alt="Логотип програми {{ $program->name }}">
                         <h4 class="program-in-programming-language__name">
                             {{ $program->name }}

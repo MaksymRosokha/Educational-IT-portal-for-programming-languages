@@ -24,40 +24,41 @@
 
     <link rel="canonical" href="{{ route('main') }}"/>
 
-    <meta property="og:title" content="Навчальний IT-портал для мов програмування — @yield('title')">
+    <meta property="og:title" content="@yield('title')  — Навчальний IT-портал для мов програмування">
     <meta property="og:local" content="uk_UA">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ route('main') }}">
-    <meta property="og:image" content="/storage/images/icon.png">
+    <meta property="og:image" content="{{ asset('storage/images/icon.png') }}">
     <meta property="og:site_name" content="Навчальний IT-портал для мов програмування">
     <meta property="og:description"
           content="Навчальний IT-портал для мов програмування — це онлайн-ресурс, який надає безкоштовну та
           зручну платформу для вивчення різних мов програмування.">
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Навчальний IT-портал для мов програмування — @yield('title')">
+    <meta name="twitter:title" content="@yield('title')  — Навчальний IT-портал для мов програмування">
     <meta name="twitter:description" content="Навчальний IT-портал для мов програмування — це онлайн-ресурс, який надає безкоштовну та
           зручну платформу для вивчення різних мов програмування.">
-    <meta name="twitter:image" content="/storage/images/icon.png">
+    <meta name="twitter:image" content="{{ asset('storage/images/icon.png') }}">
 
-    <meta itemprop="name" content="Навчальний IT-портал для мов програмування — @yield('title')">
+    <meta itemprop="name" content="@yield('title') — Навчальний IT-портал для мов програмування">
     <meta itemprop="description" content="Навчальний IT-портал для мов програмування — це онлайн-ресурс, який надає безкоштовну та
           зручну платформу для вивчення різних мов програмування.">
-    <meta itemprop="image" content="/storage/images/icon.png">
+    <meta itemprop="image" content="{{ asset('storage/images/icon.png') }}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    @yield('meta_tags')
 
-    <title>Навчальний IT-портал для мов програмування — @yield('title')</title>
-    <link rel="icon" href="/storage/images/icon.png" type="image/icon">
+    <title>@yield('title') — Навчальний IT-портал для мов програмування</title>
+    <link rel="icon" href="{{ asset('storage/images/icon.png') }}" type="image/icon">
 
-    <link rel="stylesheet" href="/css/reboot.css">
-    <link rel="stylesheet" href="/css/helpers.css">
-    <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="{{ asset('css/reboot.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/helpers.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     @yield('styles')
 
-    <script src="/js/app.js" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @yield('scripts')
 </head>
 <body>

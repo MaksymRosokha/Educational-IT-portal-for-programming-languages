@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\admin\BlockUserRequest;
+use App\Http\Requests\admin\UnlockUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -48,5 +50,25 @@ class AdminController extends Controller
             'admin' => $admin,
         ]);
         return response()->json(['success' => $data]);
+    }
+
+    public function blockUser(BlockUserRequest $request)
+    {
+        $data = $request->validated();
+        $user = User::query()->findOrFail($data['id']);
+
+        $user->update([
+           'blocked_until' => $data['dateTime'] . ':00',
+        ]);
+    }
+
+    public function unlockUser(UnlockUserRequest $request)
+    {
+        $data = $request->validated();
+        $user = User::query()->findOrFail($data['id']);
+
+        $user->update([
+            'blocked_until' => null,
+        ]);
     }
 }

@@ -3,8 +3,8 @@
     "/js/app.js": "/js/app.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/hamburgerMenuForProgram.js": "/js/hamburgerMenuForProgram.js",
-    "/css/header.css": "/css/header.css",
     "/css/footer.css": "/css/footer.css",
+    "/css/blocked_user.css": "/css/blocked_user.css",
     "/css/app.css": "/css/app.css",
     "/css/admin.css": "/css/admin.css",
     "/css/reboot.css": "/css/reboot.css",
@@ -15,5 +15,6 @@
     "/css/program.css": "/css/program.css",
     "/css/profile.css": "/css/profile.css",
     "/css/main.css": "/css/main.css",
-    "/css/lesson.css": "/css/lesson.css"
+    "/css/lesson.css": "/css/lesson.css",
+    "/css/header.css": "/css/header.css"
 }

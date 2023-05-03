@@ -3,7 +3,7 @@
 @section('title', $user->login)
 
 @section('styles')
-    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
         </div>
         <div class="profile__wrapper">
             <img class="profile__avatar"
-                 src="/storage/images/users/avatars/{{ $user->avatar }}"
+                 src="{{ asset('storage/images/users/avatars/' . $user->avatar) }}"
                  alt="Аватар користувача {{ $user->login }}">
             <table class="profile__info-wrapper">
                 <tr class="profile__info-block">

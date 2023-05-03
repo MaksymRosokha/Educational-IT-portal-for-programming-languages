@@ -10,9 +10,9 @@ Array.from(roleSelectors).forEach(function (element) {
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                alert('Роль успішно змінена')
+                alert('Роль успішно змінена');
             } else if (xhr.readyState === 4) {
-                alert('Не вдалося змінити роль')
+                alert('Не вдалося змінити роль');
             }
         };
         xhr.send("id=" + id + '&role=' + event.target.value + '&_token=' + csrf);

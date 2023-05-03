@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('styles')
-    <link rel="stylesheet" href="/css/program.css">
+    <link rel="stylesheet" href="{{ asset('css/program.css') }}">
     @parent
 @endsection
 
 @section('scripts')
-    <script src="/js/hamburgerMenuForProgram.js" defer></script>
+    <script src="{{ asset('js/hamburgerMenuForProgram.js') }}" defer></script>
 @endsection
 
 @section('title')
@@ -82,7 +82,7 @@
                 <article class="program__content">
                     <div class="program__main-info">
                         <img class="program__image"
-                             src="/storage/images/programmingLanguages/programsInProgrammingLanguages/images/{{ $program->image }}"
+                             src="{{ asset('storage/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image) }}"
                              alt="Зображення програми {{ $program->name }}">
                         <h2 class="program__name">{{ $program->name }}</h2>
                     </div>
