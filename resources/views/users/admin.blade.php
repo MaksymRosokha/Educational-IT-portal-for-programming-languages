@@ -73,6 +73,11 @@
                     </table>
 
                     <div class="user__additional-abilities additional-abilities">
+                        <div class="additional-abilities__ability view-profile">
+                            <a href="{{ route('user', ['login' => $user->login]) }}" class="view-profile__link">
+                                Переглянути профіль
+                            </a>
+                        </div>
                         <div class="additional-abilities__ability role">
                             <label class="role__name">Роль:</label>
                             <select id="{{ $user->id }}-role" class="role__selector" name="role">
