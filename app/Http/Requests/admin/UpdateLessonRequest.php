@@ -26,7 +26,7 @@ class UpdateLessonRequest extends FormRequest
             'id' => ['required', 'int'],
             'sequenceNumber' => ['int'],
             'title' => ['required', 'string', 'max:300'],
-            'content' => ['required', 'string', 'max:10000'],
+            'content' => ['required', 'string', 'max:50000'],
         ];
     }
 }

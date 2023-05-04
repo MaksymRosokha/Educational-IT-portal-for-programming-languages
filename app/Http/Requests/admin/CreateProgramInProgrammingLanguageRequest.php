@@ -25,7 +25,7 @@ class CreateProgramInProgrammingLanguageRequest extends FormRequest
         return [
             'programmingLanguageID' => ['required', 'int'],
             'name' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:10000'],
+            'description' => ['required', 'string', 'max:50000'],
             'logo' => ['nullable', 'image', 'max:10240'],
         ];
     }

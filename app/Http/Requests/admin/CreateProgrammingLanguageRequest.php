@@ -24,7 +24,7 @@ class CreateProgrammingLanguageRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:10000'],
+            'description' => ['required', 'string', 'min: 12000', 'max:50000'],
             'logo' => ['nullable', 'image', 'max:10240'],
         ];
     }
