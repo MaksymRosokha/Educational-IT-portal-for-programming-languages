@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\admin;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class CreateProgrammingLanguageRequest extends FormRequest
+class UploadContentImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,8 @@ class CreateProgrammingLanguageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:50000'],
-            'logo' => ['nullable', 'image', 'max:10240'],
+            'image' => ['required', 'image', 'max:20480'],
+            'pathToImages' => ['required', 'string'],
         ];
     }
 }

@@ -17,8 +17,10 @@
           class="lesson-creator__editor"
           api-key="5sy00rkq4ju0ge2hwggvivhvpqh0vc78l3fd7vvcxuxj026e"
           :init="{
-            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tableofcontents footnotes mergetags autocorrect typography inlinecss code',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker tinymcespellchecker permanentpen advcode codesample',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
+            menubar: 'insert',
+            images_upload_handler: this.uploadImage,
           }"
           v-model="this.content"
       />
@@ -77,6 +79,52 @@ export default {
     clearData() {
       this.title = '';
       this.content = '';
+    },
+    uploadImage(blobInfo, success, failure, progress) {
+      let xhr, formData;
+      const PATH_TO_IMAGES = 'storage/images/lessons/';
+
+      xhr = new XMLHttpRequest();
+      xhr.withCredentials = false;
+      xhr.open('POST', '/admin/upload_content_image');
+
+      xhr.upload.onprogress = function (e) {
+        progress(e.loaded / e.total * 100);
+      };
+
+      xhr.onload = function () {
+        let json;
+
+        if (xhr.status === 403) {
+          failure('HTTP Error: ' + xhr.status, {remove: true});
+          return;
+        }
+
+        if (xhr.status < 200 || xhr.status >= 300) {
+          failure('HTTP Error: ' + xhr.status);
+          return;
+        }
+
+        json = JSON.parse(xhr.responseText);
+
+        if (!json || typeof json.location != 'string') {
+          failure('Invalid JSON: ' + xhr.responseText);
+          return;
+        }
+
+        success(json.location);
+      };
+
+      xhr.onerror = function () {
+        failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+      };
+
+      formData = new FormData();
+      formData.append('image', blobInfo.blob(), blobInfo.filename());
+      formData.append('pathToImages', PATH_TO_IMAGES);
+      formData.append('_token', this.csrf);
+
+      xhr.send(formData);
     },
     sendData() {
       this.result.errors = {};

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ProgramInProgrammingLanguageController extends Controller
 {
-    private const PATH_TO_IMAGES = 'storage/images/programmingLanguages/programsInProgrammingLanguages/images/';
+    private const PATH_TO_IMAGES = 'storage/images/programsInProgrammingLanguages/';
     private const DEFAULT_IMAGE = 'default/defaultProgramInProgrammingLanguageImage.png';
 
     /**
@@ -42,7 +42,7 @@ class ProgramInProgrammingLanguageController extends Controller
     {
         $data = $request->validated();
         if ($request->hasFile('image')) {
-            $image = $this->moveImageToStorage(
+            $image = ImageController::moveImageToStorage(
                 imageData: $request->file('image'),
                 pathToFolder: ProgramInProgrammingLanguageController::PATH_TO_IMAGES
             );
@@ -65,11 +65,11 @@ class ProgramInProgrammingLanguageController extends Controller
         $image = $program->image;
 
         if ($request->hasFile('image')) {
-            if (Storage::exists('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image)
+            if (Storage::exists('public/images/programsInProgrammingLanguages/' . $program->image)
                 && $image !== ProgramInProgrammingLanguageController::DEFAULT_IMAGE) {
-                Storage::delete('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image);
+                Storage::delete('public/images/programsInProgrammingLanguages/' . $program->image);
             }
-            $image = $this->moveImageToStorage(
+            $image = ImageController::moveImageToStorage(
                 imageData: $request->file('image'),
                 pathToFolder: ProgramInProgrammingLanguageController::PATH_TO_IMAGES
             );
@@ -91,49 +91,12 @@ class ProgramInProgrammingLanguageController extends Controller
         $data = $request->validated();
         $program = ProgramInProgrammingLanguage::query()->findOrFail($data['id']);
 
-        if (Storage::exists('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image)
+        if (Storage::exists('public/images/programsInProgrammingLanguages/' . $program->image)
             && $program->image !== ProgramInProgrammingLanguageController::DEFAULT_IMAGE) {
-            Storage::delete('public/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image);
+            Storage::delete('public/images/programsInProgrammingLanguages/' . $program->image);
         }
         $program->delete();
 
         return redirect()->route('main');
-    }
-
-    private function moveImageToStorage($imageData, string $pathToFolder): string
-    {
-        $newImageName = $this->generateRandomString(20) .
-            '=' .
-            date('Y-m-d~H.i.s') .
-            '.' .
-            $imageData->getClientOriginalExtension();
-
-        $imageData->move(
-            public_path($pathToFolder),
-            $imageData->getClientOriginalName()
-        );
-        rename(
-            public_path($pathToFolder) . $imageData->getClientOriginalName(),
-            public_path($pathToFolder) . $newImageName
-        );
-
-        return $newImageName;
-    }
-
-    /**
-     * Generates random string.
-     *
-     * @param int $length the length of the string to be generated
-     * @return string generated string
-     */
-    private function generateRandomString(int $length = 10): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 }

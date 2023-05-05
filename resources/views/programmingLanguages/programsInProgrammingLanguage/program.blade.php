@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('styles')
+    <link rel="stylesheet" href="{{ asset('css/editorContent.css') }}">
     <link rel="stylesheet" href="{{ asset('css/program.css') }}">
     @parent
 @endsection
@@ -82,11 +83,11 @@
                 <article class="program__content">
                     <div class="program__main-info">
                         <img class="program__image"
-                             src="{{ asset('storage/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image) }}"
+                             src="{{ asset('storage/images/programsInProgrammingLanguages/' . $program->image) }}"
                              alt="Зображення програми {{ $program->name }}">
                         <h2 class="program__name">{{ $program->name }}</h2>
                     </div>
-                    <pre class="program__description">{!! $program->description !!}</pre>
+                    <pre class="program__description editor-content">{!! $program->description !!}</pre>
                 </article>
             @endif
         </div>

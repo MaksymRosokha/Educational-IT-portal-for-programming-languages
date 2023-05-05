@@ -98,6 +98,9 @@ Route::middleware('auth')->group(function () {
                 ->name('updateLesson');
             Route::post('/delete_lesson', [\App\Http\Controllers\LessonController::class, 'delete'])
                 ->name('deleteLesson');
+
+            Route::post('/upload_content_image', [\App\Http\Controllers\ImageController::class, 'uploadContentImage'])
+                ->name('uploadContentImage');
         });
     });
 });

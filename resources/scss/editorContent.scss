@@ -1,0 +1,31 @@
+.editor-content {
+  background-color: #dce1ea;
+  padding: 2vw;
+  border-radius: 10px;
+  max-width: 100%;
+
+  & * {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  & [class^="language"] {
+    background-color: #1a202c;
+    color: #eaeaff;
+    margin: 1vw;
+    padding: 1vw;
+    border-radius: 10px;
+  }
+
+  & p code {
+    background-color: #afafaf;
+    border-radius: 5px;
+    padding: 2px 5px;
+  }
+
+  & iframe {
+    border-radius: 10px;
+    border: solid 1px black;
+    box-shadow: 0 0 2px 0 black;
+  }
+}

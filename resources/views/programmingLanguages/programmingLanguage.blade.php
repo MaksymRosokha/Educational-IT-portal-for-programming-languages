@@ -3,6 +3,7 @@
 @section('title', $programmingLanguage->name)
 
 @section('styles')
+    <link rel="stylesheet" href="{{ asset('css/editorContent.css') }}">
     <link rel="stylesheet" href="{{ asset('css/programming_language.css') }}">
 @endsection
 
@@ -31,7 +32,7 @@
              src="{{ asset('storage/images/programmingLanguages/logos/' . $programmingLanguage->logo) }}"
              alt="Логотип мови програмування {{ $programmingLanguage->name }}">
         <h2 class="programming-language__name">{{ $programmingLanguage->name }}</h2>
-        <pre class="programming-language__description">{!! $programmingLanguage->description !!}</pre>
+        <pre class="programming-language__description editor-content">{!! $programmingLanguage->description !!}</pre>
         @if($isAdmin)
             <admin-panel title="Програми для мови програмування"
                          class="programming-language__admin-panel admin-panel">
@@ -51,7 +52,7 @@
                        href="{{ route('programInProgrammingLanguage', ['programID' => $program->id]) }}"
                        title="{{ $program->name }}">
                         <img class="program-in-programming-language__image"
-                             src="{{ asset('storage/images/programmingLanguages/programsInProgrammingLanguages/images/' . $program->image) }}"
+                             src="{{ asset('storage/images/programsInProgrammingLanguages/' . $program->image) }}"
                              alt="Логотип програми {{ $program->name }}">
                         <h4 class="program-in-programming-language__name">
                             {{ $program->name }}

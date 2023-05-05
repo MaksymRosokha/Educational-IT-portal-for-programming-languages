@@ -1,4 +1,5 @@
 @section('styles')
+    <link rel="stylesheet" href="{{ asset('css/editorContent.css') }}">
     <link rel="stylesheet" href="{{ asset('css/lesson.css') }}">
 @endsection
 
@@ -26,5 +27,5 @@
     @endif
 
     <h2 class="current-lesson__title">{{ $lesson->title }}</h2>
-    <pre class="current-lesson__content">{!! $lesson->content !!}</pre>
+    <pre class="current-lesson__content editor-content">{!! $lesson->content !!}</pre>
 </article>

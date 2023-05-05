@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
 {
+    private const PATH_TO_IMAGES = 'storage/images/lessons/';
 
     /**
      * Returns the lesson by its ID.
