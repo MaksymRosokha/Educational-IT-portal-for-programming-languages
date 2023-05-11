@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class ImageController extends Controller
 {
 
+    /**
+     * Moves image for content to storage images and returns new image name.
+     *
+     * @param UploadContentImageRequest $request
+     * @return false|string|void new image name
+     */
     public static function uploadContentImage(UploadContentImageRequest $request)
     {
         $data = $request->validated();
@@ -25,6 +31,13 @@ class ImageController extends Controller
         }
     }
 
+    /**
+     * Moves image to storage images and returns new image name.
+     *
+     * @param $imageData
+     * @param string $pathToFolder path to storage folder
+     * @return string new avatar name
+     */
     public static function moveImageToStorage($imageData, string $pathToFolder): string
     {
         $newImageName = ImageController::generateRandomString(20) .

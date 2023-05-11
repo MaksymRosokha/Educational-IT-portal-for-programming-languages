@@ -65,6 +65,19 @@ select:-webkit-autofill:focus {
   outline: none;
   font-size: 1.1em;
 }
+.sign-up-form__input-field--checkbox {
+  margin-bottom: 0;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+}
+.sign-up-form__remember-me {
+  display: flex;
+  align-items: center;
+}
+.sign-up-form__more-input-fields {
+  margin: 5px 0;
+}
 .more-input-fields {
   display: flex;
 }

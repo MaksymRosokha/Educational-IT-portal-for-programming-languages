@@ -27,13 +27,6 @@ input:-webkit-autofill:focus {
   border-radius: 20px;
   padding: 1.5vw;
   margin: 1vw;
-  /*@media(min-width: 1440px) {
-    width: 450px;
-  }
-
-  @media(min-width: 1800px) {
-    width: 600px;
-  }*/
 }
 .sign-in__title {
   color: #1b2f57;
@@ -71,6 +64,20 @@ input:-webkit-autofill:focus {
   outline: none;
   font-size: 1.1em;
 }
+.sign-in-form__input-field--checkbox {
+  margin-bottom: 0;
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+}
+.sign-in-form__remember-me {
+  display: flex;
+  align-items: center;
+}
+.sign-in-form__do-sign-in {
+  margin-top: 10px;
+}
+
 .additional-link {
   display: flex;
   width: 100%;

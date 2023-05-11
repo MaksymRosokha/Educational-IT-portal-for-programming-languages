@@ -54,6 +54,17 @@
                        minlength="6"
                        maxlength="100">
 
+                <div class="sign-up-form__remember-me">
+                    @error('rememberMe')
+                    <p class="sign-up-form__error">{{ $message }}</p>
+                    @enderror
+                    <label class="sign-up-form__label" for="remember-me-field">Запам'ятати мене:</label>
+                    <input id="remember-me-field"
+                           class="sign-up-form__input-field sign-up-form__input-field--checkbox"
+                           type="checkbox"
+                           name="remember_me">
+                </div>
+
                 <details class="sign-up-form__more-input-fields more-input-fields">
                     <summary class="more-input-fields__title">Заповнити більше інформації</summary>
 

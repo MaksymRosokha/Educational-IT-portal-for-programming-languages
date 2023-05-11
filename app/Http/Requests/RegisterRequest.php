@@ -43,6 +43,7 @@ class RegisterRequest extends FormRequest
             ],
             'avatar' => ['nullable', 'image', 'max:10240'],
             'about_me' => ['nullable', 'string', 'max:2000'],
+            'remember_me' => [],
         ];
     }
 }

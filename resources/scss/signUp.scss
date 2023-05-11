@@ -92,6 +92,13 @@ select:-webkit-autofill:focus {
     font-weight: 600;
     outline: none;
     font-size: 1.1em;
+
+    &--checkbox {
+      margin-bottom: 0;
+      margin-left: 5px;
+      width: 15px;
+      height: 15px;
+    }
   }
 
   &__input-date {
@@ -106,10 +113,15 @@ select:-webkit-autofill:focus {
 
   }
 
+  &__remember-me {
+    display: flex;
+    align-items: center;
+  }
+
   // .sign-up-form__more-input-fields
 
   &__more-input-fields {
-
+    margin: 5px 0;
   }
 
   // .sign-up-form__do-register

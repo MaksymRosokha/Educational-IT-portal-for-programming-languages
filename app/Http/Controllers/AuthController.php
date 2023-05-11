@@ -49,7 +49,16 @@ class AuthController extends Controller
     public function registerUser(RegisterRequest $request)
     {
         $data = $request->validated();
-        $avatar = $this->moveUserAvatarToStorage($request);
+        $rememberMe = isset($data['remember_me']);
+
+        if ($request->hasFile('avatar')) {
+            $avatar = ImageController::moveImageToStorage(
+                imageData: $request->file('avatar'),
+                pathToFolder: AuthController::PATH_TO_USER_AVATARS
+            );
+        } else {
+            $avatar = AuthController::DEFAULT_USER_AVATAR;
+        }
 
         $user = User::create([
             'email' => $data['email'],
@@ -62,57 +71,11 @@ class AuthController extends Controller
         ]);
 
         if ($user) {
-            auth("web")->login($user);
+            $request->session()->regenerate();
+            auth("web")->login($user, $rememberMe);
         }
 
         return redirect()->route('main');
-    }
-
-    /**
-     * Moves user`s avatar to storage and returns new avatar name or default.
-     *
-     * @param RegisterRequest $request register data
-     * @return string new avatar name or default
-     */
-    private function moveUserAvatarToStorage(RegisterRequest $request): string
-    {
-        if ($request->hasFile('avatar')) {
-            $avatarData = $request->file('avatar');
-            $newAvatarName = $this->generateRandomString(20) .
-                '=' .
-                date('Y-m-d~H.i.s') .
-                '.' .
-                $avatarData->getClientOriginalExtension();
-
-            $request->file('avatar')->move(
-                public_path(AuthController::PATH_TO_USER_AVATARS),
-                $request->file('avatar')->getClientOriginalName()
-            );
-            rename(
-                public_path(AuthController::PATH_TO_USER_AVATARS) . $avatarData->getClientOriginalName(),
-                public_path(AuthController::PATH_TO_USER_AVATARS) . $newAvatarName
-            );
-
-            return $newAvatarName;
-        }
-        return AuthController::DEFAULT_USER_AVATAR;
-    }
-
-    /**
-     * Generates random string.
-     *
-     * @param int $length the length of the string to be generated
-     * @return string generated string
-     */
-    private function generateRandomString(int $length = 10): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $charactersLength = strlen($characters);
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[rand(0, $charactersLength - 1)];
-        }
-        return $randomString;
     }
 
     /**
@@ -123,9 +86,17 @@ class AuthController extends Controller
      */
     public function loginUser(LoginRequest $request)
     {
-        if (auth('web')->attempt($request->validated())) {
+        $data = $request->validated();
+        $rememberMe = isset($data['remember_me']);
+        $dataForLogIn = [
+            "email" => $data['email'],
+            "password" => $data['password'],
+        ];
+
+        if (auth('web')->attempt($dataForLogIn, $rememberMe)) {
+            $request->session()->regenerate();
             return redirect()->route('main');
-        };
+        }
         return redirect()->route('login')->withErrors(['email' => 'email або пароль введені не правильно']);
     }
 

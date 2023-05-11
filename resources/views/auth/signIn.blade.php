@@ -37,6 +37,17 @@
                        required
                        minlength="6"
                        maxlength="100">
+                <div class="sign-in-form__remember-me">
+                    @error('rememberMe')
+                    <p class="sign-in-form__error">{{ $message }}</p>
+                    @enderror
+                    <label class="sign-in-form__label" for="remember-me-field">Запам'ятати мене:</label>
+                    <input id="remember-me-field"
+                           class="sign-in-form__input-field sign-in-form__input-field--checkbox"
+                           type="checkbox"
+                           name="remember_me">
+                </div>
+
                 <form-button class="sign-in-form__do-sign-in" type="submit">Увійти</form-button>
             </form>
             <table class="sign-in__additional-links">

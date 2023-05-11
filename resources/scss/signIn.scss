@@ -29,14 +29,6 @@ input:-webkit-autofill:focus{
     border-radius: 20px;
     padding: 1.5vw;
     margin: 1vw;
-
-    /*@media(min-width: 1440px) {
-      width: 450px;
-    }
-
-    @media(min-width: 1800px) {
-      width: 600px;
-    }*/
   }
 
   // .sign-in__title
@@ -100,11 +92,24 @@ input:-webkit-autofill:focus{
     font-weight: 600;
     outline: none;
     font-size: 1.1em;
+
+    &--checkbox {
+      margin-bottom: 0;
+      margin-left: 5px;
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  &__remember-me {
+    display: flex;
+    align-items: center;
   }
 
   // .sign-in-form__do-sign-in
 
   &__do-sign-in {
+    margin-top: 10px;
   }
 }
 
