@@ -36,7 +36,6 @@ export default {
   background: linear-gradient(90deg, rgb(168, 85, 246), rgb(152, 48, 250), rgb(168, 85, 246));
   box-shadow: 0 0 10px 2px #200080;
   padding: 1vw;
-  margin: 1vw;
   border-radius: 1vw;
   width: 100%;
 
