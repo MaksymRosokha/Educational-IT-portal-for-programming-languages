@@ -8,6 +8,7 @@
 
 @section('content')
     <section class="main">
+        <h2 class="main__title">Навчальний IT-портал для мов програмування</h2>
 
         <section class="main__about-project about-project">
             <h3 class="about-project__title">Про проєкт</h3>
@@ -51,6 +52,27 @@
                     </li>
                 @endforeach
             </ol>
+        </section>
+        <section class="main__statistics statistics">
+            <h3 class="statistics__title">Статистика</h3>
+            <div class="statistics__items">
+                <div class="statistics__item">
+                    <span class="statistics__item-name">Мов програмування:</span>
+                    <span class="statistics__item-value">{{ $statistics['programmingLanguages'] }}</span>
+                </div>
+                <div class="statistics__item">
+                    <span class="statistics__item-name">Програм:</span>
+                    <span class="statistics__item-value">{{ $statistics['programs'] }}</span>
+                </div>
+                <div class="statistics__item">
+                    <span class="statistics__item-name">Уроків:</span>
+                    <span class="statistics__item-value">{{ $statistics['lessons'] }}</span>
+                </div>
+                <div class="statistics__item">
+                    <span class="statistics__item-name">Користувачів:</span>
+                    <span class="statistics__item-value">{{ $statistics['users'] }}</span>
+                </div>
+            </div>
         </section>
     </section>
 @endsection

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lesson;
+use App\Models\ProgramInProgrammingLanguage;
 use App\Models\ProgrammingLanguage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,11 +21,18 @@ class IndexController extends Controller
      */
     public function index(){
         $isAdmin = Auth::check() && Auth::user()->admin === 1;
+        $statistics = [
+            'programmingLanguages' => ProgrammingLanguage::query()->count(),
+            'programs' => ProgramInProgrammingLanguage::query()->count(),
+            'lessons' => Lesson::query()->count(),
+            'users' => User::query()->count(),
+        ];
 
         return view('main', [
             'isMainPage' => true,
             'isAdmin' => $isAdmin,
-            'programmingLanguages' => ProgrammingLanguage::all()
+            'programmingLanguages' => ProgrammingLanguage::all(),
+            'statistics' => $statistics,
         ]);
     }
 }
