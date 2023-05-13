@@ -1,5 +1,5 @@
 .footer {
-  min-height: 200px;
+  padding: 2vw;
   background-color: #4a5568;
   box-shadow: 0 0 5px 1px #000000;
   border-top-right-radius: 10px;
@@ -10,5 +10,63 @@
   &__container {
     max-width: 1440px;
     width: 100%;
+  }
+
+  &__copyright {
+    color: white;
+    font-size: 1.1em;
+  }
+
+  &__info-blocks {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    @media (max-width: 425px) {
+      justify-content: left;
+    }
+  }
+
+  &__info-block {
+    margin: 1vw;
+  }
+}
+
+
+.info-block {
+
+
+  &__title {
+    text-align: center;
+    color: white;
+    font-size: 1.3em;
+  }
+
+  &__information {
+  }
+
+  &__sub-block {
+    margin-top: 5px;
+  }
+}
+
+
+.sub-block {
+
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: #00d9ff;
+      text-decoration: underline;
+    }
   }
 }
