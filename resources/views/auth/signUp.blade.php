@@ -77,7 +77,6 @@
                            type="text"
                            name="name"
                            placeholder="Введіть ваше ім'я"
-                           minlength="2"
                            maxlength="200">
 
                     @error('date_of_birthday')
@@ -108,7 +107,6 @@
                     <textarea id="about-me-field"
                               class="sign-up-form__input-field sign-up-form__input-textarea"
                               name="about_me"
-                              minlength="10"
                               maxlength="2000"
                               placeholder="Напишіть інформацію про себе"></textarea>
 
