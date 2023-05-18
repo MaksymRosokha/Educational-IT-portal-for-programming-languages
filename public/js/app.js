@@ -23213,7 +23213,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: this.content,
@@ -23392,7 +23391,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: this.lessonData.content,
@@ -23513,7 +23511,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: $data.description,
@@ -23706,7 +23703,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: $data.programData.description,
@@ -23827,7 +23823,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: $data.description,
@@ -24020,7 +24015,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      menubar: 'insert',
       images_upload_handler: this.uploadImage
     },
     modelValue: $data.programmingLanguageData.description,
