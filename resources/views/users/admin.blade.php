@@ -14,9 +14,10 @@
     <section class="admin">
         <h2 class="admin__title">Адмін-панель</h2>
         <div class="admin__search search">
-            <form class="search__form" action="#" method="POST">
-                <input class="search__field" type="text" placeholder="Пошук">
-                <button class="search__submit" type="submit">Шукати</button>
+            <form class="search__form" action="{{ route('search') }}" method="POST">
+                @csrf
+                <input id="searchText" class="search__field" type="text" name="searchText" placeholder="Пошук">
+                <button id="searchSubmit" class="search__submit" type="submit">Шукати</button>
             </form>
         </div>
         <div class="admin__users users">

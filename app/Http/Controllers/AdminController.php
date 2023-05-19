@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\BlockUserRequest;
 use App\Http\Requests\admin\UnlockUserRequest;
+use App\Http\Requests\admin\SearchUsersRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,22 @@ class AdminController extends Controller
     public function showAdminPanel()
     {
         return view('users.admin', ['users' => User::all()]);
+    }
+
+    public function search(SearchUsersRequest $request)
+    {
+        if(isset($request['searchText'])) {
+            $search = $request['searchText'];
+
+            $users = User::query()->where('id', 'LIKE', '%' . $search . '%')
+                ->orWhere('email', 'LIKE', '%' . $search . '%')
+                ->orWhere('login', 'LIKE', '%' . $search . '%')
+                ->orWhere('name', 'LIKE', '%' . $search . '%')
+                ->get();
+
+            return view('users.admin', ['users' => $users]);
+        }
+        return $this->showAdminPanel();
     }
 
     public function changeRole(Request $request)
@@ -58,7 +75,7 @@ class AdminController extends Controller
         $user = User::query()->findOrFail($data['id']);
 
         $user->update([
-           'blocked_until' => $data['dateTime'] . ':00',
+            'blocked_until' => $data['dateTime'] . ':00',
         ]);
     }
 
