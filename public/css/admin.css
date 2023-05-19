@@ -52,6 +52,12 @@
 .users__user {
   margin-top: 0.8vw;
 }
+.users__not-found {
+  text-align: center;
+  color: #2c2c2c;
+  font-size: 2em;
+  font-weight: bold;
+}
 
 .user {
   display: flex;

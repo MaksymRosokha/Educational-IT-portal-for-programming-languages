@@ -22,7 +22,7 @@ class AdminController extends Controller
 
     public function search(SearchUsersRequest $request)
     {
-        if(isset($request['searchText'])) {
+        if (isset($request['searchText'])) {
             $search = $request['searchText'];
 
             $users = User::query()->where('id', 'LIKE', '%' . $search . '%')
@@ -31,7 +31,10 @@ class AdminController extends Controller
                 ->orWhere('name', 'LIKE', '%' . $search . '%')
                 ->get();
 
-            return view('users.admin', ['users' => $users]);
+            return view('users.admin', [
+                'users' => $users,
+                'searchText' => $search,
+            ]);
         }
         return $this->showAdminPanel();
     }

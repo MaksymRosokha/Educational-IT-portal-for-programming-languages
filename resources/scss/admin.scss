@@ -74,10 +74,15 @@
   flex-direction: column;
   padding: 1vw;
 
-  // .users__user
-
   &__user {
     margin-top: 0.8vw;
+  }
+
+  &__not-found {
+    text-align: center;
+    color: #2c2c2c;
+    font-size: 2em;
+    font-weight: bold;
   }
 }
 
