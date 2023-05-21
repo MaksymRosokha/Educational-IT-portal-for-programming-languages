@@ -17,15 +17,21 @@
             @if( !isset($isMainPage) || $isMainPage === false)
                 <a class="references__link" href="{{ route('main') }}">Головна</a>
             @endif
+
+            <a class="references__link" href="{{ route('questions') }}">Питання та відповіді</a>
+
             @guest('web')
                 <a class="references__link" href="{{ route('login') }}">Вхід</a>
                 <a class="references__link" href="{{ route('signUp') }}">Реєстрація</a>
             @endguest
+
             @auth('web')
                 <a class="references__link" href="{{ route('user', auth('web')->user()->login) }}">Профіль</a>
+
                 @if(auth('web')->user()->admin === 1)
                     <a class="references__link" href="{{ route('admin') }}">Адмін-панель</a>
                 @endif
+
                 <a class="references__link" href="{{ route('logout') }}">Вихід</a>
             @endauth
         </div>

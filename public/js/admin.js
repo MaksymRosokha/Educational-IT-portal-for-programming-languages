@@ -28,6 +28,32 @@ Array.from(roleSelectors).forEach(function (element) {
 
 /***/ }),
 
+/***/ "./resources/scss/blocked_user.scss":
+/*!******************************************!*\
+  !*** ./resources/scss/blocked_user.scss ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./resources/scss/editorContent.scss":
+/*!*******************************************!*\
+  !*** ./resources/scss/editorContent.scss ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/scss/footer.scss":
 /*!************************************!*\
   !*** ./resources/scss/footer.scss ***!
@@ -119,6 +145,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/scss/questions.scss":
+/*!***************************************!*\
+  !*** ./resources/scss/questions.scss ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/scss/signIn.scss":
 /*!************************************!*\
   !*** ./resources/scss/signIn.scss ***!
@@ -184,6 +223,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/scss/answers.scss":
+/*!*************************************!*\
+  !*** ./resources/scss/answers.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/scss/app.scss":
 /*!*********************************!*\
   !*** ./resources/scss/app.scss ***!
@@ -197,23 +249,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/scss/blocked_user.scss":
-/*!******************************************!*\
-  !*** ./resources/scss/blocked_user.scss ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/scss/editorContent.scss":
-/*!*******************************************!*\
-  !*** ./resources/scss/editorContent.scss ***!
-  \*******************************************/
+/***/ "./resources/scss/author.scss":
+/*!************************************!*\
+  !*** ./resources/scss/author.scss ***!
+  \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -310,21 +349,24 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/admin": 0,
-/******/ 			"css/editorContent": 0,
-/******/ 			"css/blocked_user": 0,
+/******/ 			"css/author": 0,
 /******/ 			"css/app": 0,
+/******/ 			"css/answers": 0,
 /******/ 			"css/admin": 0,
 /******/ 			"css/reboot": 0,
 /******/ 			"css/helpers": 0,
 /******/ 			"css/signUp": 0,
 /******/ 			"css/signIn": 0,
+/******/ 			"css/questions": 0,
 /******/ 			"css/programming_language": 0,
 /******/ 			"css/program": 0,
 /******/ 			"css/profile": 0,
 /******/ 			"css/main": 0,
 /******/ 			"css/lesson": 0,
 /******/ 			"css/header": 0,
-/******/ 			"css/footer": 0
+/******/ 			"css/footer": 0,
+/******/ 			"css/editorContent": 0,
+/******/ 			"css/blocked_user": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -374,22 +416,25 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/js/admin.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/admin.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/blocked_user.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/editorContent.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/footer.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/header.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/lesson.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/main.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/profile.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/program.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/programming_language.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/signIn.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/scss/signUp.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/css/helpers.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/editorContent","css/blocked_user","css/app","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer"], () => (__webpack_require__("./resources/css/reboot.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/js/admin.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/admin.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/answers.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/author.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/blocked_user.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/editorContent.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/footer.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/header.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/lesson.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/main.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/profile.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/program.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/programming_language.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/questions.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/signIn.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/scss/signUp.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/css/helpers.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/author","css/app","css/answers","css/admin","css/reboot","css/helpers","css/signUp","css/signIn","css/questions","css/programming_language","css/program","css/profile","css/main","css/lesson","css/header","css/footer","css/editorContent","css/blocked_user"], () => (__webpack_require__("./resources/css/reboot.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

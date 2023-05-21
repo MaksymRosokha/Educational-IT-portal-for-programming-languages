@@ -25,8 +25,12 @@ Route::middleware('not_blocked_user')->group(function () {
         '/programming_language/program/{programID}',
         [\App\Http\Controllers\ProgramInProgrammingLanguageController::class, 'showProgram']
     )->name('programInProgrammingLanguage');
-
     Route::get('/lesson/{lessonID}', [\App\Http\Controllers\LessonController::class, 'showLesson'])->name('lesson');
+
+    Route::get('/questions', [\App\Http\Controllers\QuestionController::class, 'showPage'])
+        ->name('questions');
+    Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
+        ->name('answers');
 });
 
 Route::middleware('guest')->group(function () {

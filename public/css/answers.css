@@ -1,0 +1,34 @@
+.answers-to-questions {
+  max-width: 100%;
+}
+.answers-to-questions__question {
+  margin: 1vw;
+}
+.answers-to-questions__answers {
+  margin: 100px 2vw 2vw 2vw;
+}
+
+.question {
+  background-color: #d8d9f0;
+  padding: 10px;
+  border-radius: 10px;
+}
+.question__description {
+  white-space: pre-wrap;
+  font-size: 1.1em;
+  text-align: justify;
+}
+.answers__answer {
+  margin-top: 2vw;
+}
+
+.answer {
+  background-color: #c5ff9f;
+  padding: 10px;
+  border-radius: 10px;
+}
+.answer__text {
+  white-space: pre-wrap;
+  font-size: 1em;
+  text-align: justify;
+}
