@@ -7,6 +7,11 @@
     @parent
 @endsection
 
+@section('scripts')
+    <script src="{{ asset('js/textareaAutoScroll.js') }}" defer></script>
+    <script src="{{ asset('js/questionsAndAnswers/answer.js') }}" defer></script>
+@endsection
+
 @section('content')
     <section class="answers-to-questions">
         <div class="answers-to-questions__question question">
@@ -14,7 +19,7 @@
             <div class="question__author">
                 @include('users.author', ['user' => $question->user])
             </div>
-            <pre class="question__description">{!! $question->description !!}}</pre>
+            <pre class="question__description">{{ $question->description }}</pre>
             <div class="question__additional-info additional-info">
                 <span class="additional-info__date additional-info__date--date-of-creating">
                     Створено: {{ $question->created_at }}
@@ -26,25 +31,23 @@
                 @endif
             </div>
         </div>
+        <form class="answers-to-questions__create-answer create-answer"
+              action="{{ route('createAnswer') }}"
+              method="POST">
+            <textarea name="text"
+                      id="text"
+                      placeholder="Напишіть відповідь"
+                      class="create-answer__input-text"
+                      required></textarea>
+            <button id="create-answer"
+                    class="create-answer__submit"
+                    type="submit"
+                    data-question-id="{{ $question->id }}">
+                Відповісти
+            </button>
+        </form>
         <div class="answers-to-questions__answers answers">
-            @foreach($answers as $answer)
-                <div class="answers__answer answer">
-                    <div class="answer__author">
-                        @include('users.author', ['user' => $answer->user])
-                    </div>
-                    <pre class="answer__text">{!! $answer->text !!}}</pre>
-                    <div class="answer__additional-info additional-info">
-                        <span class="additional-info__date additional-info__date--date-of-creating">
-                            Створено: {{ $answer->created_at }}
-                        </span>
-                        @if($answer->created_at != $answer->updated_at)
-                            <span class="additional-info__date additional-info__date--date-of-editing">
-                                Відредаговано: {{ $answer->updated_at }}
-                            </span>
-                        @endif
-                    </div>
-                </div>
-            @endforeach
+            @include("questionsAndAnswers.generateAnswers", [$answers])
         </div>
     </section>
 @endsection

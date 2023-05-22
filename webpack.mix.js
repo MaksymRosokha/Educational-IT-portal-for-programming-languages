@@ -19,3 +19,7 @@ getFiles('resources/scss/').forEach(function (filePath) {
 getFiles('resources/js/').forEach(function (filePath) {
     mix.js('resources/js/' + filePath, 'public/js').vue();
 });
+
+getFiles('resources/js/questionsAndAnswers/').forEach(function (filePath) {
+    mix.js('resources/js/questionsAndAnswers/' + filePath, 'public/js/questionsAndAnswers');
+});

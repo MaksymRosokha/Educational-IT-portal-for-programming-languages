@@ -11,6 +11,9 @@
   &__question {
     margin: 0 1vw 10px 1vw;
   }
+
+  &__create-question {
+  }
 }
 
 .question {
@@ -56,5 +59,49 @@
     padding: 5px;
     border-radius: 5px;
     font-weight: 600;
+  }
+}
+
+.create-question {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  align-items: flex-end;
+
+  @media (max-width: 767px) {
+    align-items: center;
+  }
+
+  &__input-title, &__input-description {
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    resize: none;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-color: #bfbfbf;
+  }
+
+  &__input-title {
+    height: 40px;
+  }
+
+  &__input-description {
+    height: 100px;
+    max-height: 330px;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__submit {
+    margin-top: 10px;
+    width: 150px;
+    background-color: rgb(34,36,38);
+    color: #e7d7b9;
+    border-radius: 10px;
   }
 }

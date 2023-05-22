@@ -29,8 +29,13 @@ Route::middleware('not_blocked_user')->group(function () {
 
     Route::get('/questions', [\App\Http\Controllers\QuestionController::class, 'showPage'])
         ->name('questions');
+    Route::post('/question_create', [\App\Http\Controllers\QuestionController::class, 'create'])
+        ->name('createQuestion');
+
     Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
         ->name('answers');
+    Route::post('/answer_create', [\App\Http\Controllers\AnswerController::class, 'create'])
+        ->name('createAnswer');
 });
 
 Route::middleware('guest')->group(function () {

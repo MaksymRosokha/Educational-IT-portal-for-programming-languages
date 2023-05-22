@@ -1,12 +1,19 @@
 .answers-to-questions {
   max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__question {
-    margin: 1vw;
+    margin: 1vw 0 0 0;
+  }
+
+  &__create-answer {
   }
 
   &__answers {
-    margin: 100px 2vw 2vw 2vw;
+    margin: 0 0 15px 0;
   }
 }
 
@@ -14,6 +21,8 @@
   background-color: #d8d9f0;
   padding: 10px;
   border-radius: 10px;
+  max-width: 100%;
+  width: 95%;
 
   &__title {
   }
@@ -22,16 +31,18 @@
   }
 
   &__description {
-    white-space: pre-wrap;
     font-size: 1.1em;
     text-align: justify;
+    white-space: pre-wrap;
   }
 
   &__additional-info {
+    margin-top: 20px;
   }
 }
 
 .additional-info {
+
   &__date {
     &--date-of-creating {
     }
@@ -42,9 +53,10 @@
 }
 
 .answers {
+  width: 90%;
 
   &__answer {
-    margin-top: 2vw;
+    margin-top: 1vw;
   }
 }
 
@@ -57,11 +69,50 @@
   }
 
   &__text {
-    white-space: pre-wrap;
     font-size: 1em;
     text-align: justify;
+    white-space: pre-wrap;
   }
 
   &__additional-info {
+    margin-top: 20px;
+  }
+}
+
+
+.create-answer {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  padding: 2vw;
+  align-items: flex-end;
+
+  @media (max-width: 767px) {
+    align-items: center;
+  }
+
+  &__input-text {
+    width: 100%;
+    height: 100px;
+    max-height: 330px;
+    padding: 15px;
+    outline: none;
+    resize: none;
+    font-size: 1.1em;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-color: #bfbfbf;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+
+  &__submit {
+    margin-top: 10px;
+    width: 150px;
+    background-color: rgb(34,36,38);
+    color: #e7d7b9;
+    border-radius: 10px;
   }
 }
