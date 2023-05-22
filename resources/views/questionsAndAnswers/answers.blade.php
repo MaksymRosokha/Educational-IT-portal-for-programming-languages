@@ -8,8 +8,10 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/textareaAutoScroll.js') }}" defer></script>
-    <script src="{{ asset('js/questionsAndAnswers/answer.js') }}" defer></script>
+    @auth('web')
+        <script src="{{ asset('js/textareaAutoScroll.js') }}" defer></script>
+        <script src="{{ asset('js/questionsAndAnswers/answer.js') }}" defer></script>
+    @endauth
 @endsection
 
 @section('content')
@@ -31,21 +33,23 @@
                 @endif
             </div>
         </div>
-        <form class="answers-to-questions__create-answer create-answer"
-              action="{{ route('createAnswer') }}"
-              method="POST">
+        @auth('web')
+            <form class="answers-to-questions__create-answer create-answer"
+                  action="{{ route('createAnswer') }}"
+                  method="POST">
             <textarea name="text"
                       id="text"
                       placeholder="Напишіть відповідь"
                       class="create-answer__input-text"
                       required></textarea>
-            <button id="create-answer"
-                    class="create-answer__submit"
-                    type="submit"
-                    data-question-id="{{ $question->id }}">
-                Відповісти
-            </button>
-        </form>
+                <button id="create-answer"
+                        class="create-answer__submit"
+                        type="submit"
+                        data-question-id="{{ $question->id }}">
+                    Відповісти
+                </button>
+            </form>
+        @endauth
         <div class="answers-to-questions__answers answers">
             @include("questionsAndAnswers.generateAnswers", [$answers])
         </div>
