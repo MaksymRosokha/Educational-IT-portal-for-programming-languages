@@ -32,6 +32,28 @@
                     </span>
                 @endif
             </div>
+            @auth('web')
+                <div class="question__additional-abilities additional-abilities">
+                    @if($question->user->id === auth()->user()->id)
+                        <button-with-modal-window class="additional-abilities__button"
+                                                  button-text="Редагувати"
+                                                  title="Редагування">
+                            <question-updater link="{{ route('updateQuestion') }}"
+                                              question="{{ $question }}">
+                            </question-updater>
+                        </button-with-modal-window>
+                    @endif
+                    @if($question->user->id === auth()->user()->id || auth()->user()->admin === 1)
+                            <button-with-modal-window class="additional-abilities__button"
+                                                      button-text="Видалити"
+                                                      title="Видалення">
+                                <question-deleter link="{{ route('deleteQuestion') }}"
+                                                  id="{{ $question->id }}">
+                                </question-deleter>
+                            </button-with-modal-window>
+                    @endif
+                </div>
+            @endauth
         </div>
         @auth('web')
             <form class="answers-to-questions__create-answer create-answer"
@@ -41,6 +63,7 @@
                       id="text"
                       placeholder="Напишіть відповідь"
                       class="create-answer__input-text"
+                      maxlength="5000"
                       required></textarea>
                 <button id="create-answer"
                         class="create-answer__submit"

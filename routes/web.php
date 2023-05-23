@@ -27,15 +27,26 @@ Route::middleware('not_blocked_user')->group(function () {
     )->name('programInProgrammingLanguage');
     Route::get('/lesson/{lessonID}', [\App\Http\Controllers\LessonController::class, 'showLesson'])->name('lesson');
 
+
     Route::get('/questions', [\App\Http\Controllers\QuestionController::class, 'showPage'])
         ->name('questions');
     Route::post('/question_create', [\App\Http\Controllers\QuestionController::class, 'create'])
         ->name('createQuestion');
+    Route::post('/question_update', [\App\Http\Controllers\QuestionController::class, 'update'])
+        ->name('updateQuestion');
+    Route::post('/question_delete', [\App\Http\Controllers\QuestionController::class, 'delete'])
+        ->name('deleteQuestion');
 
     Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
         ->name('answers');
     Route::post('/answer_create', [\App\Http\Controllers\AnswerController::class, 'create'])
         ->name('createAnswer');
+    Route::post('/answer_update', [\App\Http\Controllers\AnswerController::class, 'update'])
+        ->name('updateAnswer');
+    Route::post('/answer_delete', [\App\Http\Controllers\AnswerController::class, 'delete'])
+        ->name('deleteAnswer');
+
+
 });
 
 Route::middleware('guest')->group(function () {

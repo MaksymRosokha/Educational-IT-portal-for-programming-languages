@@ -39,9 +39,14 @@
   &__additional-info {
     margin-top: 20px;
   }
+
+  &__additional-abilities {
+  }
 }
 
 .additional-info {
+  display: flex;
+  flex-direction: column;
 
   &__date {
     &--date-of-creating {
@@ -114,5 +119,21 @@
     background-color: rgb(34,36,38);
     color: #e7d7b9;
     border-radius: 10px;
+  }
+}
+
+.additional-abilities {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+  }
+
+  &__button {
+    margin-left: 10px;
+    margin-top: 10px;
   }
 }

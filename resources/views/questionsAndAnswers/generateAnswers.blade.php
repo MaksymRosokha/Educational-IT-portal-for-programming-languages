@@ -14,5 +14,27 @@
                 </span>
             @endif
         </div>
+        @auth('web')
+            <div class="question__additional-abilities additional-abilities">
+                @if($answer->user->id === auth()->user()->id)
+                    <button-with-modal-window class="additional-abilities__button"
+                                              button-text="Редагувати"
+                                              title="Редагування">
+                        <answer-updater link="{{ route('updateAnswer') }}"
+                                        answer="{{ $answer }}">
+                        </answer-updater>
+                    </button-with-modal-window>
+                @endif
+                @if($answer->user->id === auth()->user()->id || auth()->user()->admin === 1)
+                    <button-with-modal-window class="additional-abilities__button"
+                                              button-text="Видалити"
+                                              title="Видалення">
+                        <answer-deleter link="{{ route('deleteAnswer') }}"
+                                          id="{{ $answer->id }}">
+                        </answer-deleter>
+                    </button-with-modal-window>
+                @endif
+            </div>
+        @endauth
     </div>
 @endforeach

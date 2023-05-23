@@ -27,7 +27,10 @@
 .question__additional-info {
   margin-top: 20px;
 }
-
+.additional-info {
+  display: flex;
+  flex-direction: column;
+}
 .answers {
   width: 90%;
 }
@@ -82,4 +85,20 @@
   background-color: rgb(34, 36, 38);
   color: #e7d7b9;
   border-radius: 10px;
+}
+
+.additional-abilities {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .additional-abilities {
+    justify-content: center;
+  }
+}
+.additional-abilities__button {
+  margin-left: 10px;
+  margin-top: 10px;
 }

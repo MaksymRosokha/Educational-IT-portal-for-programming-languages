@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\questionsAndAnswers\CreateAnswerRequest;
+use App\Http\Requests\questionsAndAnswers\DeleteAnswerRequest;
+use App\Http\Requests\questionsAndAnswers\UpdateAnswerRequest;
 use App\Models\Answer;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +40,24 @@ class AnswerController extends Controller
                 'answers' => $this->getAnswers($data['question_id'])
             ]);
         }
+        return $this->showPage($data['question_id']);
+    }
+
+    public function update(UpdateAnswerRequest $request)
+    {
+        $data = $request->validated();
+        $answer = Answer::query()->findOrFail($data['id']);
+
+        $answer->update(['text' => $data['text'],]);
+    }
+
+    public function delete(DeleteAnswerRequest $request)
+    {
+        $data = $request->validated();
+        $answer = Answer::query()->findOrFail($data['id']);
+
+        $answer->delete();
+
         return redirect()->back();
     }
 

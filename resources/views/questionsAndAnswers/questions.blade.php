@@ -26,10 +26,12 @@
                        id="title"
                        class="create-question__input-title"
                        required
+                       maxlength="200"
                        placeholder="Заголовок питання">
                 <textarea name="description"
                           id="description"
                           placeholder="Опис питання"
+                          maxlength="5000"
                           class="create-question__input-description"></textarea>
                 <button id="create-question"
                         class="create-question__submit"
