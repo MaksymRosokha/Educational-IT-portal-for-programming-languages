@@ -36,6 +36,10 @@ Route::middleware('not_blocked_user')->group(function () {
         ->name('updateQuestion');
     Route::post('/question_delete', [\App\Http\Controllers\QuestionController::class, 'delete'])
         ->name('deleteQuestion');
+    Route::post('/only_my_questions', [\App\Http\Controllers\QuestionController::class, 'showOnlyMyQuestions'])
+        ->name('showOnlyMyQuestions');
+    Route::post('/search_questions', [\App\Http\Controllers\QuestionController::class, 'search'])
+        ->name('searchQuestions');
 
     Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
         ->name('answers');
@@ -45,8 +49,10 @@ Route::middleware('not_blocked_user')->group(function () {
         ->name('updateAnswer');
     Route::post('/answer_delete', [\App\Http\Controllers\AnswerController::class, 'delete'])
         ->name('deleteAnswer');
-
-
+    Route::post('/only_my_answers', [\App\Http\Controllers\AnswerController::class, 'showOnlyMyAnswers'])
+        ->name('showOnlyMyAnswers');
+    Route::post('/search_answers', [\App\Http\Controllers\AnswerController::class, 'search'])
+        ->name('searchAnswers');
 });
 
 Route::middleware('guest')->group(function () {

@@ -7,6 +7,10 @@
 .questions-and-answers__question {
   margin: 0 1vw 10px 1vw;
 }
+.questions-and-answers__search {
+  margin-bottom: 30px;
+}
+
 .question {
   background-color: #d8d9f0;
   border-radius: 10px;
@@ -77,4 +81,43 @@
   background-color: rgb(34, 36, 38);
   color: #e7d7b9;
   border-radius: 10px;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search__text {
+  width: 70%;
+  height: 40px;
+  padding: 15px;
+  outline: none;
+  resize: none;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+}
+@media (max-width: 500px) {
+  .search__text {
+    width: 95%;
+  }
+}
+.search__only-my {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+@media (max-width: 500px) {
+  .search__only-my {
+    margin-left: 0;
+  }
+}
+.search__checkbox {
+  width: 20px;
+  height: 15px;
+}
+.search__label {
+  font-size: 1.2em;
+  font-weight: 600;
 }

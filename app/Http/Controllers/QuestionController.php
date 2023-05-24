@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\questionsAndAnswers\DeleteQuestionRequest;
 use App\Http\Requests\questionsAndAnswers\CreateQuestionRequest;
+use App\Http\Requests\questionsAndAnswers\SearchQuestionsRequest;
+use App\Http\Requests\questionsAndAnswers\ShowOnlyMyQuestionsRequest;
 use App\Http\Requests\questionsAndAnswers\UpdateQuestionRequest;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
@@ -57,5 +59,51 @@ class QuestionController extends Controller
     public function getQuestions()
     {
         return Question::query()->orderByDesc('created_at')->orderByDesc('id')->get();
+    }
+
+    public function showOnlyMyQuestions(ShowOnlyMyQuestionsRequest $request)
+    {
+        if ($request->boolean('isOnlyMy')) {
+            $questions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+
+            if ($request->ajax()) {
+                return view('questionsAndAnswers.generateQuestions', ['questions' => $questions]);
+            }
+            return view('questionsAndAnswers.questions', ['questions' => $questions]);
+        }
+        if ($request->ajax()) {
+            return view('questionsAndAnswers.generateQuestions', ['questions' => $this->getQuestions()]);
+        }
+        return view('questionsAndAnswers.questions', ['questions' => $this->getQuestions()]);
+    }
+
+    public function search(SearchQuestionsRequest $request)
+    {
+        $data = $request->validated();
+        $questions = $this->getQuestions();
+
+        if ($request->boolean('isOnlyMy')) {
+            $questions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+        } else {
+            $questions = Question::query()
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+        }
+
+        if ($request->ajax()) {
+            return view('questionsAndAnswers.generateQuestions', ['questions' => $questions]);
+        }
+        return view('questionsAndAnswers.questions', ['questions' => $questions]);
     }
 }

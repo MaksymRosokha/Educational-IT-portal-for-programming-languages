@@ -15,6 +15,10 @@
   &__answers {
     margin: 0 0 15px 0;
   }
+
+  &__search {
+    margin-bottom: 30px;
+  }
 }
 
 .question {
@@ -135,5 +139,47 @@
   &__button {
     margin-left: 10px;
     margin-top: 10px;
+  }
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+
+  &__text {
+    width: 70%;
+    height: 40px;
+    padding: 15px;
+    outline: none;
+    resize: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border-color: #bfbfbf;
+
+    @media (max-width: 500px) {
+      width: 95%;
+    }
+  }
+
+  &__only-my {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+
+    @media (max-width: 500px) {
+      margin-left: 0;
+    }
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 15px;
+  }
+
+  &__label {
+    font-size: 1.2em;
+    font-weight: 600;
   }
 }

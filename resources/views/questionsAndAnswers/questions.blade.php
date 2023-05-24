@@ -40,6 +40,17 @@
                 </button>
             </form>
         @endauth
+        <div class="questions-and-answers__search search">
+            <input type="text"
+                   id="search-text"
+                   name="search-text"
+                   class="search__text"
+                   placeholder="Пошук">
+            <div class="search__only-my">
+                <input type="checkbox" id="only-my" class="search__checkbox">
+                <label for="only-my" class="search__label">Тільки мої</label>
+            </div>
+        </div>
         <div class="questions-and-answers__questions">
             @include("questionsAndAnswers.generateQuestions", [$questions])
         </div>

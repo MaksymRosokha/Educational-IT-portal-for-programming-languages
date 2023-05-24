@@ -11,6 +11,9 @@
 .answers-to-questions__answers {
   margin: 0 0 15px 0;
 }
+.answers-to-questions__search {
+  margin-bottom: 30px;
+}
 
 .question {
   background-color: #d8d9f0;
@@ -101,4 +104,44 @@
 .additional-abilities__button {
   margin-left: 10px;
   margin-top: 10px;
+}
+
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.search__text {
+  width: 70%;
+  height: 40px;
+  padding: 15px;
+  outline: none;
+  resize: none;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border-color: #bfbfbf;
+}
+@media (max-width: 500px) {
+  .search__text {
+    width: 95%;
+  }
+}
+.search__only-my {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+@media (max-width: 500px) {
+  .search__only-my {
+    margin-left: 0;
+  }
+}
+.search__checkbox {
+  width: 20px;
+  height: 15px;
+}
+.search__label {
+  font-size: 1.2em;
+  font-weight: 600;
 }

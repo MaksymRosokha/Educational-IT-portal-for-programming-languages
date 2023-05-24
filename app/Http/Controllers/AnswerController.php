@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\questionsAndAnswers\CreateAnswerRequest;
 use App\Http\Requests\questionsAndAnswers\DeleteAnswerRequest;
+use App\Http\Requests\questionsAndAnswers\SearchAnswersRequest;
+use App\Http\Requests\questionsAndAnswers\ShowOnlyMyAnswersRequest;
 use App\Http\Requests\questionsAndAnswers\UpdateAnswerRequest;
 use App\Models\Answer;
 use App\Models\Question;
@@ -37,7 +39,7 @@ class AnswerController extends Controller
         Answer::query()->insert($answerData);
         if ($request->ajax()) {
             return view('questionsAndAnswers.generateAnswers', [
-                'answers' => $this->getAnswers($data['question_id'])
+                'answers' => $this->getAnswers($data['question_id']),
             ]);
         }
         return $this->showPage($data['question_id']);
@@ -68,5 +70,62 @@ class AnswerController extends Controller
             ->orderByDesc('created_at')
             ->orderByDesc('id')
             ->get();
+    }
+
+    public function showOnlyMyAnswers(ShowOnlyMyAnswersRequest $request)
+    {
+        $data = $request->validated();
+
+        if ($request->boolean('isOnlyMy')) {
+            $answers = Answer::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('question_id', '=', $data['question_id'])
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+
+            if ($request->ajax()) {
+                return view('questionsAndAnswers.generateAnswers', ['answers' => $answers]);
+            }
+            return view('questionsAndAnswers.answers', ['answers' => $answers]);
+        }
+        if ($request->ajax()) {
+            return view(
+                'questionsAndAnswers.generateAnswers',
+                ['answers' => $this->getAnswers($data['question_id'])]
+            );
+        }
+        return view('questionsAndAnswers.answers', ['answers' => $this->getAnswers($data['question_id'])]);
+    }
+
+    public function search(SearchAnswersRequest $request)
+    {
+        $data = $request->validated();
+        $answers = $this->getAnswers($data['question_id']);
+
+        if ($request->boolean('isOnlyMy')) {
+            $answers = Answer::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('question_id', '=', $data['question_id'])
+                ->where('text', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+        } else {
+            $answers = Answer::query()
+                ->where('question_id', '=', $data['question_id'])
+                ->where('text', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->get();
+        }
+
+        if ($request->ajax()) {
+            return view('questionsAndAnswers.generateAnswers', ['answers' => $answers]);
+        }
+        return view('questionsAndAnswers.answers', [
+            'answers' => $answers,
+            'question' => Question::query()->findOrFail($data['question_id']),
+        ]);
     }
 }
