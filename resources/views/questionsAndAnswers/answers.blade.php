@@ -10,14 +10,15 @@
 @section('scripts')
     @auth('web')
         <script src="{{ asset('js/textareaAutoScroll.js') }}" defer></script>
-        <script src="{{ asset('js/questionsAndAnswers/answer.js') }}" defer></script>
+        <script src="{{ asset('js/questionsAndAnswers/createAnswer.js') }}" defer></script>
     @endauth
+    <script src="{{ asset('js/questionsAndAnswers/answer.js') }}" defer></script>
 @endsection
 
 @section('content')
     <section class="answers-to-questions">
         <div class="answers-to-questions__question question">
-            <h2 class="question__title">{{ $question->title }}</h2>
+            <h2 class="question__title" data-question-id="{{ $question->id }}">{{ $question->title }}</h2>
             <div class="question__author">
                 @include('users.author', ['user' => $question->user])
             </div>
@@ -67,8 +68,7 @@
                       required></textarea>
                 <button id="create-answer"
                         class="create-answer__submit"
-                        type="submit"
-                        data-question-id="{{ $question->id }}">
+                        type="submit">
                     Відповісти
                 </button>
             </form>
@@ -81,8 +81,8 @@
                    class="search__text"
                    placeholder="Пошук">
             <div class="search__only-my">
-                <input type="checkbox" id="only-my" class="search__checkbox">
-                <label for="only-my" class="search__label">Тільки мої</label>
+                <input type="checkbox" id="only-my" class="search__checkbox @guest('web') visibility-hidden @endguest">
+                <label for="only-my" class="search__label @guest('web') visibility-hidden @endguest">Тільки мої</label>
             </div>
         </div>
 

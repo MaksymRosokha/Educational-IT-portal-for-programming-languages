@@ -40,6 +40,8 @@ Route::middleware('not_blocked_user')->group(function () {
         ->name('showOnlyMyQuestions');
     Route::post('/search_questions', [\App\Http\Controllers\QuestionController::class, 'search'])
         ->name('searchQuestions');
+    Route::post('/load_more_questions', [\App\Http\Controllers\QuestionController::class, 'showMoreQuestions'])
+        ->name('loadMoreQuestions');
 
     Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
         ->name('answers');
@@ -53,6 +55,8 @@ Route::middleware('not_blocked_user')->group(function () {
         ->name('showOnlyMyAnswers');
     Route::post('/search_answers', [\App\Http\Controllers\AnswerController::class, 'search'])
         ->name('searchAnswers');
+    Route::post('/load_more_answers', [\App\Http\Controllers\AnswerController::class, 'showMoreAnswers'])
+        ->name('loadMoreAnswers');
 });
 
 Route::middleware('guest')->group(function () {

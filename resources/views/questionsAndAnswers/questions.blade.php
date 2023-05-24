@@ -10,8 +10,9 @@
 @section('scripts')
     @auth('web')
         <script src="{{ asset('js/textareaAutoScroll.js') }}" defer></script>
-        <script src="{{ asset('js/questionsAndAnswers/question.js') }}" defer></script>
+        <script src="{{ asset('js/questionsAndAnswers/createQuestion.js') }}" defer></script>
     @endauth
+    <script src="{{ asset('js/questionsAndAnswers/question.js') }}" defer></script>
 @endsection
 
 @section('content')
@@ -47,8 +48,8 @@
                    class="search__text"
                    placeholder="Пошук">
             <div class="search__only-my">
-                <input type="checkbox" id="only-my" class="search__checkbox">
-                <label for="only-my" class="search__label">Тільки мої</label>
+                <input type="checkbox" id="only-my" class="search__checkbox @guest('web') visibility-hidden @endguest">
+                <label for="only-my" class="search__label @guest('web') visibility-hidden @endguest">Тільки мої</label>
             </div>
         </div>
         <div class="questions-and-answers__questions">

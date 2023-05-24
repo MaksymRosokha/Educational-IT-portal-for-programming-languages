@@ -1,38 +1,16 @@
-const createAnswer = document.getElementById('create-answer');
-const text = document.getElementById('text');
 const answersBlock = document.querySelector('.answers');
-let questionID = createAnswer.getAttribute('data-question-id');
+let questionID = document.querySelector('.question__title').getAttribute('data-question-id');
 
 const search = document.getElementById('search-text');
-const isOnlyMyQuestions = document.getElementById('only-my');
+const isOnlyMyAnswers = document.getElementById('only-my');
+
+let countOfAnswers = document.querySelectorAll('.answer').length;
+let isLoaded = true;
 
 let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-createAnswer.addEventListener("click", e => {
-    e.preventDefault();
-    e.stopPropagation();
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', "/answer_create");
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            answersBlock.innerHTML = xhr.response;
-            text.value = '';
-        } else if (xhr.readyState === 4) {
-            alert('Не вдалося відповісти')
-        }
-    };
-    xhr.send(
-        "question_id=" + questionID +
-        "&text=" + text.value +
-        "&_token=" + csrf
-    );
-});
-
-
-isOnlyMyQuestions.addEventListener('change', function () {
+isOnlyMyAnswers.addEventListener('change', function () {
     let xhr = new XMLHttpRequest();
     xhr.open('POST', "/only_my_answers");
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -42,12 +20,12 @@ isOnlyMyQuestions.addEventListener('change', function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             answersBlock.innerHTML = xhr.response;
         } else if (xhr.readyState === 4) {
-            alert('Не вдалося виконати')
+            alert('Не вдалося вибрати тільки ваші відовіді. Можливо ви не авторизовані?')
         }
     };
 
     xhr.send(
-        "isOnlyMy=" + isOnlyMyQuestions.checked +
+        "isOnlyMy=" + isOnlyMyAnswers.checked +
         "&question_id=" + questionID +
         "&_token=" + csrf
     );
@@ -69,8 +47,57 @@ search.addEventListener("input", (event) => {
 
     xhr.send(
         "searchText=" + event.target.value +
-        "&isOnlyMy=" + isOnlyMyQuestions.checked +
+        "&isOnlyMy=" + isOnlyMyAnswers.checked +
         "&question_id=" + questionID +
         "&_token=" + csrf
     );
 });
+
+window.addEventListener("scroll", () => {
+    let body = document.body;
+    let html = document.documentElement;
+
+    let height = Math.max(body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight);
+    let userBottom = html.scrollTop - (html.clientTop || 0) + html.clientHeight;
+
+    const difference = 500;
+
+    if (isLoaded) {
+        if (height - userBottom < difference) {
+            isLoaded = false;
+            loadMoreAnswers();
+        }
+    }
+});
+
+function loadMoreAnswers() {
+    countOfAnswers += 10;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', "/load_more_answers");
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            answersBlock.innerHTML = xhr.response;
+            isLoaded = true;
+        } else if (xhr.readyState === 4) {
+            alert('Не вдалося завантажити більше відповідей')
+        }
+    };
+    console.log("limit=" + countOfAnswers +
+        "&searchText=" + search.value +
+        "&isOnlyMy=" + isOnlyMyAnswers.checked +
+        "&question_id=" + questionID +
+        "&_token=" + csrf)
+
+    xhr.send(
+        "limit=" + countOfAnswers +
+        "&searchText=" + search.value +
+        "&isOnlyMy=" + isOnlyMyAnswers.checked +
+        "&question_id=" + questionID +
+        "&_token=" + csrf
+    );
+}

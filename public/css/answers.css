@@ -12,6 +12,7 @@
   margin: 0 0 15px 0;
 }
 .answers-to-questions__search {
+  margin-top: 30px;
   margin-bottom: 30px;
 }
 
@@ -36,15 +37,24 @@
 }
 .answers {
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 .answers__answer {
   margin-top: 1vw;
+}
+.answers__loader {
+  width: 100px;
 }
 
 .answer {
   background-color: #c5ff9f;
   padding: 10px;
   border-radius: 10px;
+  width: 100%;
 }
 .answer__text {
   font-size: 1em;

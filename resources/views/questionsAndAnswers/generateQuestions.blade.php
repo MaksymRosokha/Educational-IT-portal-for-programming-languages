@@ -4,7 +4,8 @@
             @include('users.author', ['user' => $question->user])
         </div>
         <div class="question__text">
-            <a href="{{ route('answers', ['questionID' => $question->id]) }}" class="question__link-to-answers">{{ $question->title }}</a>
+            <a href="{{ route('answers', ['questionID' => $question->id]) }}"
+               class="question__link-to-answers">{{ $question->title }}</a>
         </div>
         <div class="question__additional-info additional-info">
             <span class="additional-info__date additional-info__date--date-of-creating">
@@ -19,3 +20,6 @@
         </div>
     </div>
 @endforeach
+@if(count($questions) !== $countOfQuestions)
+    <img src="{{ asset('storage/images/loader.gif') }}" alt="Завантаження..." class="questions-and-answers__loader">
+@endif

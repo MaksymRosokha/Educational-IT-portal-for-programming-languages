@@ -38,3 +38,6 @@
         @endauth
     </div>
 @endforeach
+@if(count($answers) !== $countOfAnswers)
+    <img src="{{ asset('storage/images/loader.gif') }}" alt="Завантаження..." class="answers__loader">
+@endif

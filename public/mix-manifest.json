@@ -5,6 +5,8 @@
     "/js/hamburgerMenuForProgram.js": "/js/hamburgerMenuForProgram.js",
     "/js/textareaAutoScroll.js": "/js/textareaAutoScroll.js",
     "/js/questionsAndAnswers/answer.js": "/js/questionsAndAnswers/answer.js",
+    "/js/questionsAndAnswers/createAnswer.js": "/js/questionsAndAnswers/createAnswer.js",
+    "/js/questionsAndAnswers/createQuestion.js": "/js/questionsAndAnswers/createQuestion.js",
     "/js/questionsAndAnswers/question.js": "/js/questionsAndAnswers/question.js",
     "/css/author.css": "/css/author.css",
     "/css/app.css": "/css/app.css",

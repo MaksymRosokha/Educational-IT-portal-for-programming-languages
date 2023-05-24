@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\questionsAndAnswers\DeleteQuestionRequest;
 use App\Http\Requests\questionsAndAnswers\CreateQuestionRequest;
+use App\Http\Requests\questionsAndAnswers\LoadMoreQuestions;
 use App\Http\Requests\questionsAndAnswers\SearchQuestionsRequest;
 use App\Http\Requests\questionsAndAnswers\ShowOnlyMyQuestionsRequest;
 use App\Http\Requests\questionsAndAnswers\UpdateQuestionRequest;
@@ -14,7 +15,60 @@ class QuestionController extends Controller
 {
     public function showPage()
     {
-        return view('questionsAndAnswers.questions', ['questions' => $this->getQuestions(),]);
+        return view('questionsAndAnswers.questions', [
+            'questions' => $this->getQuestions(),
+            'countOfQuestions' => Question::query()->count('id'),
+        ]);
+    }
+
+    public function showMoreQuestions(LoadMoreQuestions $request)
+    {
+        $data = $request->validated();
+        $limit = $data['limit'];
+
+        if ($request->boolean('isOnlyMy')) {
+            $questions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->limit($limit)
+                ->get();
+            $countOfQuestions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->count('id');
+        } else {
+            $questions = Question::query()
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->limit($limit)
+                ->get();
+            $countOfQuestions = Question::query()
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->count('id');
+        }
+
+        if ($request->ajax()) {
+            return view('questionsAndAnswers.generateQuestions', [
+                'questions' => $questions,
+                'countOfQuestions' => $countOfQuestions,
+            ]);
+        }
+        return view('questionsAndAnswers.questions', [
+            'questions' => $questions,
+            'countOfQuestions' => $countOfQuestions,
+        ]);
+    }
+
+    public function getQuestions(int $limit = 10)
+    {
+        return Question::query()->orderByDesc('created_at')->orderByDesc('id')->limit($limit)->get();
     }
 
     public function create(CreateQuestionRequest $request)
@@ -27,10 +81,15 @@ class QuestionController extends Controller
             'created_at' => date('Y-m-d H-i-m'),
             'updated_at' => date('Y-m-d H-i-m'),
         ];
-
         Question::query()->insert($questionData);
+
+        $countOfQuestions = Question::query()->count('id');
+
         if ($request->ajax()) {
-            return view('questionsAndAnswers.generateQuestions', ['questions' => $this->getQuestions()]);
+            return view('questionsAndAnswers.generateQuestions', [
+                'questions' => $this->getQuestions(),
+                'countOfQuestions' => $countOfQuestions,
+            ]);
         }
         return $this->showPage();
     }
@@ -56,29 +115,44 @@ class QuestionController extends Controller
         return redirect()->route('questions');
     }
 
-    public function getQuestions()
-    {
-        return Question::query()->orderByDesc('created_at')->orderByDesc('id')->get();
-    }
-
     public function showOnlyMyQuestions(ShowOnlyMyQuestionsRequest $request)
     {
+        $countOfQuestions = Question::query()->count('id');
+
         if ($request->boolean('isOnlyMy')) {
             $questions = Question::query()
                 ->where('user_id', '=', Auth::user()->id)
+                ->limit(10)
                 ->orderByDesc('created_at')
                 ->orderByDesc('id')
                 ->get();
+            $countOfQuestions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->count('id');
 
             if ($request->ajax()) {
-                return view('questionsAndAnswers.generateQuestions', ['questions' => $questions]);
+                return view('questionsAndAnswers.generateQuestions', [
+                    'questions' => $questions,
+                    'countOfQuestions' => $countOfQuestions,
+                    ]);
             }
-            return view('questionsAndAnswers.questions', ['questions' => $questions]);
+            return view('questionsAndAnswers.questions', [
+                'questions' => $questions,
+                'countOfQuestions' => $countOfQuestions,
+            ]);
         }
         if ($request->ajax()) {
-            return view('questionsAndAnswers.generateQuestions', ['questions' => $this->getQuestions()]);
+            return view('questionsAndAnswers.generateQuestions', [
+                'questions' => $this->getQuestions(),
+                'countOfQuestions' => $countOfQuestions,
+                ]);
         }
-        return view('questionsAndAnswers.questions', ['questions' => $this->getQuestions()]);
+        return view('questionsAndAnswers.questions', [
+            'questions' => $this->getQuestions(),
+            'countOfQuestions' => $countOfQuestions,
+            ]);
     }
 
     public function search(SearchQuestionsRequest $request)
@@ -90,20 +164,39 @@ class QuestionController extends Controller
             $questions = Question::query()
                 ->where('user_id', '=', Auth::user()->id)
                 ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->limit(10)
                 ->orderByDesc('created_at')
                 ->orderByDesc('id')
                 ->get();
-        } else {
-            $questions = Question::query()
+            $countOfQuestions = Question::query()
+                ->where('user_id', '=', Auth::user()->id)
                 ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
                 ->orderByDesc('created_at')
                 ->orderByDesc('id')
+                ->count('id');
+        } else {
+            $questions = Question::query()
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->limit(10)
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
                 ->get();
+            $countOfQuestions = Question::query()
+                ->where('title', 'LIKE', '%' . $data['searchText'] . '%')
+                ->orderByDesc('created_at')
+                ->orderByDesc('id')
+                ->count('id');
         }
 
         if ($request->ajax()) {
-            return view('questionsAndAnswers.generateQuestions', ['questions' => $questions]);
+            return view('questionsAndAnswers.generateQuestions', [
+                'questions' => $questions,
+                'countOfQuestions' => $countOfQuestions,
+            ]);
         }
-        return view('questionsAndAnswers.questions', ['questions' => $questions]);
+        return view('questionsAndAnswers.questions', [
+            'questions' => $questions,
+            'countOfQuestions' => $countOfQuestions,
+        ]);
     }
 }

@@ -24,7 +24,7 @@ class CreateAnswerRequest extends FormRequest
     {
         return [
             'question_id' => ['required', 'int'],
-            'text' => ['required', 'string', 'max:5000'],
+            'text' => ['required', 'max:5000'],
         ];
     }
 }
