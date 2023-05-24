@@ -43,6 +43,11 @@ html, body {
   top: 0;
   z-index: 10;
 }
+@media (max-width: 500px) {
+  #header {
+    position: static;
+  }
+}
 
 #main {
   flex-grow: 1;

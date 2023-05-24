@@ -49,7 +49,12 @@
 .references {
   flex-shrink: 3;
   align-items: center;
-  // .references__link
+  display: flex;
+
+  @media(max-width: 500px) {
+    width: 100%;
+    flex-direction: column;
+  }
 
   &__link {
     align-self: center;
@@ -62,6 +67,11 @@
 
     &:hover {
       color: #fddba4;
+    }
+
+    @media(max-width: 500px) {
+      align-self: flex-start;
+      margin: 3px 10px;
     }
   }
 }

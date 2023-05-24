@@ -43,6 +43,13 @@
 .references {
   flex-shrink: 3;
   align-items: center;
+  display: flex;
+}
+@media (max-width: 500px) {
+  .references {
+    width: 100%;
+    flex-direction: column;
+  }
 }
 .references__link {
   align-self: center;
@@ -55,4 +62,10 @@
 }
 .references__link:hover {
   color: #fddba4;
+}
+@media (max-width: 500px) {
+  .references__link {
+    align-self: flex-start;
+    margin: 3px 10px;
+  }
 }
