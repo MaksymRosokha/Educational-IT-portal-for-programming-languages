@@ -91,7 +91,7 @@
                             </div>
                             <div class="additional-abilities__ability role">
                                 <label class="role__name">Роль:</label>
-                                <select id="{{ $user->id }}-role" class="role__selector" name="role">
+                                <select data-user-id="{{ $user->id }}" class="role__selector" name="role">
                                     <option class="role__point" value="user">
                                         Користувач
                                     </option>

@@ -11,7 +11,7 @@ var roleSelectors = document.getElementsByClassName('role__selector');
 var csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 Array.from(roleSelectors).forEach(function (element) {
   element.addEventListener('change', function (event) {
-    var id = Number(element.id.split('-')[0]);
+    var userID = element.getAttribute('data-user-id');
     var xhr = new XMLHttpRequest();
     xhr.open('POST', "/admin/change_role");
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -22,7 +22,7 @@ Array.from(roleSelectors).forEach(function (element) {
         alert('Не вдалося змінити роль');
       }
     };
-    xhr.send("id=" + id + '&role=' + event.target.value + '&_token=' + csrf);
+    xhr.send("id=" + userID + '&role=' + event.target.value + '&_token=' + csrf);
   });
 });
 

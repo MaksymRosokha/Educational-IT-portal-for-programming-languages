@@ -3,7 +3,7 @@ let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('conte
 
 Array.from(roleSelectors).forEach(function (element) {
     element.addEventListener('change', function (event) {
-        let id = Number(element.id.split('-')[0]);
+        let userID = element.getAttribute('data-user-id');
 
         let xhr = new XMLHttpRequest();
         xhr.open('POST', "/admin/change_role");
@@ -15,6 +15,6 @@ Array.from(roleSelectors).forEach(function (element) {
                 alert('Не вдалося змінити роль');
             }
         };
-        xhr.send("id=" + id + '&role=' + event.target.value + '&_token=' + csrf);
+        xhr.send("id=" + userID + '&role=' + event.target.value + '&_token=' + csrf);
     });
 });

@@ -7,6 +7,7 @@ use App\Http\Requests\admin\UnlockUserRequest;
 use App\Http\Requests\admin\SearchUsersRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -47,6 +48,9 @@ class AdminController extends Controller
 
         if (!isset($data['id']) || !intval($data['id'])) {
             abort(404);
+        }
+        if (!Auth::check() || Auth::user()->admin !== 1){
+            abort(403);
         }
         $id = $data['id'];
 
