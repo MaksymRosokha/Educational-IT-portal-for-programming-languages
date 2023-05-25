@@ -1,3 +1,18 @@
 .visibility-hidden {
     display: none;
 }
+
+.alert {
+    font-size: 1.8em;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.alert-success {
+    color: #41dd00;
+}
+
+.alert-fail {
+    color: red;
+}

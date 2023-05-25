@@ -8,6 +8,11 @@
 
 @section('content')
     <section class="main">
+        @if(session('deleteUserResult'))
+            <div class="main__alert alert alert-success">
+                {{ session('deleteUserResult') }}
+            </div>
+        @endif
         <h2 class="main__title">Навчальний IT-портал для мов програмування</h2>
 
         <section class="main__about-project about-project">
@@ -34,6 +39,12 @@
                         </programming-language-creator>
                     </button-with-modal-window>
                 </admin-panel>
+            @endif
+
+            @if(session('result'))
+                <div class="main__alert alert alert-success">
+                    {{ session('result') }}
+                </div>
             @endif
 
             <ol class="programming-languages__list">

@@ -90,6 +90,7 @@ class ProgramInProgrammingLanguageController extends Controller
     {
         $data = $request->validated();
         $program = ProgramInProgrammingLanguage::query()->findOrFail($data['id']);
+        $programmingLanguageID = $program->programmingLanguage->id;
 
         if (Storage::exists('public/images/programsInProgrammingLanguages/' . $program->image)
             && $program->image !== ProgramInProgrammingLanguageController::DEFAULT_IMAGE) {
@@ -97,6 +98,7 @@ class ProgramInProgrammingLanguageController extends Controller
         }
         $program->delete();
 
-        return redirect()->route('main');
+        return redirect()->route('programming_language', ['id' => $programmingLanguageID])
+            ->with(['result' => "Програму успішно видалено"]);
     }
 }

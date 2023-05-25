@@ -4,6 +4,7 @@ namespace App\Http\Requests\admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class DeleteLessonRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class DeleteLessonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => ['required', 'int'],
+            'id' => ['required', 'int', Rule::exists('lessons'),],
         ];
     }
 }

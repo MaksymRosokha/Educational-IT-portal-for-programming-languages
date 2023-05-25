@@ -62,9 +62,11 @@ class LessonController extends Controller
     {
         $data = $request->validated();
         $program = Lesson::query()->findOrFail($data['id']);
+        $programID = $program->program->id;
 
         $program->delete();
 
-        return redirect()->route('main');
+        return redirect()->route('programInProgrammingLanguage', ['programID' => $programID])
+            ->with(['result' => "Урок успішно видалено"]);
     }
 }

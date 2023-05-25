@@ -73,12 +73,17 @@
                         <button-with-modal-window button-text="Видалити"
                                                   title="Видалення програми для мови програмування"
                                                   class="admin-panel__button">
-                            <program-in-programming-language-deleter
+                            <delete-confirmation
                                     link="{{ route('deleteProgramInProgrammingLanguage') }}"
                                     id="{{ $program->id }}">
-                            </program-in-programming-language-deleter>
+                            </delete-confirmation>
                         </button-with-modal-window>
                     </admin-panel>
+                @endif
+                @if(session('result'))
+                    <div class="program__alert alert alert-success">
+                        {{ session('result') }}
+                    </div>
                 @endif
                 <article class="program__content">
                     <div class="program__main-info">

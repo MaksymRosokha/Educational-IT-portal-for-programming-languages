@@ -18,10 +18,10 @@
             <button-with-modal-window button-text="Видалити"
                                       title="Видалення уроку"
                                       class="admin-panel__button">
-                <lesson-deleter
+                <delete-confirmation
                         link="{{ route('deleteLesson') }}"
                         id="{{ $lesson->id }}">
-                </lesson-deleter>
+                </delete-confirmation>
             </button-with-modal-window>
         </admin-panel>
     @endif

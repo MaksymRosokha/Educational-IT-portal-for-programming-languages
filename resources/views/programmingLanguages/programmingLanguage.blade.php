@@ -22,9 +22,9 @@
                 <button-with-modal-window button-text="Видалити"
                                           title="Видалення мови програмування"
                                           class="admin-panel__button">
-                    <programming-language-deleter link="{{ route('deleteProgrammingLanguage') }}"
-                                                  id="{{ $programmingLanguage->id }}">
-                    </programming-language-deleter>
+                    <delete-confirmation link="{{ route('deleteProgrammingLanguage') }}"
+                                         id="{{ $programmingLanguage->id }}">
+                    </delete-confirmation>
                 </button-with-modal-window>
             </admin-panel>
         @endif
@@ -44,6 +44,12 @@
                     </program-in-programming-language-creator>
                 </button-with-modal-window>
             </admin-panel>
+        @endif
+
+        @if(session('result'))
+            <div class="programming-language__alert alert alert-success">
+                {{ session('result') }}
+            </div>
         @endif
         <ol class="programming-language__programs">
             @foreach($programmingLanguage->programs as $program)

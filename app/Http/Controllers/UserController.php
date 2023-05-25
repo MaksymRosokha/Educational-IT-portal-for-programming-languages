@@ -147,27 +147,25 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $id = $data['id'];
+        $user = User::query()->findOrFail($id);
+        $avatar = $user->avatar;
 
-        if (Auth::id() == $id || auth('web')->user()->admin === 1) {
-            $user = User::query()->findOrFail($id);
-            $avatar = $user->avatar;
-            if (asset('images/users/avatars/' . $avatar)
-                && $avatar !== UserController::DEFAULT_IMAGE) {
-                Storage::delete('public/images/users/avatars/' . $avatar);
-            }
-
-            $user->delete();
-            return true;
+        if (asset('images/users/avatars/' . $avatar)
+            && $avatar !== UserController::DEFAULT_IMAGE) {
+            Storage::delete('public/images/users/avatars/' . $avatar);
         }
-        return response()->json(['errors' => ['access' => 'Ви не маєте доступу до видалення цього акаунту']], 403);
+
+        $user->delete();
+        return redirect()->route('main')->with(['deleteUserResult' => "Акаунт успішно видалено"]);
     }
 
-    public function showBlockedUserPage(){
+    public function showBlockedUserPage()
+    {
         $user = Auth::user();
         Auth::logout();
 
         return view('users.blockedUser', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 }

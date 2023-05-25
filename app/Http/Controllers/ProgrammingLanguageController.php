@@ -92,6 +92,6 @@ class ProgrammingLanguageController extends Controller
         }
         $programmingLanguage->delete();
 
-        return redirect()->route('main');
+        return redirect()->route('main')->with(['result' => "Мову програмування успішно видалено"]);
     }
 }

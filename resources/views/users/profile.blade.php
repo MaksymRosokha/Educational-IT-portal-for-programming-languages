@@ -28,27 +28,27 @@
                     <td class="profile__field-information">{{ $user->login }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Email: </th>
+                    <th class="profile__name-of-field-information">Email:</th>
                     <td class="profile__field-information">{{ $user->email }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Ім'я: </th>
+                    <th class="profile__name-of-field-information">Ім'я:</th>
                     <td class="profile__field-information">{{ $user->name }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Дата народження: </th>
+                    <th class="profile__name-of-field-information">Дата народження:</th>
                     <td class="profile__field-information">{{ $user->date_of_birthday }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Про вас: </th>
+                    <th class="profile__name-of-field-information">Про вас:</th>
                     <td class="profile__field-information">{{ $user->about_me }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Дата реєстрації: </th>
+                    <th class="profile__name-of-field-information">Дата реєстрації:</th>
                     <td class="profile__field-information">{{ $user->created_at }}</td>
                 </tr>
                 <tr class="profile__info-block">
-                    <th class="profile__name-of-field-information">Дата останнього оновлення: </th>
+                    <th class="profile__name-of-field-information">Дата останнього оновлення:</th>
                     <td class="profile__field-information">{{ $user->updated_at }}</td>
                 </tr>
             </table>
@@ -75,10 +75,10 @@
                 <button-with-modal-window class="additional-abilities__button"
                                           button-text="Видалити акаунт"
                                           title="Видалення акаунту">
-                    <user-deleter class="user-deleter"
-                                  link="{{ route('deleteUser') }}"
-                                  id="{{ $user->id }}">
-                    </user-deleter>
+                    <delete-confirmation class="user-deleter"
+                                         link="{{ route('deleteUser') }}"
+                                         id="{{ $user->id }}">
+                    </delete-confirmation>
                 </button-with-modal-window>
             </div>
         @endif
