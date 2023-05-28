@@ -10,6 +10,7 @@
 }
 .programming-language__logo {
   width: 30%;
+  max-width: 200px;
   height: auto;
 }
 .programming-language__name {

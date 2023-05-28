@@ -1,5 +1,5 @@
 .editor-content {
-  background-color: #dce1ea;
+  background-color: rgb(249, 250, 252);
   padding: 2vw;
   border-radius: 10px;
   max-width: 100%;
@@ -17,8 +17,8 @@
     border-radius: 10px;
   }
 
-  & p code {
-    background-color: #afafaf;
+  & code {
+    background-color: #d7d7d7;
     border-radius: 5px;
     padding: 2px 5px;
   }
@@ -27,5 +27,9 @@
     border-radius: 10px;
     border: solid 1px black;
     box-shadow: 0 0 2px 0 black;
+  }
+
+  & ol, & ul {
+    padding-left: 3rem;
   }
 }

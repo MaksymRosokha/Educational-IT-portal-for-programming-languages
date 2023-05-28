@@ -26,7 +26,7 @@ class CreateLessonRequest extends FormRequest
             'programID' => ['required', 'int'],
             'sequenceNumber' => ['int'],
             'title' => ['required', 'string', 'max:300'],
-            'content' => ['required', 'string','max:50000'],
+            'content' => ['required', 'string','max:200000'],
         ];
     }
 }
