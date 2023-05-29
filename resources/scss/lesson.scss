@@ -44,11 +44,135 @@
   &__admin-panel {
 
   }
+
+  &__testing-title {
+    font-weight: 600;
+    font-size: 1.6em;
+    background-color: #e258ff;
+    padding: 5px 20px 0 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #ffffff;
+  }
+
+  &__testing-block {
+
+  }
 }
 
 .admin-panel {
 
   &__button {
     margin: 0 5px 0 5px;
+  }
+}
+
+.testing {
+  width: 100%;
+  background-color: #e258ff;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  &__test {
+    margin: 10px 0;
+  }
+
+  &__submit {
+    align-self: flex-end;
+    border-radius: 10px;
+    width: 200px;
+    height: 35px;
+    background-color: rgb(0, 46, 89);
+    color: #ffffff;
+    transition: background-color .6s,
+    border .4s,
+    font-weight .1s,
+    border-radius 1s;
+
+    &:hover {
+      background-color: #40c240;
+      border-radius: 25px;
+      border: solid 1px #316b00;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+  }
+
+  &__last-result {
+    align-self: flex-end;
+  }
+}
+
+.test {
+  background-color: #8800b9;
+  padding: 15px;
+  border-radius: 5px;
+  width: 100%;
+
+  &__question {
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+
+  &__answers {
+    margin-top: 15px;
+  }
+}
+
+.answers {
+
+  &__answer {
+
+  }
+}
+
+.answer {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+
+  &__radio {
+    width: 5%;
+    height: 20px;
+
+    @media (max-width: 500px) {
+      width: 10%;
+    }
+  }
+
+  &__label {
+    width: 95%;
+    color: white;
+    font-size: 1.1em;
+    margin-left: 5px;
+
+    @media (max-width: 500px) {
+      width: 90%;
+    }
+  }
+}
+
+.last-result {
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #8800b9;
+  padding: 5px;
+  border-radius: 5px;
+
+  &__text {
+    color: white;
+    font-weight: 600;
+    font-size: 1.3em;
+  }
+
+  &__result {
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
   }
 }

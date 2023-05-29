@@ -86,6 +86,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/delete_user', [\App\Http\Controllers\UserController::class, 'deleteUser'])
             ->name('deleteUser');
 
+        Route::post('/calculate_test', [\App\Http\Controllers\TestController::class, 'calculateTest'])
+            ->name('calculateTest');
+
+
+
         Route::middleware('admin')->prefix('admin')->group(function () {
             Route::get('/', [\App\Http\Controllers\AdminController::class, 'showAdminPanel'])->name('admin');
             Route::post('/search', [\App\Http\Controllers\AdminController::class, 'search'])->name('search');

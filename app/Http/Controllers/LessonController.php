@@ -6,6 +6,7 @@ use App\Http\Requests\admin\CreateLessonRequest;
 use App\Http\Requests\admin\DeleteLessonRequest;
 use App\Http\Requests\admin\UpdateLessonRequest;
 use App\Models\Lesson;
+use App\Models\TestResult;
 use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
@@ -25,12 +26,22 @@ class LessonController extends Controller
         }
         $currentLesson = Lesson::query()->findOrFail($lessonID);
         $program = $currentLesson->program()->first();
+        $lessons = $program->lessons()->orderBy('sequence_number')->get();
+        $testResult = null;
+
+        if(Auth::check() && $currentLesson->test != null) {
+            try {
+                $testResult = TestResult::query()->where('user_id', '=', Auth::user()->id)
+                    ->where('test_id', '=', $currentLesson->test->id)->first();
+            } catch (\Exception $exception){}
+        }
 
         return view('programmingLanguages.programsInProgrammingLanguage.program', [
             'currentLesson' => $currentLesson,
             'program' => $program,
-            'lessons' => $program->lessons()->orderBy('sequence_number')->get(),
+            'lessons' => $lessons,
             'isAdmin' => Auth::check() && Auth::user()->admin === 1,
+            'testResult' => $testResult,
         ]);
     }
 

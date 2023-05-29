@@ -21,7 +21,13 @@ class Lesson extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function program(){
+    public function program()
+    {
         return $this->belongsTo(ProgramInProgrammingLanguage::class);
+    }
+
+    public function test()
+    {
+        return $this->hasOne(Test::class);
     }
 }

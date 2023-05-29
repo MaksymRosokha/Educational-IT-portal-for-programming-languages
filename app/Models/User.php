@@ -52,4 +52,20 @@ class User extends Authenticatable
     /*protected $attributes = [
       'avatar' => 'public/images/user/avatars/default/defaultUserAvatar.png'
     ];*/
+
+
+    public function question()
+    {
+        return $this->hasMany(Question::class);
+    }
+
+    public function answer()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function testResult()
+    {
+        return $this->hasMany(TestResult::class);
+    }
 }

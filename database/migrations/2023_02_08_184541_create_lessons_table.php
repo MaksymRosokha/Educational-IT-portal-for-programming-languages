@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('program_id')->constrained('programs_in_programming_language')
                 ->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('test_id');
             $table->integer('sequence_number');
             $table->string('title', 300);
             $table->text('content');
