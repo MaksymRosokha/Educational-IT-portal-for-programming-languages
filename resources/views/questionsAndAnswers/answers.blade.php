@@ -45,13 +45,13 @@
                         </button-with-modal-window>
                     @endif
                     @if($question->user->id === auth()->user()->id || auth()->user()->admin === 1)
-                            <button-with-modal-window class="additional-abilities__button"
-                                                      button-text="Видалити"
-                                                      title="Видалення">
-                                <question-deleter link="{{ route('deleteQuestion') }}"
-                                                  id="{{ $question->id }}">
-                                </question-deleter>
-                            </button-with-modal-window>
+                        <button-with-modal-window class="additional-abilities__button"
+                                                  button-text="Видалити"
+                                                  title="Видалення">
+                            <delete-confirmation link="{{ route('deleteQuestion') }}"
+                                                 id="{{ $question->id }}">
+                            </delete-confirmation>
+                        </button-with-modal-window>
                     @endif
                 </div>
             @endauth

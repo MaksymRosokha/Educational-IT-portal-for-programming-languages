@@ -29,9 +29,9 @@
                     <button-with-modal-window class="additional-abilities__button"
                                               button-text="Видалити"
                                               title="Видалення">
-                        <answer-deleter link="{{ route('deleteAnswer') }}"
-                                          id="{{ $answer->id }}">
-                        </answer-deleter>
+                        <delete-confirmation link="{{ route('deleteAnswer') }}"
+                                             id="{{ $answer->id }}">
+                        </delete-confirmation>
                     </button-with-modal-window>
                 @endif
             </div>

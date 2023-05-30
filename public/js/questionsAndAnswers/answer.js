@@ -65,7 +65,6 @@ function loadMoreAnswers() {
       alert('Не вдалося завантажити більше відповідей');
     }
   };
-  console.log("limit=" + countOfAnswers + "&searchText=" + search.value + "&isOnlyMy=" + isOnlyMyAnswers.checked + "&question_id=" + questionID + "&_token=" + csrf);
   xhr.send("limit=" + countOfAnswers + "&searchText=" + search.value + "&isOnlyMy=" + isOnlyMyAnswers.checked + "&question_id=" + questionID + "&_token=" + csrf);
 }
 /******/ })()
