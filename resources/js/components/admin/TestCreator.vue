@@ -84,7 +84,9 @@ export default {
       this.addAnswerOption(this.questions.length - 1);
     },
     deleteQuestion() {
-      this.questions.pop();
+      if (this.questions.length > 1) {
+        this.questions.pop();
+      }
     },
     addAnswerOption(questionIndex) {
       this.questions[questionIndex].answers.push({

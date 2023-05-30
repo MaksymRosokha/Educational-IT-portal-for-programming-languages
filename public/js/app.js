@@ -22397,7 +22397,9 @@ __webpack_require__.r(__webpack_exports__);
       this.addAnswerOption(this.questions.length - 1);
     },
     deleteQuestion: function deleteQuestion() {
-      this.questions.pop();
+      if (this.questions.length > 1) {
+        this.questions.pop();
+      }
     },
     addAnswerOption: function addAnswerOption(questionIndex) {
       this.questions[questionIndex].answers.push({
