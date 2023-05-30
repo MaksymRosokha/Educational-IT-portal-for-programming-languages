@@ -9,6 +9,8 @@ import ProgramInProgrammingLanguageUpdater from "./ProgramInProgrammingLanguageU
 import LessonCreator from "./LessonCreator.vue";
 import LessonUpdater from "./LessonUpdater.vue";
 
+import TestCreator from "./TestCreator.vue";
+
 import UserBlocker from "./UserBlocker.vue";
 import UserUnlocker from "./UserUnlocker.vue";
 
@@ -20,6 +22,7 @@ export default [
     ProgramInProgrammingLanguageUpdater,
     LessonCreator,
     LessonUpdater,
+    TestCreator,
     UserBlocker,
     UserUnlocker,
 ]

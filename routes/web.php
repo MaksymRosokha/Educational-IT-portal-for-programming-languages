@@ -88,7 +88,10 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/calculate_test', [\App\Http\Controllers\TestController::class, 'calculateTest'])
             ->name('calculateTest');
-
+        Route::post('/create_test', [\App\Http\Controllers\TestController::class, 'createTest'])
+            ->name('createTest');
+        Route::post('/delete_test', [\App\Http\Controllers\TestController::class, 'deleteTest'])
+            ->name('deleteTest');
 
 
         Route::middleware('admin')->prefix('admin')->group(function () {

@@ -14,8 +14,6 @@
     padding: 1.5vw;
   }
 
-  // .lesson__title
-
   &__title {
     min-width: 200px;
     text-align: center;
@@ -26,8 +24,6 @@
     padding: .3vw;
     margin-top: 15px;
   }
-
-  // .lesson__content
 
   &__content {
     display: block;
@@ -57,6 +53,18 @@
 
   &__testing-block {
 
+  }
+
+  &__create-test {
+
+  }
+
+  &__delete-test {
+    margin-top: 20px;
+  }
+
+  &__alert {
+    margin-bottom: 10px;
   }
 }
 

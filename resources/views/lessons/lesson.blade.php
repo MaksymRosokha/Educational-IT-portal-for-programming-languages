@@ -67,6 +67,30 @@
                 @endforeach
                 <button type="submit" class="testing__submit">Відправити</button>
             </form>
+            @if(isset($isAdmin) && $isAdmin)
+                <button-with-modal-window button-text="Видалити тестування"
+                                          title="Видалення тестування"
+                                          class="current-lesson__delete-test">
+                    <delete-confirmation
+                            link="{{ route('deleteTest') }}"
+                            id="{{ $lesson->test->id }}">
+                    </delete-confirmation>
+                </button-with-modal-window>
+            @endif
+        @else
+            @if(isset($isAdmin) && $isAdmin)
+                @if(session('deleteTestResult'))
+                    <div class="current-lesson__alert alert alert-success">
+                        {{ session('deleteTestResult') }}
+                    </div>
+                @endif
+                <button-with-modal-window class="current-lesson__create-test"
+                                          button-text="Створити тестування"
+                                          title="Створення тестування">
+                    <test-creator lesson-id="{{ $lesson->id }}"
+                                  link="{{ route('createTest') }}"></test-creator>
+                </button-with-modal-window>
+            @endif
         @endif
     @endauth
 </article>

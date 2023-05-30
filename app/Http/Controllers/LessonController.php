@@ -50,20 +50,20 @@ class LessonController extends Controller
         $data = $request->validated();
         $countOfLessons = Lesson::query()->where('program_id', '=', $data['programID'])->count();
 
-        $program = new Lesson();
-        $program->program_id = $data['programID'];
-        $program->sequence_number = $countOfLessons + 1;
-        $program->title = $data['title'];
-        $program->content = $data['content'];
-        $program->save();
+        $lesson = new Lesson();
+        $lesson->program_id = $data['programID'];
+        $lesson->sequence_number = $countOfLessons + 1;
+        $lesson->title = $data['title'];
+        $lesson->content = $data['content'];
+        $lesson->save();
     }
 
     public function update(UpdateLessonRequest $request)
     {
         $data = $request->validated();
-        $program = Lesson::query()->findOrFail($data['id']);
+        $lesson = Lesson::query()->findOrFail($data['id']);
 
-        $program->update([
+        $lesson->update([
             'title' => $data['title'],
             'content' => $data['content'],
         ]);
@@ -72,10 +72,10 @@ class LessonController extends Controller
     public function delete(DeleteLessonRequest $request)
     {
         $data = $request->validated();
-        $program = Lesson::query()->findOrFail($data['id']);
-        $programID = $program->program->id;
+        $lesson = Lesson::query()->findOrFail($data['id']);
+        $programID = $lesson->program->id;
 
-        $program->delete();
+        $lesson->delete();
 
         return redirect()->route('programInProgrammingLanguage', ['programID' => $programID])
             ->with(['result' => "Урок успішно видалено"]);

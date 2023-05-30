@@ -47,6 +47,13 @@
   border-top-right-radius: 10px;
   color: #ffffff;
 }
+.current-lesson__delete-test {
+  margin-top: 20px;
+}
+.current-lesson__alert {
+  margin-bottom: 10px;
+}
+
 .admin-panel__button {
   margin: 0 5px 0 5px;
 }
