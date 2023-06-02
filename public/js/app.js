@@ -21904,43 +21904,6 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.imageInput.value = null;
       this.description = '';
     },
-    uploadImage: function uploadImage(blobInfo, success, failure, progress) {
-      var xhr, formData;
-      var PATH_TO_IMAGES = 'storage/images/programsInProgrammingLanguages/';
-      xhr = new XMLHttpRequest();
-      xhr.withCredentials = false;
-      xhr.open('POST', '/admin/upload_content_image');
-      xhr.upload.onprogress = function (e) {
-        progress(e.loaded / e.total * 100);
-      };
-      xhr.onload = function () {
-        var json;
-        if (xhr.status === 403) {
-          failure('HTTP Error: ' + xhr.status, {
-            remove: true
-          });
-          return;
-        }
-        if (xhr.status < 200 || xhr.status >= 300) {
-          failure('HTTP Error: ' + xhr.status);
-          return;
-        }
-        json = JSON.parse(xhr.responseText);
-        if (!json || typeof json.location != 'string') {
-          failure('Invalid JSON: ' + xhr.responseText);
-          return;
-        }
-        success(json.location);
-      };
-      xhr.onerror = function () {
-        failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
-      };
-      formData = new FormData();
-      formData.append('image', blobInfo.blob(), blobInfo.filename());
-      formData.append('pathToImages', PATH_TO_IMAGES);
-      formData.append('_token', this.csrf);
-      xhr.send(formData);
-    },
     sendData: function sendData() {
       var _this = this;
       this.result.errors = {};
@@ -22150,43 +22113,6 @@ __webpack_require__.r(__webpack_exports__);
       this.name = '';
       this.$refs.imageInput.value = null;
       this.description = '';
-    },
-    uploadImage: function uploadImage(blobInfo, success, failure, progress) {
-      var xhr, formData;
-      var PATH_TO_IMAGES = 'storage/images/programmingLanguages/';
-      xhr = new XMLHttpRequest();
-      xhr.withCredentials = false;
-      xhr.open('POST', '/admin/upload_content_image');
-      xhr.upload.onprogress = function (e) {
-        progress(e.loaded / e.total * 100);
-      };
-      xhr.onload = function () {
-        var json;
-        if (xhr.status === 403) {
-          failure('HTTP Error: ' + xhr.status, {
-            remove: true
-          });
-          return;
-        }
-        if (xhr.status < 200 || xhr.status >= 300) {
-          failure('HTTP Error: ' + xhr.status);
-          return;
-        }
-        json = JSON.parse(xhr.responseText);
-        if (!json || typeof json.location != 'string') {
-          failure('Invalid JSON: ' + xhr.responseText);
-          return;
-        }
-        success(json.location);
-      };
-      xhr.onerror = function () {
-        failure('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
-      };
-      formData = new FormData();
-      formData.append('image', blobInfo.blob(), blobInfo.filename());
-      formData.append('pathToImages', PATH_TO_IMAGES);
-      formData.append('_token', this.csrf);
-      xhr.send(formData);
     },
     sendData: function sendData() {
       var _this = this;
@@ -23546,14 +23472,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "api-key": "5sy00rkq4ju0ge2hwggvivhvpqh0vc78l3fd7vvcxuxj026e",
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      images_upload_handler: this.uploadImage
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat'
     },
     modelValue: $data.description,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.description = $event;
     })
-  }, null, 8 /* PROPS */, ["init", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "hidden",
     name: "_token",
     value: $options.csrf
@@ -23786,14 +23711,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "api-key": "5sy00rkq4ju0ge2hwggvivhvpqh0vc78l3fd7vvcxuxj026e",
     init: {
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount codesample',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat',
-      images_upload_handler: this.uploadImage
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | codesample | removeformat'
     },
     modelValue: $data.description,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.description = $event;
     })
-  }, null, 8 /* PROPS */, ["init", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  }, null, 8 /* PROPS */, ["modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "hidden",
     name: "_token",
     value: $options.csrf
