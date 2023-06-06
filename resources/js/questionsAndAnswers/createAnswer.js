@@ -1,3 +1,5 @@
+import {loadVueComponents} from "./answer";
+
 const createAnswer = document.getElementById('create-answer');
 const text = document.getElementById('text');
 const answersBlock = document.querySelector('.answers');
@@ -16,6 +18,7 @@ createAnswer.addEventListener("click", e => {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             answersBlock.innerHTML = xhr.response;
+            loadVueComponents();
             text.value = '';
         } else if (xhr.readyState === 4) {
             alert('Не вдалося відповісти')

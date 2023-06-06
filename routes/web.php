@@ -30,14 +30,6 @@ Route::middleware('not_blocked_user')->group(function () {
 
     Route::get('/questions', [\App\Http\Controllers\QuestionController::class, 'showPage'])
         ->name('questions');
-    Route::post('/question_create', [\App\Http\Controllers\QuestionController::class, 'create'])
-        ->name('createQuestion');
-    Route::post('/question_update', [\App\Http\Controllers\QuestionController::class, 'update'])
-        ->name('updateQuestion');
-    Route::post('/question_delete', [\App\Http\Controllers\QuestionController::class, 'delete'])
-        ->name('deleteQuestion');
-    Route::post('/only_my_questions', [\App\Http\Controllers\QuestionController::class, 'showOnlyMyQuestions'])
-        ->name('showOnlyMyQuestions');
     Route::post('/search_questions', [\App\Http\Controllers\QuestionController::class, 'search'])
         ->name('searchQuestions');
     Route::post('/load_more_questions', [\App\Http\Controllers\QuestionController::class, 'showMoreQuestions'])
@@ -45,14 +37,6 @@ Route::middleware('not_blocked_user')->group(function () {
 
     Route::get('/answers/{questionID}', [\App\Http\Controllers\AnswerController::class, 'showPage'])
         ->name('answers');
-    Route::post('/answer_create', [\App\Http\Controllers\AnswerController::class, 'create'])
-        ->name('createAnswer');
-    Route::post('/answer_update', [\App\Http\Controllers\AnswerController::class, 'update'])
-        ->name('updateAnswer');
-    Route::post('/answer_delete', [\App\Http\Controllers\AnswerController::class, 'delete'])
-        ->name('deleteAnswer');
-    Route::post('/only_my_answers', [\App\Http\Controllers\AnswerController::class, 'showOnlyMyAnswers'])
-        ->name('showOnlyMyAnswers');
     Route::post('/search_answers', [\App\Http\Controllers\AnswerController::class, 'search'])
         ->name('searchAnswers');
     Route::post('/load_more_answers', [\App\Http\Controllers\AnswerController::class, 'showMoreAnswers'])
@@ -88,10 +72,27 @@ Route::middleware('auth')->group(function () {
 
         Route::post('/calculate_test', [\App\Http\Controllers\TestController::class, 'calculateTest'])
             ->name('calculateTest');
-        Route::post('/create_test', [\App\Http\Controllers\TestController::class, 'createTest'])
-            ->name('createTest');
-        Route::post('/delete_test', [\App\Http\Controllers\TestController::class, 'deleteTest'])
-            ->name('deleteTest');
+
+
+        Route::post('/question_create', [\App\Http\Controllers\QuestionController::class, 'create'])
+            ->name('createQuestion');
+        Route::post('/question_update', [\App\Http\Controllers\QuestionController::class, 'update'])
+            ->name('updateQuestion');
+        Route::post('/question_delete', [\App\Http\Controllers\QuestionController::class, 'delete'])
+            ->name('deleteQuestion');
+        Route::post('/only_my_questions', [\App\Http\Controllers\QuestionController::class, 'showOnlyMyQuestions'])
+            ->name('showOnlyMyQuestions');
+
+        Route::post('/answer_create', [\App\Http\Controllers\AnswerController::class, 'create'])
+            ->name('createAnswer');
+        Route::post('/answer_update', [\App\Http\Controllers\AnswerController::class, 'update'])
+            ->name('updateAnswer');
+        Route::post('/answer_delete', [\App\Http\Controllers\AnswerController::class, 'delete'])
+            ->name('deleteAnswer');
+        Route::post('/only_my_answers', [\App\Http\Controllers\AnswerController::class, 'showOnlyMyAnswers'])
+            ->name('showOnlyMyAnswers');
+        Route::post('/get_answer_by_id', [\App\Http\Controllers\AnswerController::class, 'getAnswerByID'])
+            ->name('getAnswerByID');
 
 
         Route::middleware('admin')->prefix('admin')->group(function () {
@@ -105,6 +106,11 @@ Route::middleware('auth')->group(function () {
             Route::post('/unlock_user', [\App\Http\Controllers\AdminController::class, 'unlockUser'])->name(
                 'unlockUser'
             );
+
+            Route::post('/create_test', [\App\Http\Controllers\TestController::class, 'createTest'])
+                ->name('createTest');
+            Route::post('/delete_test', [\App\Http\Controllers\TestController::class, 'deleteTest'])
+                ->name('deleteTest');
 
             Route::post(
                 '/create_programming_language',

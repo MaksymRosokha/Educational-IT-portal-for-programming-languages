@@ -3,7 +3,7 @@
     <form class="answer-updater__form" @submit.prevent="sendData">
       <textarea name="text"
                 id="text"
-                placeholder="Напишіть відповідья"
+                placeholder="Напишіть відповідь"
                 maxlength="5000"
                 class="answer-updater__input"
                 @keyup="this.autoScroll"
@@ -48,14 +48,25 @@ export default {
       type: String,
       required: true,
     },
-    answer: {
-      type: Object,
+    id: {
+      type: Number,
       required: true,
     }
   },
   methods: {
     setData() {
-      this.answerData = JSON.parse(this.answer);
+      const formData = new FormData();
+      formData.append('id', this.id);
+
+      axios.post('/get_answer_by_id', formData)
+          .then(response => {
+            this.answerData = response.data;
+          })
+          .catch(error => {
+            if (error.response && error.response.data && error.response.data.errors) {
+              alert("Не вдалося відредагувати відповідь");
+            }
+          });
     },
     autoScroll(e) {
       const description = document.getElementById('text');

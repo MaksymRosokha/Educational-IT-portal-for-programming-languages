@@ -17,22 +17,16 @@
         @auth('web')
             <div class="question__additional-abilities additional-abilities">
                 @if($answer->user->id === auth()->user()->id)
-                    <button-with-modal-window class="additional-abilities__button"
-                                              button-text="Редагувати"
-                                              title="Редагування">
-                        <answer-updater link="{{ route('updateAnswer') }}"
-                                        answer="{{ $answer }}">
-                        </answer-updater>
-                    </button-with-modal-window>
+                    <button class="additional-abilities__button update-answer-button" data-answer="{{ $answer->id }}">
+                        Редагувати
+                        <span id="update-modal-window-{{ $answer->id }}"></span>
+                    </button>
                 @endif
                 @if($answer->user->id === auth()->user()->id || auth()->user()->admin === 1)
-                    <button-with-modal-window class="additional-abilities__button"
-                                              button-text="Видалити"
-                                              title="Видалення">
-                        <delete-confirmation link="{{ route('deleteAnswer') }}"
-                                             id="{{ $answer->id }}">
-                        </delete-confirmation>
-                    </button-with-modal-window>
+                    <button class="additional-abilities__button delete-answer-button" data-answer="{{ $answer->id }}">
+                        Видалити
+                        <span id="delete-modal-window-{{ $answer->id }}"></span>
+                    </button>
                 @endif
             </div>
         @endauth

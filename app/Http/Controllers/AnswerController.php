@@ -10,6 +10,7 @@ use App\Http\Requests\questionsAndAnswers\ShowOnlyMyAnswersRequest;
 use App\Http\Requests\questionsAndAnswers\UpdateAnswerRequest;
 use App\Models\Answer;
 use App\Models\Question;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AnswerController extends Controller
@@ -227,5 +228,9 @@ class AnswerController extends Controller
             'answers' => $answers,
             'question' => $countOfAnswers,
         ]);
+    }
+
+    public function getAnswerByID(Request $request) {
+        return Answer::query()->findOrFail($request['id']);
     }
 }

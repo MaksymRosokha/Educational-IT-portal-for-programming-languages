@@ -1,9 +1,9 @@
 <template>
-  <div class="modal-window" @click="this.closeWindow">
+  <div class="modal-window" v-if="this.isVisible" @click="closeSelf">
     <div class="modal-window__wrapper" @click.stop>
       <header class="modal-window__header">
         <h5 class="modal-window__title">{{ this.title }}</h5>
-        <span class="modal-window__close" @click="this.closeWindow"></span>
+        <span class="modal-window__close" @click="closeSelf"></span>
       </header>
       <main class="modal-window__content">
         <slot></slot>
@@ -14,16 +14,17 @@
 
 <script>
 export default {
-  name: "modal-window",
+  name: "ModalWindowWithAutoClose",
 
   data() {
     return {
+      isVisible: true,
     }
   },
   methods: {
-    closeWindow() {
-      this.$emit('closeModalWindow');
-    }
+    closeSelf() {
+      this.isVisible = false;
+    },
   },
   props: {
     title: {

@@ -1,3 +1,8 @@
+import {createApp} from 'vue';
+import UIComponents from "../components/UI/index";
+import questionsAndAnswersComponents from "../components/questionsAndAnswers/index";
+
+
 const answersBlock = document.querySelector('.answers');
 let questionID = document.querySelector('.question__title').getAttribute('data-question-id');
 
@@ -9,6 +14,70 @@ let isLoaded = true;
 
 let csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
+loadVueComponents();
+
+export function loadVueComponents() {
+    let updateButtons = document.querySelectorAll('.update-answer-button');
+    let deleteButtons = document.querySelectorAll('.delete-answer-button');
+
+
+    updateButtons.forEach((element) => {
+        element.addEventListener('click', () => {
+            let answerID = parseInt(element.getAttribute('data-answer'));
+            let modalWindow = document.getElementById('update-modal-window-' + answerID);
+
+            if (modalWindow.__vue_app__) {
+                modalWindow.__vue_app__.unmount();
+            }
+
+            modalWindow.innerHTML = "<modal-window-with-auto-close " +
+                "                  title=\"Редагування відповіді\" >" +
+                "<answer-updater link=\"/answer_update\" " +
+                "                id=\"" + answerID + "\"> " +
+                "</answer-updater>" +
+                "    </modal-window-with-auto-close>";
+
+            const newApp = createApp({});
+            UIComponents.forEach(component => {
+                newApp.component(component.name, component);
+            });
+            questionsAndAnswersComponents.forEach(component => {
+                newApp.component(component.name, component);
+            });
+
+            newApp.mount(modalWindow);
+        });
+    });
+
+    deleteButtons.forEach((element) => {
+        element.addEventListener('click', () => {
+            let answerID = parseInt(element.getAttribute('data-answer'));
+            let modalWindow = document.getElementById('delete-modal-window-' + answerID);
+
+            if (modalWindow.__vue_app__) {
+                modalWindow.__vue_app__.unmount();
+            }
+
+            modalWindow.innerHTML = "<modal-window-with-auto-close " +
+                "                  title=\"Видалення відповіді\" >" +
+                "<delete-confirmation link=\"/answer_delete\" " +
+                "                id=\"" + answerID + "\"> " +
+                "</delete-confirmation>" +
+                "    </modal-window-with-auto-close>";
+
+            const newApp = createApp({});
+            UIComponents.forEach(component => {
+                newApp.component(component.name, component);
+            });
+            questionsAndAnswersComponents.forEach(component => {
+                newApp.component(component.name, component);
+            });
+
+            newApp.mount(modalWindow);
+        });
+    });
+
+}
 
 isOnlyMyAnswers.addEventListener('change', function () {
     let xhr = new XMLHttpRequest();
@@ -19,6 +88,7 @@ isOnlyMyAnswers.addEventListener('change', function () {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             answersBlock.innerHTML = xhr.response;
+            loadVueComponents();
         } else if (xhr.readyState === 4) {
             alert('Не вдалося вибрати тільки ваші відовіді. Можливо ви не авторизовані?')
         }
@@ -40,6 +110,7 @@ search.addEventListener("input", (event) => {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             answersBlock.innerHTML = xhr.response;
+            loadVueComponents();
         } else if (xhr.readyState === 4) {
             alert('Не вдалося виконати пошук')
         }
@@ -82,6 +153,7 @@ function loadMoreAnswers() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             answersBlock.innerHTML = xhr.response;
+            loadVueComponents();
             isLoaded = true;
         } else if (xhr.readyState === 4) {
             alert('Не вдалося завантажити більше відповідей')

@@ -114,6 +114,31 @@
 .additional-abilities__button {
   margin-left: 10px;
   margin-top: 10px;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  transition: background-color 0.5s, color 1s, border 1s;
+  background-color: #6e01d3;
+  color: white;
+  box-shadow: 0 0 5px 1px #5e5eff;
+  border: none;
+  font-weight: 600;
+}
+.additional-abilities__button:hover {
+  color: #000464;
+  background-color: #da7bff;
+  box-shadow: 0 0 10px 1px #3c3cfa;
+}
+@media (min-width: 1800px) {
+  .additional-abilities__button {
+    width: 300px;
+    height: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .additional-abilities__button {
+    font-size: 1.2em;
+  }
 }
 
 .search {
@@ -154,4 +179,10 @@
 .search__label {
   font-size: 1.2em;
   font-weight: 600;
+}
+
+.delete-answer-button:hover {
+  color: #ffffff;
+  background-color: #ff0000;
+  box-shadow: 0 0 10px 1px #fa3c3c;
 }
