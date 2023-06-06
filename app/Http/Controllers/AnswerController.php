@@ -121,6 +121,9 @@ class AnswerController extends Controller
     {
         $data = $request->validated();
         $answer = Answer::query()->findOrFail($data['id']);
+        if($answer->user_id != Auth::user()->id) {
+            abort(403);
+        }
 
         $answer->update(['text' => $data['text'],]);
     }
@@ -129,10 +132,11 @@ class AnswerController extends Controller
     {
         $data = $request->validated();
         $answer = Answer::query()->findOrFail($data['id']);
-
-        $answer->delete();
-
-        return redirect()->back();
+        if($answer->user_id == Auth::user()->id || Auth::user()->admin === 1) {
+            $answer->delete();
+            return redirect()->back();
+        }
+        abort(403);
     }
 
     public function showOnlyMyAnswers(ShowOnlyMyAnswersRequest $request)
