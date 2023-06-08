@@ -59,8 +59,16 @@
 
   }
 
+  &__test-abilities {
+    display: flex;
+  }
+
+  &__update-test {
+    margin: 20px 10px 0 10px;
+  }
+
   &__delete-test {
-    margin-top: 20px;
+    margin: 20px 10px 0 10px;
   }
 
   &__alert {

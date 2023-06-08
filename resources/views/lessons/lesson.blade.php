@@ -68,14 +68,23 @@
                 <button type="submit" class="testing__submit">Відправити</button>
             </form>
             @if(isset($isAdmin) && $isAdmin)
-                <button-with-modal-window button-text="Видалити тестування"
-                                          title="Видалення тестування"
-                                          class="current-lesson__delete-test">
-                    <delete-confirmation
-                            link="{{ route('deleteTest') }}"
-                            id="{{ $lesson->test->id }}">
-                    </delete-confirmation>
-                </button-with-modal-window>
+                <div class="current-lesson__test-abilities">
+                    <button-with-modal-window button-text="Редагувати тестування"
+                                              title="Редагування тестування"
+                                              class="current-lesson__update-test">
+                        <test-updater link="{{ route('updateTest') }}"
+                                      test="{{ $lesson->test }}">
+
+                        </test-updater>
+                    </button-with-modal-window>
+                    <button-with-modal-window button-text="Видалити тестування"
+                                              title="Видалення тестування"
+                                              class="current-lesson__delete-test">
+                        <delete-confirmation link="{{ route('deleteTest') }}"
+                                             id="{{ $lesson->test->id }}">
+                        </delete-confirmation>
+                    </button-with-modal-window>
+                </div>
             @endif
         @else
             @if(isset($isAdmin) && $isAdmin)

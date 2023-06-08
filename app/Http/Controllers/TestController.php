@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\CreateTestRequest;
 use App\Http\Requests\admin\DeleteTestRequest;
+use App\Http\Requests\admin\UpdateTestRequest;
 use App\Models\AnswerOptionForTest;
 use App\Models\Lesson;
 use App\Models\QuestionForTest;
@@ -130,6 +131,71 @@ class TestController extends Controller
 
         $lesson->test_id = $test->id;
         $lesson->save();
+
+        foreach ($userQuestions as $userQuestionIndex => $userQuestion) {
+            $questions[$userQuestionIndex] = QuestionForTest::create([
+                'test_id' => $test->id,
+                'text' => $userQuestion,
+            ]);
+        }
+
+        foreach ($userAnswersByQuestion as $userQuestionIndex => $userAnswers) {
+            foreach ($questions as $questionIndex => $question) {
+                if ($userQuestionIndex == $questionIndex) {
+                    foreach ($userAnswers as $userAnswerIndex => $userAnswer) {
+                        foreach ($userCheckedAnswers as $userCheckedAnswerQuestionIndex => $userCheckedAnswer) {
+                            if ($userCheckedAnswerQuestionIndex == $questionIndex) {
+                                if ($userCheckedAnswer == $userAnswerIndex) {
+                                    $isCorrectAnswer = true;
+                                    break;
+                                } else {
+                                    $isCorrectAnswer = false;
+                                    break;
+                                }
+                            }
+                        }
+                        AnswerOptionForTest::create([
+                            'question_for_test_id' => $question->id,
+                            'text' => $userAnswer,
+                            'is_correct' => $isCorrectAnswer,
+                        ]);
+                    }
+                }
+            }
+        }
+
+        return redirect()->back();
+    }
+
+    public function updateTest(UpdateTestRequest $request) {
+        $data = $request->all();
+        $test = Test::query()->findOrFail($data['test_id']);
+
+        $questions = [];
+        $isCorrectAnswer = false;
+
+        $userQuestions = [];
+        $userAnswersByQuestion = [];
+        $userCheckedAnswers = [];
+
+        foreach ($test->questions as $question) {
+            $question->delete();
+        }
+
+        foreach ($data as $index => $item) {
+            if (str_contains($index, "question_text-")) {
+                $userQuestions[] = $item;
+            }
+            if (str_contains($index, "answer-")) {
+                $indexesTemp = explode("answer-", $index);
+                [$questionID, $answerID] = explode('-', $indexesTemp[1]);
+                $userAnswersByQuestion[$questionID][$answerID] = $item;
+            }
+            if (str_contains($index, "answer_checked-")) {
+                $indexesTemp = explode("answer_checked-", $index);
+                $userCheckedAnswers[$indexesTemp[1]] = $item;
+            }
+        }
 
         foreach ($userQuestions as $userQuestionIndex => $userQuestion) {
             $questions[$userQuestionIndex] = QuestionForTest::create([

@@ -109,6 +109,8 @@ Route::middleware('auth')->group(function () {
 
             Route::post('/create_test', [\App\Http\Controllers\TestController::class, 'createTest'])
                 ->name('createTest');
+            Route::post('/update_test', [\App\Http\Controllers\TestController::class, 'updateTest'])
+                ->name('updateTest');
             Route::post('/delete_test', [\App\Http\Controllers\TestController::class, 'deleteTest'])
                 ->name('deleteTest');
 

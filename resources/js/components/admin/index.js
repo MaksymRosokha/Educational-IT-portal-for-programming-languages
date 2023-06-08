@@ -10,6 +10,7 @@ import LessonCreator from "./LessonCreator.vue";
 import LessonUpdater from "./LessonUpdater.vue";
 
 import TestCreator from "./TestCreator.vue";
+import TestUpdater from "./TestUpdater.vue";
 
 import UserBlocker from "./UserBlocker.vue";
 import UserUnlocker from "./UserUnlocker.vue";
@@ -23,6 +24,7 @@ export default [
     LessonCreator,
     LessonUpdater,
     TestCreator,
+    TestUpdater,
     UserBlocker,
     UserUnlocker,
 ]
