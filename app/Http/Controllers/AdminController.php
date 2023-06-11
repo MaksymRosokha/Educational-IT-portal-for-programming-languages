@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\admin\BlockUserRequest;
+use App\Http\Requests\admin\loadMoreUsersRequest;
 use App\Http\Requests\admin\UnlockUserRequest;
 use App\Http\Requests\admin\SearchUsersRequest;
 use App\Models\User;
@@ -18,11 +19,20 @@ class AdminController extends Controller
      */
     public function showAdminPanel()
     {
-        return view('users.admin', ['users' => User::all()]);
+        $limit = 20;
+
+        return view('users.admin', [
+            'users' => User::query()->limit($limit)->get(),
+            'countOfUsers' => User::query()->count(),
+        ]);
     }
 
     public function search(SearchUsersRequest $request)
     {
+        $users = [];
+        $countOfUsers = 0;
+        $limit = 20;
+
         if (isset($request['searchText'])) {
             $search = $request['searchText'];
 
@@ -30,14 +40,49 @@ class AdminController extends Controller
                 ->orWhere('email', 'LIKE', '%' . $search . '%')
                 ->orWhere('login', 'LIKE', '%' . $search . '%')
                 ->orWhere('name', 'LIKE', '%' . $search . '%')
+                ->limit($limit)
                 ->get();
 
-            return view('users.admin', [
-                'users' => $users,
-                'searchText' => $search,
-            ]);
+            $countOfUsers = User::query()->where('id', 'LIKE', '%' . $search . '%')
+                ->orWhere('email', 'LIKE', '%' . $search . '%')
+                ->orWhere('login', 'LIKE', '%' . $search . '%')
+                ->orWhere('name', 'LIKE', '%' . $search . '%')
+                ->count();
+        } else {
+            $users = User::query()->limit($limit)->get();
+            $countOfUsers = User::query()->count();
         }
-        return $this->showAdminPanel();
+
+        return view('users.generateUsers', [
+            'users' => $users,
+            'countOfUsers' => $countOfUsers,
+        ]);
+    }
+
+    public function loadMoreUsers(loadMoreUsersRequest $request) {
+        $data = $request->validated();
+        $limit = $data['limit'];
+        $search = $data['searchText'];
+        $users = [];
+        $countOfUsers = 0;
+
+        $users = User::query()->where('id', 'LIKE', '%' . $search . '%')
+            ->orWhere('email', 'LIKE', '%' . $search . '%')
+            ->orWhere('login', 'LIKE', '%' . $search . '%')
+            ->orWhere('name', 'LIKE', '%' . $search . '%')
+            ->limit($limit)
+            ->get();
+        $countOfUsers = User::query()->where('id', 'LIKE', '%' . $search . '%')
+            ->orWhere('email', 'LIKE', '%' . $search . '%')
+            ->orWhere('login', 'LIKE', '%' . $search . '%')
+            ->orWhere('name', 'LIKE', '%' . $search . '%')
+            ->count();
+
+
+        return view('users.generateUsers', [
+            'users' => $users,
+            'countOfUsers' => $countOfUsers,
+        ]);
     }
 
     public function changeRole(Request $request)
@@ -49,7 +94,7 @@ class AdminController extends Controller
         if (!isset($data['id']) || !intval($data['id'])) {
             abort(404);
         }
-        if (!Auth::check() || Auth::user()->admin !== 1){
+        if (!Auth::check() || Auth::user()->admin !== 1) {
             abort(403);
         }
         $id = $data['id'];

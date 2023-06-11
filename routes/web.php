@@ -98,6 +98,7 @@ Route::middleware('auth')->group(function () {
         Route::middleware('admin')->prefix('admin')->group(function () {
             Route::get('/', [\App\Http\Controllers\AdminController::class, 'showAdminPanel'])->name('admin');
             Route::post('/search', [\App\Http\Controllers\AdminController::class, 'search'])->name('search');
+            Route::post('/load_more_users', [\App\Http\Controllers\AdminController::class, 'loadMoreUsers'])->name('loadMoreUsers');
 
             Route::post('/change_role', [\App\Http\Controllers\AdminController::class, 'changeRole'])->name(
                 'changeRole'
