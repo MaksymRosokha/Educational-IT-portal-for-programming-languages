@@ -3,13 +3,13 @@
 
   &__title {
     text-align: center;
-    color: #3b3148;
-    text-shadow: 1px 1px #606060;
-    font-size: 2.5em;
+    color: #7300ff;
+    text-shadow: 2px 1px #080056;
+    font-size: 3em;
   }
 
   &__about-project {
-
+    margin-top: 1vw;
   }
 
   &__programming-languages {
@@ -17,7 +17,7 @@
   }
 
   &__statistics {
-    margin: 2vw;
+    margin: 1vw;
   }
 
   &__alert {
@@ -26,7 +26,7 @@
 }
 
 .about-project {
-  padding: 2vw 2vw 0 2vw;
+  padding: 0 2vw;
 
 
   &__title {
@@ -36,10 +36,37 @@
     font-size: 2.2em;
   }
 
+  &__content {
+  }
+
+  &__image {
+    width: 20%;
+    height: fit-content;
+    float: left;
+    margin: 0 10px 5px 0;
+
+    @media (min-width: 1800px) {
+      width: 30%;
+    }
+
+    @media (max-width: 1024px) {
+      width: 30%;
+    }
+
+    @media (max-width: 600px) {
+      width: 40%;
+    }
+
+    @media (max-width: 400px) {
+      width: 50%;
+    }
+  }
+
   &__paragraph {
     text-align: justify;
     font-weight: 600;
     color: #00006c;
+    font-size: 1.1em;
   }
 }
 
@@ -57,8 +84,6 @@
     font-size: 14px;
   }
 
-  // .programming-languages__title
-
   &__title {
     text-align: center;
     color: #3b3148;
@@ -66,7 +91,6 @@
     font-size: 2.2em;
   }
 
-  // .programming-languages__list
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -82,8 +106,6 @@
 }
 
 .programming-language {
-
-  // .programming-language__container
 
   &__content {
     background-color: #7ca8e8;
@@ -133,14 +155,10 @@
     padding: 1vw;
   }
 
-  // .programming-language__logo
-
   &__logo {
     width: 40%;
     height: auto;
   }
-
-  // .programming-language__name
 
   &__name {
     flex-wrap: wrap;
@@ -188,6 +206,22 @@
     border: solid 1px #5e3200;
     box-shadow: 0 0 5px 3px #5e3200;
     margin: 1vw;
+    padding: 5px;
+
+    @media (min-width: 1800px) {
+      width: 280px;
+      height: 320px;
+    }
+
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 200px;
+    }
+
+    @media (max-width: 375px) {
+      width: 140px;
+      height: 200px;
+    }
   }
 
   &__item-name {
