@@ -29,7 +29,7 @@
                href="{{ route('programInProgrammingLanguage', ['programID' => $program->id]) }}">Програма</a>
             <h3 class="list-of-lessons__title">Уроки:</h3>
             <ol class="list-of-lessons__lessons">
-                @foreach($lessons as $lesson)
+                @foreach($lessons as $lessonID => $lesson)
                     <li class="list-of-lessons__lesson lesson
                 @if(isset($currentLesson) && !empty($currentLesson))
                     @if($lesson->id === $currentLesson->id)
@@ -40,7 +40,7 @@
                            href="{{ route('lesson', ['lessonID' => $lesson->id]) }}"
                            title="{{ $lesson->title }}">
                             <div class="lesson__content">
-                                {{ $lesson->sequence_number }}.{{ $lesson->title }}
+                                {{ $lessonID+1 }}.{{ $lesson->title }}
                             </div>
                         </a>
                     </li>

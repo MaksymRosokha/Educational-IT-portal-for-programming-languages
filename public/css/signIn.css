@@ -40,9 +40,10 @@ input:-webkit-autofill:focus {
 .sign-in__additional-links {
   width: 100%;
 }
-.sign-in__forgot-password {
-  margin-bottom: 0.3vw;
+.sign-in__sign-up {
+  font-size: 1.1em;
 }
+
 .sign-in-form {
   padding: 1vw;
   width: 100%;

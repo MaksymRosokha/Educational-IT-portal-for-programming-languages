@@ -51,12 +51,6 @@
                 <form-button class="sign-in-form__do-sign-in" type="submit">Увійти</form-button>
             </form>
             <table class="sign-in__additional-links">
-                <tr class="additional-link sign-in__forgot-password">
-                    <th class="additional-link__label">Забули пароль?</th>
-                    <td class="additional-link__link">
-                        <a class="additional-link__link" href="#">Відновити</a>
-                    </td>
-                </tr>
                 <tr class="additional-link sign-in__sign-up">
                     <th class="additional-link__label">Не маєте акаунту?</th>
                     <td class="additional-link__link">
